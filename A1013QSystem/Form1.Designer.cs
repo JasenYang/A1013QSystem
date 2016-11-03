@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("继存器测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnOscill = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,10 +43,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnElect = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.ipAddressControl1 = new IPAddressControlLib.IPAddressControl();
+            this.port0 = new System.Windows.Forms.NumericUpDown();
+            this.ipAddressControl = new IPAddressControlLib.IPAddressControl();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -116,13 +116,18 @@
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.skinLabel9 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel10 = new CCWin.SkinControl.SkinLabel();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.multiNum = new System.Windows.Forms.NumericUpDown();
+            this.btnMulti = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port0)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -133,6 +138,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedChip2)).BeginInit();
             this.tablePanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.multiNum)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -161,7 +169,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btnOscill);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
@@ -174,14 +182,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "示波器配置";
             // 
-            // button2
+            // btnOscill
             // 
-            this.button2.Location = new System.Drawing.Point(142, 172);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 31);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "打开";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnOscill.Location = new System.Drawing.Point(142, 172);
+            this.btnOscill.Name = "btnOscill";
+            this.btnOscill.Size = new System.Drawing.Size(75, 31);
+            this.btnOscill.TabIndex = 11;
+            this.btnOscill.Text = "打开";
+            this.btnOscill.UseVisualStyleBackColor = true;
+            this.btnOscill.Click += new System.EventHandler(this.btnOscill_Click);
             // 
             // label6
             // 
@@ -230,6 +239,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnMulti);
+            this.groupBox2.Controls.Add(this.multiNum);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(688, 314);
             this.groupBox2.Name = "groupBox2";
@@ -241,7 +252,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 50);
+            this.label7.Location = new System.Drawing.Point(48, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 20);
             this.label7.TabIndex = 12;
@@ -249,10 +260,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnElect);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.ipAddressControl1);
+            this.groupBox1.Controls.Add(this.port0);
+            this.groupBox1.Controls.Add(this.ipAddressControl);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(24, 23);
@@ -262,14 +273,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "电源配置";
             // 
-            // button1
+            // btnElect
             // 
-            this.button1.Location = new System.Drawing.Point(142, 170);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 31);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "打开";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnElect.Location = new System.Drawing.Point(142, 170);
+            this.btnElect.Name = "btnElect";
+            this.btnElect.Size = new System.Drawing.Size(75, 31);
+            this.btnElect.TabIndex = 5;
+            this.btnElect.Text = "打开";
+            this.btnElect.UseVisualStyleBackColor = true;
+            this.btnElect.Click += new System.EventHandler(this.btnElect_Click);
             // 
             // label3
             // 
@@ -280,23 +292,23 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "连接";
             // 
-            // numericUpDown1
+            // port0
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(142, 110);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(207, 30);
-            this.numericUpDown1.TabIndex = 3;
+            this.port0.Location = new System.Drawing.Point(142, 110);
+            this.port0.Name = "port0";
+            this.port0.Size = new System.Drawing.Size(207, 30);
+            this.port0.TabIndex = 3;
             // 
-            // ipAddressControl1
+            // ipAddressControl
             // 
-            this.ipAddressControl1.BackColor = System.Drawing.SystemColors.Window;
-            this.ipAddressControl1.Location = new System.Drawing.Point(142, 52);
-            this.ipAddressControl1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ipAddressControl1.MinimumSize = new System.Drawing.Size(207, 30);
-            this.ipAddressControl1.Name = "ipAddressControl1";
-            this.ipAddressControl1.ReadOnly = false;
-            this.ipAddressControl1.Size = new System.Drawing.Size(207, 30);
-            this.ipAddressControl1.TabIndex = 2;
+            this.ipAddressControl.BackColor = System.Drawing.SystemColors.Window;
+            this.ipAddressControl.Location = new System.Drawing.Point(142, 52);
+            this.ipAddressControl.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ipAddressControl.MinimumSize = new System.Drawing.Size(207, 30);
+            this.ipAddressControl.Name = "ipAddressControl";
+            this.ipAddressControl.ReadOnly = false;
+            this.ipAddressControl.Size = new System.Drawing.Size(207, 30);
+            this.ipAddressControl.TabIndex = 2;
             // 
             // label2
             // 
@@ -318,8 +330,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Controls.Add(this.treeView1);
-            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
@@ -353,7 +365,7 @@
             treeNode1.Name = "节点0";
             treeNode1.Text = "基本功能测试";
             treeNode2.Name = "节点1";
-            treeNode2.Text = "继存器测试";
+            treeNode2.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
@@ -366,7 +378,7 @@
             this.groupBox4.Controls.Add(this.skinLabel7);
             this.groupBox4.Controls.Add(this.skinLabel6);
             this.groupBox4.Controls.Add(this.skinLabel5);
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1020, 63);
             this.groupBox4.TabIndex = 1;
@@ -706,7 +718,7 @@
             this.tablePanel.Controls.Add(this.label9, 1, 0);
             this.tablePanel.Controls.Add(this.label8, 0, 0);
             this.tablePanel.Controls.Add(this.label15, 2, 1);
-            this.tablePanel.Location = new System.Drawing.Point(292, 72);
+            this.tablePanel.Location = new System.Drawing.Point(278, 72);
             this.tablePanel.Name = "tablePanel";
             this.tablePanel.RowCount = 8;
             this.tablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -1086,9 +1098,9 @@
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.skinTabControl1);
             this.panel1.Controls.Add(this.tablePanel);
-            this.panel1.Location = new System.Drawing.Point(220, 7);
+            this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1029, 574);
+            this.panel1.Size = new System.Drawing.Size(1023, 543);
             this.panel1.TabIndex = 5;
             // 
             // dateStatusLabel
@@ -1122,6 +1134,54 @@
             this.skinLabel10.TabIndex = 8;
             this.skinLabel10.Text = "芯片2设置";
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(221, 7);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1039, 590);
+            this.tabControl2.TabIndex = 6;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 31);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1031, 555);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "基本功能测试";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 31);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1031, 555);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "寄存器测试";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // multiNum
+            // 
+            this.multiNum.Location = new System.Drawing.Point(158, 78);
+            this.multiNum.Name = "multiNum";
+            this.multiNum.Size = new System.Drawing.Size(207, 30);
+            this.multiNum.TabIndex = 12;
+            // 
+            // btnMulti
+            // 
+            this.btnMulti.Location = new System.Drawing.Point(158, 141);
+            this.btnMulti.Name = "btnMulti";
+            this.btnMulti.Size = new System.Drawing.Size(75, 31);
+            this.btnMulti.TabIndex = 13;
+            this.btnMulti.Text = "打开";
+            this.btnMulti.UseVisualStyleBackColor = true;
+            this.btnMulti.Click += new System.EventHandler(this.btnMulti_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1141,7 +1201,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port0)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -1156,6 +1216,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedChip2)).EndInit();
             this.tablePanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.multiNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1169,7 +1232,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnOscill;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -1177,10 +1240,10 @@
         private IPAddressControlLib.IPAddressControl ipAddressControl2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnElect;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private IPAddressControlLib.IPAddressControl ipAddressControl1;
+        private System.Windows.Forms.NumericUpDown port0;
+        private IPAddressControlLib.IPAddressControl ipAddressControl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
@@ -1248,6 +1311,11 @@
         private System.Windows.Forms.ToolStripStatusLabel dateStatusLabel;
         private CCWin.SkinControl.SkinLabel skinLabel9;
         private CCWin.SkinControl.SkinLabel skinLabel10;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button btnMulti;
+        private System.Windows.Forms.NumericUpDown multiNum;
     }
 }
 
