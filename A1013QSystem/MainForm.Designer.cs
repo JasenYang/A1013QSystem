@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("寄存器测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -1187,13 +1187,13 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "基本功能测试";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "寄存器测试";
+            treeNode9.Name = "节点0";
+            treeNode9.Text = "基本功能测试";
+            treeNode10.Name = "节点1";
+            treeNode10.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode9,
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1342,7 +1342,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(54, 82);
+            this.label48.Location = new System.Drawing.Point(50, 48);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(222, 21);
             this.label48.TabIndex = 0;
@@ -1350,14 +1350,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(282, 79);
+            this.textBox1.Location = new System.Drawing.Point(278, 45);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(106, 31);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(282, 163);
+            this.textBox2.Location = new System.Drawing.Point(278, 129);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(106, 31);
             this.textBox2.TabIndex = 3;
@@ -1365,7 +1365,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(54, 166);
+            this.label49.Location = new System.Drawing.Point(50, 132);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(222, 21);
             this.label49.TabIndex = 2;
@@ -1373,7 +1373,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(282, 247);
+            this.textBox3.Location = new System.Drawing.Point(278, 213);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(106, 31);
             this.textBox3.TabIndex = 5;
@@ -1381,15 +1381,15 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(54, 250);
+            this.label50.Location = new System.Drawing.Point(50, 216);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(222, 21);
             this.label50.TabIndex = 4;
-            this.label50.Text = "RBR 接收缓存寄存器：";
+            this.label50.Text = "IER 中断使能寄存器：";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(282, 331);
+            this.textBox4.Location = new System.Drawing.Point(278, 297);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(106, 31);
             this.textBox4.TabIndex = 7;
@@ -1397,15 +1397,15 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(54, 334);
+            this.label51.Location = new System.Drawing.Point(50, 300);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(222, 21);
             this.label51.TabIndex = 6;
-            this.label51.Text = "RBR 接收缓存寄存器：";
+            this.label51.Text = "IIR 中断识别寄存器：";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(282, 415);
+            this.textBox5.Location = new System.Drawing.Point(278, 381);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(106, 31);
             this.textBox5.TabIndex = 9;
@@ -1413,15 +1413,15 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(54, 418);
+            this.label52.Location = new System.Drawing.Point(50, 384);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(222, 21);
+            this.label52.Size = new System.Drawing.Size(235, 21);
             this.label52.TabIndex = 8;
-            this.label52.Text = "RBR 接收缓存寄存器：";
+            this.label52.Text = "FCR FIFO 控制寄存器：";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(678, 88);
+            this.textBox6.Location = new System.Drawing.Point(662, 38);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(106, 31);
             this.textBox6.TabIndex = 11;
@@ -1429,15 +1429,15 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(450, 91);
+            this.label53.Location = new System.Drawing.Point(434, 41);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(222, 21);
+            this.label53.Size = new System.Drawing.Size(180, 21);
             this.label53.TabIndex = 10;
-            this.label53.Text = "RBR 接收缓存寄存器：";
+            this.label53.Text = "LCR 线控寄存器：";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(678, 156);
+            this.textBox7.Location = new System.Drawing.Point(662, 106);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(106, 31);
             this.textBox7.TabIndex = 13;
@@ -1445,15 +1445,15 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(450, 159);
+            this.label54.Location = new System.Drawing.Point(434, 109);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(222, 21);
+            this.label54.Size = new System.Drawing.Size(201, 21);
             this.label54.TabIndex = 12;
-            this.label54.Text = "RBR 接收缓存寄存器：";
+            this.label54.Text = "LSR 线状态寄存器：";
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(678, 224);
+            this.textBox8.Location = new System.Drawing.Point(662, 174);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(106, 31);
             this.textBox8.TabIndex = 15;
@@ -1461,11 +1461,11 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(450, 227);
+            this.label55.Location = new System.Drawing.Point(434, 177);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(222, 21);
+            this.label55.Size = new System.Drawing.Size(180, 21);
             this.label55.TabIndex = 14;
-            this.label55.Text = "RBR 接收缓存寄存器：";
+            this.label55.Text = "SCR 备用寄存器：";
             // 
             // textBox9
             // 
@@ -1477,15 +1477,15 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(450, 295);
+            this.label56.Location = new System.Drawing.Point(440, 238);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(222, 21);
+            this.label56.Size = new System.Drawing.Size(277, 21);
             this.label56.TabIndex = 16;
-            this.label56.Text = "RBR 接收缓存寄存器：";
+            this.label56.Text = "DLL 分频器波特率低 8bit：";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(678, 360);
+            this.textBox10.Location = new System.Drawing.Point(662, 374);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(106, 31);
             this.textBox10.TabIndex = 19;
@@ -1493,15 +1493,15 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(450, 363);
+            this.label57.Location = new System.Drawing.Point(421, 336);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(222, 21);
+            this.label57.Size = new System.Drawing.Size(277, 21);
             this.label57.TabIndex = 18;
-            this.label57.Text = "RBR 接收缓存寄存器：";
+            this.label57.Text = "DLM 分频器波特率高 8bit：";
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(678, 428);
+            this.textBox11.Location = new System.Drawing.Point(444, 477);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(106, 31);
             this.textBox11.TabIndex = 21;
@@ -1509,11 +1509,11 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(450, 431);
+            this.label58.Location = new System.Drawing.Point(54, 487);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(222, 21);
+            this.label58.Size = new System.Drawing.Size(374, 21);
             this.label58.TabIndex = 20;
-            this.label58.Text = "RBR 接收缓存寄存器：";
+            this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使：";
             // 
             // MainForm
             // 
