@@ -35,6 +35,9 @@
     <Reference Include="CSkin">
       <HintPath>..\..\..\学习资料\Demos\CSkin 16.1.14.2\CSkin 4.0\CSkin.dll</HintPath>
     </Reference>
+    <Reference Include="DMSkin">
+      <HintPath>C:\Users\Jason\Desktop\DMSkin-B316\DMSkin.dll</HintPath>
+    </Reference>
     <Reference Include="IPAddressControlLib">
       <HintPath>..\..\WinForm_001_Learn\WinForm_001_Learn\bin\Debug\IPAddressControlLib.dll</HintPath>
     </Reference>

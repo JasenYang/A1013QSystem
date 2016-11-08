@@ -128,5 +128,25 @@ namespace A1013QSystem
             }
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabControl2.TabPages.Clear();
+            tabControl2.TabPages.Add(tabPage3);
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var SelectNode = (sender as TreeView).SelectedNode;
+            if (SelectNode.Text == "基本功能测试")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage3);
+            }
+            else if (SelectNode.Text == "寄存器测试")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage4);
+            }
+        }
     }
 }
