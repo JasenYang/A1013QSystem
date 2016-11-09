@@ -30,8 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -118,38 +122,39 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.bunTuple4 = new CCWin.SkinControl.SkinButton();
+            this.bunTuple3 = new CCWin.SkinControl.SkinButton();
+            this.bunTuple2 = new CCWin.SkinControl.SkinButton();
+            this.bunTuple1 = new CCWin.SkinControl.SkinButton();
+            this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
-            this.skinButton1 = new CCWin.SkinControl.SkinButton();
-            this.skinButton2 = new CCWin.SkinControl.SkinButton();
-            this.skinButton3 = new CCWin.SkinControl.SkinButton();
-            this.skinButton4 = new CCWin.SkinControl.SkinButton();
-            this.label48 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label54 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
+            this.dataView = new CCWin.SkinControl.SkinDataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -170,8 +175,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedChip2)).BeginInit();
             this.tablePanel.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.skinGroupBox1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -408,7 +415,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 31);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1031, 555);
+            this.tabPage3.Size = new System.Drawing.Size(1044, 555);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "基本功能测试";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -502,6 +509,7 @@
             this.skinTabControl1.PageCloseHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseHover")));
             this.skinTabControl1.PageCloseNormal = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageCloseNormal")));
             this.skinTabControl1.PageDown = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageDown")));
+            this.skinTabControl1.PageDownTxtColor = System.Drawing.Color.DeepSkyBlue;
             this.skinTabControl1.PageHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageHover")));
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Left;
             this.skinTabControl1.PageNorml = null;
@@ -1170,10 +1178,10 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.skinButton4);
-            this.tabPage4.Controls.Add(this.skinButton3);
-            this.tabPage4.Controls.Add(this.skinButton2);
-            this.tabPage4.Controls.Add(this.skinButton1);
+            this.tabPage4.Controls.Add(this.bunTuple4);
+            this.tabPage4.Controls.Add(this.bunTuple3);
+            this.tabPage4.Controls.Add(this.bunTuple2);
+            this.tabPage4.Controls.Add(this.bunTuple1);
             this.tabPage4.Controls.Add(this.skinGroupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 31);
             this.tabPage4.Name = "tabPage4";
@@ -1183,23 +1191,316 @@
             this.tabPage4.Text = "寄存器测试";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // bunTuple4
+            // 
+            this.bunTuple4.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunTuple4.BorderColor = System.Drawing.Color.Black;
+            this.bunTuple4.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.bunTuple4.DownBack = null;
+            this.bunTuple4.DownBaseColor = System.Drawing.Color.Gray;
+            this.bunTuple4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bunTuple4.Location = new System.Drawing.Point(11, 191);
+            this.bunTuple4.MouseBack = null;
+            this.bunTuple4.Name = "bunTuple4";
+            this.bunTuple4.NormlBack = null;
+            this.bunTuple4.Size = new System.Drawing.Size(116, 34);
+            this.bunTuple4.TabIndex = 4;
+            this.bunTuple4.Text = "通道4";
+            this.bunTuple4.UseVisualStyleBackColor = false;
+            this.bunTuple4.Click += new System.EventHandler(this.bunTuple4_Click);
+            // 
+            // bunTuple3
+            // 
+            this.bunTuple3.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunTuple3.BorderColor = System.Drawing.Color.Black;
+            this.bunTuple3.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.bunTuple3.DownBack = null;
+            this.bunTuple3.DownBaseColor = System.Drawing.Color.Gray;
+            this.bunTuple3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bunTuple3.Location = new System.Drawing.Point(11, 133);
+            this.bunTuple3.MouseBack = null;
+            this.bunTuple3.Name = "bunTuple3";
+            this.bunTuple3.NormlBack = null;
+            this.bunTuple3.Size = new System.Drawing.Size(116, 34);
+            this.bunTuple3.TabIndex = 3;
+            this.bunTuple3.Text = "通道3";
+            this.bunTuple3.UseVisualStyleBackColor = false;
+            this.bunTuple3.Click += new System.EventHandler(this.bunTuple3_Click);
+            // 
+            // bunTuple2
+            // 
+            this.bunTuple2.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunTuple2.BorderColor = System.Drawing.Color.Black;
+            this.bunTuple2.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.bunTuple2.DownBack = null;
+            this.bunTuple2.DownBaseColor = System.Drawing.Color.Gray;
+            this.bunTuple2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bunTuple2.Location = new System.Drawing.Point(11, 75);
+            this.bunTuple2.MouseBack = null;
+            this.bunTuple2.Name = "bunTuple2";
+            this.bunTuple2.NormlBack = null;
+            this.bunTuple2.Size = new System.Drawing.Size(116, 34);
+            this.bunTuple2.TabIndex = 2;
+            this.bunTuple2.Text = "通道2";
+            this.bunTuple2.UseVisualStyleBackColor = false;
+            this.bunTuple2.Click += new System.EventHandler(this.bunTuple2_Click);
+            // 
+            // bunTuple1
+            // 
+            this.bunTuple1.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunTuple1.BorderColor = System.Drawing.Color.Black;
+            this.bunTuple1.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.bunTuple1.DownBack = null;
+            this.bunTuple1.DownBaseColor = System.Drawing.Color.Gray;
+            this.bunTuple1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bunTuple1.Location = new System.Drawing.Point(11, 17);
+            this.bunTuple1.MouseBack = null;
+            this.bunTuple1.Name = "bunTuple1";
+            this.bunTuple1.NormlBack = null;
+            this.bunTuple1.Size = new System.Drawing.Size(116, 34);
+            this.bunTuple1.TabIndex = 1;
+            this.bunTuple1.Text = "通道1";
+            this.bunTuple1.UseVisualStyleBackColor = false;
+            this.bunTuple1.Click += new System.EventHandler(this.bunTuple1_Click);
+            // 
+            // skinGroupBox1
+            // 
+            this.skinGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.skinGroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.skinGroupBox1.Controls.Add(this.textBox11);
+            this.skinGroupBox1.Controls.Add(this.label58);
+            this.skinGroupBox1.Controls.Add(this.textBox10);
+            this.skinGroupBox1.Controls.Add(this.label57);
+            this.skinGroupBox1.Controls.Add(this.textBox9);
+            this.skinGroupBox1.Controls.Add(this.label56);
+            this.skinGroupBox1.Controls.Add(this.textBox8);
+            this.skinGroupBox1.Controls.Add(this.label55);
+            this.skinGroupBox1.Controls.Add(this.textBox7);
+            this.skinGroupBox1.Controls.Add(this.label54);
+            this.skinGroupBox1.Controls.Add(this.textBox6);
+            this.skinGroupBox1.Controls.Add(this.label53);
+            this.skinGroupBox1.Controls.Add(this.textBox5);
+            this.skinGroupBox1.Controls.Add(this.label52);
+            this.skinGroupBox1.Controls.Add(this.textBox4);
+            this.skinGroupBox1.Controls.Add(this.label51);
+            this.skinGroupBox1.Controls.Add(this.textBox3);
+            this.skinGroupBox1.Controls.Add(this.label50);
+            this.skinGroupBox1.Controls.Add(this.textBox2);
+            this.skinGroupBox1.Controls.Add(this.label49);
+            this.skinGroupBox1.Controls.Add(this.textBox1);
+            this.skinGroupBox1.Controls.Add(this.label48);
+            this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
+            this.skinGroupBox1.Location = new System.Drawing.Point(138, 0);
+            this.skinGroupBox1.Name = "skinGroupBox1";
+            this.skinGroupBox1.RectBackColor = System.Drawing.Color.White;
+            this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
+            this.skinGroupBox1.Size = new System.Drawing.Size(904, 555);
+            this.skinGroupBox1.TabIndex = 0;
+            this.skinGroupBox1.TabStop = false;
+            this.skinGroupBox1.Text = "寄存器地址分配";
+            this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.Black;
+            this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
+            this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(483, 484);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(106, 31);
+            this.textBox11.TabIndex = 21;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(54, 487);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(406, 21);
+            this.label58.TabIndex = 20;
+            this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使用)：";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(367, 432);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(106, 31);
+            this.textBox10.TabIndex = 19;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(54, 442);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(277, 21);
+            this.label57.TabIndex = 18;
+            this.label57.Text = "DLM 分频器波特率高 8bit：";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(367, 381);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(106, 31);
+            this.textBox9.TabIndex = 17;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(54, 391);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(277, 21);
+            this.label56.TabIndex = 16;
+            this.label56.Text = "DLL 分频器波特率低 8bit：";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(662, 213);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(106, 31);
+            this.textBox8.TabIndex = 15;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(456, 216);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(180, 21);
+            this.label55.TabIndex = 14;
+            this.label55.Text = "SCR 备用寄存器：";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(662, 129);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(106, 31);
+            this.textBox7.TabIndex = 13;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(435, 132);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(201, 21);
+            this.label54.TabIndex = 12;
+            this.label54.Text = "LSR 线状态寄存器：";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(662, 38);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(106, 31);
+            this.textBox6.TabIndex = 11;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(456, 48);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(180, 21);
+            this.label53.TabIndex = 10;
+            this.label53.Text = "LCR 线控寄存器：";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(662, 297);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(106, 31);
+            this.textBox5.TabIndex = 9;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(401, 300);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(235, 21);
+            this.label52.TabIndex = 8;
+            this.label52.Text = "FCR FIFO 控制寄存器：";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(278, 297);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(106, 31);
+            this.textBox4.TabIndex = 7;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(50, 300);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(222, 21);
+            this.label51.TabIndex = 6;
+            this.label51.Text = "IIR 中断识别寄存器：";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(278, 213);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(106, 31);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(50, 216);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(222, 21);
+            this.label50.TabIndex = 4;
+            this.label50.Text = "IER 中断使能寄存器：";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(278, 129);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(106, 31);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(50, 132);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(222, 21);
+            this.label49.TabIndex = 2;
+            this.label49.Text = "THR 发送保持寄存器：";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(278, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(106, 31);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(50, 48);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(222, 21);
+            this.label48.TabIndex = 0;
+            this.label48.Text = "RBR 接收缓存寄存器：";
+            // 
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode9.Name = "节点0";
-            treeNode9.Text = "基本功能测试";
-            treeNode10.Name = "节点1";
-            treeNode10.Text = "寄存器测试";
+            treeNode7.Name = "节点0";
+            treeNode7.Text = "基本功能测试";
+            treeNode8.Name = "节点1";
+            treeNode8.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10});
+            treeNode7,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.dataView);
             this.tabPage5.Location = new System.Drawing.Point(4, 44);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(1273, 597);
@@ -1231,289 +1532,54 @@
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
             // 
-            // skinGroupBox1
+            // dataView
             // 
-            this.skinGroupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.skinGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Controls.Add(this.textBox11);
-            this.skinGroupBox1.Controls.Add(this.label58);
-            this.skinGroupBox1.Controls.Add(this.textBox10);
-            this.skinGroupBox1.Controls.Add(this.label57);
-            this.skinGroupBox1.Controls.Add(this.textBox9);
-            this.skinGroupBox1.Controls.Add(this.label56);
-            this.skinGroupBox1.Controls.Add(this.textBox8);
-            this.skinGroupBox1.Controls.Add(this.label55);
-            this.skinGroupBox1.Controls.Add(this.textBox7);
-            this.skinGroupBox1.Controls.Add(this.label54);
-            this.skinGroupBox1.Controls.Add(this.textBox6);
-            this.skinGroupBox1.Controls.Add(this.label53);
-            this.skinGroupBox1.Controls.Add(this.textBox5);
-            this.skinGroupBox1.Controls.Add(this.label52);
-            this.skinGroupBox1.Controls.Add(this.textBox4);
-            this.skinGroupBox1.Controls.Add(this.label51);
-            this.skinGroupBox1.Controls.Add(this.textBox3);
-            this.skinGroupBox1.Controls.Add(this.label50);
-            this.skinGroupBox1.Controls.Add(this.textBox2);
-            this.skinGroupBox1.Controls.Add(this.label49);
-            this.skinGroupBox1.Controls.Add(this.textBox1);
-            this.skinGroupBox1.Controls.Add(this.label48);
-            this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Location = new System.Drawing.Point(195, 0);
-            this.skinGroupBox1.Name = "skinGroupBox1";
-            this.skinGroupBox1.RectBackColor = System.Drawing.Color.White;
-            this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinGroupBox1.Size = new System.Drawing.Size(847, 555);
-            this.skinGroupBox1.TabIndex = 0;
-            this.skinGroupBox1.TabStop = false;
-            this.skinGroupBox1.Text = "寄存器地址分配";
-            this.skinGroupBox1.TitleBorderColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
-            this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
-            // 
-            // skinButton1
-            // 
-            this.skinButton1.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton1.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton1.DownBack = null;
-            this.skinButton1.DownBaseColor = System.Drawing.Color.Gray;
-            this.skinButton1.Location = new System.Drawing.Point(73, 17);
-            this.skinButton1.MouseBack = null;
-            this.skinButton1.Name = "skinButton1";
-            this.skinButton1.NormlBack = null;
-            this.skinButton1.Size = new System.Drawing.Size(116, 34);
-            this.skinButton1.TabIndex = 1;
-            this.skinButton1.Text = "通道1";
-            this.skinButton1.UseVisualStyleBackColor = false;
-            // 
-            // skinButton2
-            // 
-            this.skinButton2.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton2.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton2.DownBack = null;
-            this.skinButton2.DownBaseColor = System.Drawing.Color.Gray;
-            this.skinButton2.Location = new System.Drawing.Point(73, 75);
-            this.skinButton2.MouseBack = null;
-            this.skinButton2.Name = "skinButton2";
-            this.skinButton2.NormlBack = null;
-            this.skinButton2.Size = new System.Drawing.Size(116, 34);
-            this.skinButton2.TabIndex = 2;
-            this.skinButton2.Text = "通道2";
-            this.skinButton2.UseVisualStyleBackColor = false;
-            // 
-            // skinButton3
-            // 
-            this.skinButton3.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton3.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton3.DownBack = null;
-            this.skinButton3.DownBaseColor = System.Drawing.Color.Gray;
-            this.skinButton3.Location = new System.Drawing.Point(73, 136);
-            this.skinButton3.MouseBack = null;
-            this.skinButton3.Name = "skinButton3";
-            this.skinButton3.NormlBack = null;
-            this.skinButton3.Size = new System.Drawing.Size(116, 34);
-            this.skinButton3.TabIndex = 3;
-            this.skinButton3.Text = "通道3";
-            this.skinButton3.UseVisualStyleBackColor = false;
-            // 
-            // skinButton4
-            // 
-            this.skinButton4.BackColor = System.Drawing.Color.Transparent;
-            this.skinButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.skinButton4.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.skinButton4.DownBack = null;
-            this.skinButton4.DownBaseColor = System.Drawing.Color.Gray;
-            this.skinButton4.Location = new System.Drawing.Point(73, 195);
-            this.skinButton4.MouseBack = null;
-            this.skinButton4.Name = "skinButton4";
-            this.skinButton4.NormlBack = null;
-            this.skinButton4.Size = new System.Drawing.Size(116, 34);
-            this.skinButton4.TabIndex = 4;
-            this.skinButton4.Text = "通道4";
-            this.skinButton4.UseVisualStyleBackColor = false;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(50, 48);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(222, 21);
-            this.label48.TabIndex = 0;
-            this.label48.Text = "RBR 接收缓存寄存器：";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(278, 45);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 31);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(278, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 31);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(50, 132);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(222, 21);
-            this.label49.TabIndex = 2;
-            this.label49.Text = "THR 发送保持寄存器：";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(278, 213);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 31);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(50, 216);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(222, 21);
-            this.label50.TabIndex = 4;
-            this.label50.Text = "IER 中断使能寄存器：";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(278, 297);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(106, 31);
-            this.textBox4.TabIndex = 7;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(50, 300);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(222, 21);
-            this.label51.TabIndex = 6;
-            this.label51.Text = "IIR 中断识别寄存器：";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(278, 381);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(106, 31);
-            this.textBox5.TabIndex = 9;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(50, 384);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(235, 21);
-            this.label52.TabIndex = 8;
-            this.label52.Text = "FCR FIFO 控制寄存器：";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(662, 38);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(106, 31);
-            this.textBox6.TabIndex = 11;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(434, 41);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(180, 21);
-            this.label53.TabIndex = 10;
-            this.label53.Text = "LCR 线控寄存器：";
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(662, 106);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(106, 31);
-            this.textBox7.TabIndex = 13;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(434, 109);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(201, 21);
-            this.label54.TabIndex = 12;
-            this.label54.Text = "LSR 线状态寄存器：";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(662, 174);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(106, 31);
-            this.textBox8.TabIndex = 15;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(434, 177);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(180, 21);
-            this.label55.TabIndex = 14;
-            this.label55.Text = "SCR 备用寄存器：";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(678, 292);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(106, 31);
-            this.textBox9.TabIndex = 17;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(440, 238);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(277, 21);
-            this.label56.TabIndex = 16;
-            this.label56.Text = "DLL 分频器波特率低 8bit：";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(662, 374);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(106, 31);
-            this.textBox10.TabIndex = 19;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(421, 336);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(277, 21);
-            this.label57.TabIndex = 18;
-            this.label57.Text = "DLM 分频器波特率高 8bit：";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(444, 477);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(106, 31);
-            this.textBox11.TabIndex = 21;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(54, 487);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(374, 21);
-            this.label58.TabIndex = 20;
-            this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使：";
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataView.ColumnFont = null;
+            this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataView.EnableHeadersVisualStyles = false;
+            this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataView.HeadFont = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataView.HeadSelectBackColor = System.Drawing.SystemColors.ControlLight;
+            this.dataView.HeadSelectForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.LineNumberForeColor = System.Drawing.Color.Black;
+            this.dataView.Location = new System.Drawing.Point(0, 0);
+            this.dataView.Name = "dataView";
+            this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataView.RowTemplate.Height = 23;
+            this.dataView.Size = new System.Drawing.Size(1273, 597);
+            this.dataView.TabIndex = 0;
+            this.dataView.TitleBack = null;
+            this.dataView.TitleBackColorBegin = System.Drawing.Color.White;
+            this.dataView.TitleBackColorEnd = System.Drawing.Color.Gainsboro;
             // 
             // MainForm
             // 
@@ -1551,10 +1617,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedChip2)).EndInit();
             this.tablePanel.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.skinGroupBox1.ResumeLayout(false);
             this.skinGroupBox1.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1654,10 +1722,10 @@
         private System.Windows.Forms.NumericUpDown multiNum;
         private System.Windows.Forms.TabPage tabPage5;
         private CCWin.SkinControl.SkinGroupBox skinGroupBox1;
-        private CCWin.SkinControl.SkinButton skinButton1;
-        private CCWin.SkinControl.SkinButton skinButton4;
-        private CCWin.SkinControl.SkinButton skinButton3;
-        private CCWin.SkinControl.SkinButton skinButton2;
+        private CCWin.SkinControl.SkinButton bunTuple1;
+        private CCWin.SkinControl.SkinButton bunTuple4;
+        private CCWin.SkinControl.SkinButton bunTuple3;
+        private CCWin.SkinControl.SkinButton bunTuple2;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox textBox10;
@@ -1680,6 +1748,7 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label48;
+        private CCWin.SkinControl.SkinDataGridView dataView;
     }
 }
 

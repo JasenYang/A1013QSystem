@@ -36,6 +36,8 @@ namespace A1013QSystem.Common
         public static InstrMentsParas g_InstrMultimeterModule = new InstrMentsParas("万用表");
 
         public static InstrMentsParas g_curInstrument; //表征当前正在操作的仪器
+
+        public static string g_curTupple;
        
     }
 }

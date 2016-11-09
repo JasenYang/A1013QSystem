@@ -130,6 +130,31 @@ namespace A1013QSystem
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var tabSelect = (sender as TabControl).SelectedTab;
+           if (tabSelect.Text == "试验用例")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage4);
+            }
+            if (tabSelect.Text == "结果查看") {
+                DataTable dt = new DataTable();
+                DataRow dr = dt.NewRow();
+               
+                dt.Columns.Add("编号");
+                dt.Columns.Add("时间");
+                dt.Columns.Add("内容");
+                dt.Columns.Add("结果");
+               
+                dr["编号"] = "AX";
+                dr["时间"] = "AX";
+                dr["内容"] = "AX";
+                dr["结果"] = "AX";
+
+                dt.Rows.Add(dr);               
+                dataView.DataSource = dt;
+                dataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+
             tabControl2.TabPages.Clear();
             tabControl2.TabPages.Add(tabPage3);
         }
@@ -146,7 +171,44 @@ namespace A1013QSystem
             {
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage4);
-            }
+            }           
+        }
+
+        private void bunTuple1_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_curTupple = "通道1";
+            bunTuple1.BaseColor = Color.DeepSkyBlue;
+            bunTuple2.BaseColor = Color.LightGray;
+            bunTuple3.BaseColor = Color.LightGray;
+            bunTuple4.BaseColor = Color.LightGray;
+
+        }
+
+        private void bunTuple2_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_curTupple = "通道2";
+            bunTuple1.BaseColor = Color.LightGray;
+            bunTuple2.BaseColor = Color.DeepSkyBlue;
+            bunTuple3.BaseColor = Color.LightGray;
+            bunTuple4.BaseColor = Color.LightGray;
+        }
+
+        private void bunTuple3_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_curTupple = "通道3";
+            bunTuple1.BaseColor = Color.LightGray;
+            bunTuple2.BaseColor = Color.LightGray;
+            bunTuple3.BaseColor = Color.DeepSkyBlue;
+            bunTuple4.BaseColor = Color.LightGray;
+        }
+
+        private void bunTuple4_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_curTupple = "通道4";
+            bunTuple1.BaseColor = Color.LightGray;
+            bunTuple2.BaseColor = Color.LightGray;
+            bunTuple3.BaseColor = Color.LightGray;
+            bunTuple4.BaseColor = Color.DeepSkyBlue;
         }
     }
 }
