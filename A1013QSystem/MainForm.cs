@@ -150,7 +150,8 @@ namespace A1013QSystem
                 dr["内容"] = "AX";
                 dr["结果"] = "AX";
 
-                dt.Rows.Add(dr);               
+                dt.Rows.Add(dr);
+                dataView.AllowUserToAddRows = false;
                 dataView.DataSource = dt;
                 dataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }

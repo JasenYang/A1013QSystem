@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -1309,7 +1309,7 @@
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(483, 484);
+            this.textBox11.Location = new System.Drawing.Point(374, 500);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(106, 31);
             this.textBox11.TabIndex = 21;
@@ -1317,15 +1317,16 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(54, 487);
+            this.label58.Font = new System.Drawing.Font("宋体", 12F);
+            this.label58.Location = new System.Drawing.Point(64, 510);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(406, 21);
+            this.label58.Size = new System.Drawing.Size(304, 16);
             this.label58.TabIndex = 20;
             this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使用)：";
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(367, 432);
+            this.textBox10.Location = new System.Drawing.Point(374, 453);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(106, 31);
             this.textBox10.TabIndex = 19;
@@ -1333,15 +1334,16 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(54, 442);
+            this.label57.Font = new System.Drawing.Font("宋体", 12F);
+            this.label57.Location = new System.Drawing.Point(160, 464);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(277, 21);
+            this.label57.Size = new System.Drawing.Size(208, 16);
             this.label57.TabIndex = 18;
             this.label57.Text = "DLM 分频器波特率高 8bit：";
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(367, 381);
+            this.textBox9.Location = new System.Drawing.Point(374, 406);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(106, 31);
             this.textBox9.TabIndex = 17;
@@ -1349,15 +1351,16 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(54, 391);
+            this.label56.Font = new System.Drawing.Font("宋体", 12F);
+            this.label56.Location = new System.Drawing.Point(160, 419);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(277, 21);
+            this.label56.Size = new System.Drawing.Size(208, 16);
             this.label56.TabIndex = 16;
             this.label56.Text = "DLL 分频器波特率低 8bit：";
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(662, 213);
+            this.textBox8.Location = new System.Drawing.Point(374, 359);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(106, 31);
             this.textBox8.TabIndex = 15;
@@ -1365,15 +1368,16 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(456, 216);
+            this.label55.Font = new System.Drawing.Font("宋体", 12F);
+            this.label55.Location = new System.Drawing.Point(232, 368);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(180, 21);
+            this.label55.Size = new System.Drawing.Size(136, 16);
             this.label55.TabIndex = 14;
             this.label55.Text = "SCR 备用寄存器：";
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(662, 129);
+            this.textBox7.Location = new System.Drawing.Point(374, 312);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(106, 31);
             this.textBox7.TabIndex = 13;
@@ -1381,15 +1385,16 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(435, 132);
+            this.label54.Font = new System.Drawing.Font("宋体", 12F);
+            this.label54.Location = new System.Drawing.Point(216, 322);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(201, 21);
+            this.label54.Size = new System.Drawing.Size(152, 16);
             this.label54.TabIndex = 12;
             this.label54.Text = "LSR 线状态寄存器：";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(662, 38);
+            this.textBox6.Location = new System.Drawing.Point(374, 265);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(106, 31);
             this.textBox6.TabIndex = 11;
@@ -1397,15 +1402,16 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(456, 48);
+            this.label53.Font = new System.Drawing.Font("宋体", 12F);
+            this.label53.Location = new System.Drawing.Point(232, 275);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(180, 21);
+            this.label53.Size = new System.Drawing.Size(136, 16);
             this.label53.TabIndex = 10;
             this.label53.Text = "LCR 线控寄存器：";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(662, 297);
+            this.textBox5.Location = new System.Drawing.Point(374, 218);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(106, 31);
             this.textBox5.TabIndex = 9;
@@ -1413,15 +1419,16 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(401, 300);
+            this.label52.Font = new System.Drawing.Font("宋体", 12F);
+            this.label52.Location = new System.Drawing.Point(192, 227);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(235, 21);
+            this.label52.Size = new System.Drawing.Size(176, 16);
             this.label52.TabIndex = 8;
             this.label52.Text = "FCR FIFO 控制寄存器：";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(278, 297);
+            this.textBox4.Location = new System.Drawing.Point(374, 171);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(106, 31);
             this.textBox4.TabIndex = 7;
@@ -1429,15 +1436,16 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(50, 300);
+            this.label51.Font = new System.Drawing.Font("宋体", 12F);
+            this.label51.Location = new System.Drawing.Point(200, 180);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(222, 21);
+            this.label51.Size = new System.Drawing.Size(168, 16);
             this.label51.TabIndex = 6;
             this.label51.Text = "IIR 中断识别寄存器：";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(278, 213);
+            this.textBox3.Location = new System.Drawing.Point(374, 124);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(106, 31);
             this.textBox3.TabIndex = 5;
@@ -1445,15 +1453,16 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(50, 216);
+            this.label50.Font = new System.Drawing.Font("宋体", 12F);
+            this.label50.Location = new System.Drawing.Point(200, 132);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(222, 21);
+            this.label50.Size = new System.Drawing.Size(168, 16);
             this.label50.TabIndex = 4;
             this.label50.Text = "IER 中断使能寄存器：";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(278, 129);
+            this.textBox2.Location = new System.Drawing.Point(374, 77);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(106, 31);
             this.textBox2.TabIndex = 3;
@@ -1461,15 +1470,16 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(50, 132);
+            this.label49.Font = new System.Drawing.Font("宋体", 12F);
+            this.label49.Location = new System.Drawing.Point(200, 83);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(222, 21);
+            this.label49.Size = new System.Drawing.Size(168, 16);
             this.label49.TabIndex = 2;
             this.label49.Text = "THR 发送保持寄存器：";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(278, 45);
+            this.textBox1.Location = new System.Drawing.Point(374, 30);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(106, 31);
             this.textBox1.TabIndex = 1;
@@ -1477,9 +1487,10 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(50, 48);
+            this.label48.Font = new System.Drawing.Font("宋体", 12F);
+            this.label48.Location = new System.Drawing.Point(200, 35);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(222, 21);
+            this.label48.Size = new System.Drawing.Size(168, 16);
             this.label48.TabIndex = 0;
             this.label48.Text = "RBR 接收缓存寄存器：";
             // 
@@ -1487,13 +1498,13 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "基本功能测试";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "基本功能测试";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            treeNode3,
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1510,30 +1521,31 @@
             // 
             // dataView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataView.AllowUserToAddRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataView.ColumnFont = null;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataView.EnableHeadersVisualStyles = false;
             this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -1545,11 +1557,11 @@
             this.dataView.Name = "dataView";
             this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataView.RowTemplate.Height = 23;
             this.dataView.Size = new System.Drawing.Size(1273, 597);
             this.dataView.TabIndex = 0;
