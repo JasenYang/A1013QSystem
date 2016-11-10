@@ -1,4 +1,5 @@
 ﻿using A1013QSystem.Common;
+using A1013QSystem.DriverCommon;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,17 @@ namespace A1013QSystem
             time.Enabled = true;
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //居中显示
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            //显示应用程序在任务栏中的图标
+            this.ShowInTaskbar = true;
+
+            //首先要从ini文件读取仪器的参数信息
+            CDll.GetAlltheInstumentsParasFromIniFile();
+        }
 
         private void btnElect_Click(object sender, EventArgs e)
         {
@@ -63,17 +75,75 @@ namespace A1013QSystem
                 {
                     btnElect.Text = "关闭";
                 }
+                else {
+                    btnElect.Text = "打开";
+                }
             }
         }
 
         private void btnOscill_Click(object sender, EventArgs e)
         {
+            string strIP;
+            UInt32 nPort;
+            string resourceName;
+            int error = 0;
+            if (btnOscill.Text == "打开")//用户要连接仪器
+            {
+                strIP = this.ipAddressControl2.Text;
+                nPort = (UInt32)this.port1.Value;
+                //连接设备
+                resourceName = "TCPIP0::" + strIP + "::inst0::INSTR";
 
+                error = CDll.ConnectSpecificInstrument(CGloabal.g_curInstrument.strInstruName, resourceName);
+                if (error < 0)//连接失败
+                {
+                    CCommonFuncs.ShowHintInfor(eHintInfoType.error, "示波器打开失败！");
+                    btnOscill.Text = "打开";
+                }
+                else//连接成功,则要将当前用户输入的IP地址和端口号保存到ini文件中
+                {
+                    CDll.SaveInputNetInforsToIniFile(CGloabal.g_curInstrument.strInstruName, strIP, nPort);
+                    btnOscill.Text = "关闭";
+                }
+            }
+            else//此时用户要断开连接
+            {
+                error = CDll.CloseSpecificInstrument(CGloabal.g_curInstrument.strInstruName);
+                if (error < 0)//断开失败，则还要将switchConnect恢复为连接状态      
+                {
+                    btnOscill.Text = "关闭";
+                }
+                else
+                {
+                    btnOscill.Text = "打开";
+                }
+            }
         }
 
         private void btnMulti_Click(object sender, EventArgs e)
         {
-
+            int nGpibAddr = 0;
+            int error = 0;
+            nGpibAddr = (Int32)multiNum.Value;
+            string strResource = "GPIB0::" + nGpibAddr + "::INSTR"; // GPIB1 to GPIB0 changed 16.09.03 by msq
+            if (btnMulti.Text == "打开")//用户要连接万用表   //changed 16.09.03 by msq
+            {
+                error = Multimeter_Driver.Connect_Multimeter(strResource);
+                if (error < 0)
+                {
+                    CCommonFuncs.ShowHintInfor(eHintInfoType.error, "万用表连接失败！");
+                    btnMulti.Text = "打开";
+                }
+                else
+                {
+                    btnMulti.Text = "关闭";
+                }
+            }
+            else//断开万用表
+            {
+                Multimeter_Driver.Close();
+                btnMulti.Text = "打开";
+            }
         }
 
         public void Fn_ShowTime(object sender,EventArgs e)
@@ -211,5 +281,7 @@ namespace A1013QSystem
             bunTuple3.BaseColor = Color.LightGray;
             bunTuple4.BaseColor = Color.DeepSkyBlue;
         }
+
+      
     }
 }

@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.port1 = new System.Windows.Forms.NumericUpDown();
             this.ipAddressControl2 = new IPAddressControlLib.IPAddressControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnMulti = new System.Windows.Forms.Button();
@@ -158,7 +158,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.multiNum)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -214,7 +214,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.numericUpDown2);
+            this.groupBox3.Controls.Add(this.port1);
             this.groupBox3.Controls.Add(this.ipAddressControl2);
             this.groupBox3.Location = new System.Drawing.Point(24, 314);
             this.groupBox3.Name = "groupBox3";
@@ -260,12 +260,22 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "端口号：";
             // 
-            // numericUpDown2
+            // port1
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(142, 118);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(207, 30);
-            this.numericUpDown2.TabIndex = 9;
+            this.port1.Location = new System.Drawing.Point(142, 118);
+            this.port1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.port1.Name = "port1";
+            this.port1.Size = new System.Drawing.Size(207, 30);
+            this.port1.TabIndex = 9;
+            this.port1.Value = new decimal(new int[] {
+            8080,
+            0,
+            0,
+            0});
             // 
             // ipAddressControl2
             // 
@@ -353,9 +363,19 @@
             // port0
             // 
             this.port0.Location = new System.Drawing.Point(142, 110);
+            this.port0.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.port0.Name = "port0";
             this.port0.Size = new System.Drawing.Size(207, 30);
             this.port0.TabIndex = 3;
+            this.port0.Value = new decimal(new int[] {
+            8080,
+            0,
+            0,
+            0});
             // 
             // ipAddressControl
             // 
@@ -513,7 +533,7 @@
             this.skinTabControl1.PageHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageHover")));
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Left;
             this.skinTabControl1.PageNorml = null;
-            this.skinTabControl1.SelectedIndex = 0;
+            this.skinTabControl1.SelectedIndex = 1;
             this.skinTabControl1.Size = new System.Drawing.Size(269, 239);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 3;
@@ -1322,7 +1342,7 @@
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(304, 16);
             this.label58.TabIndex = 20;
-            this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使用)：";
+            this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使能)：";
             // 
             // textBox10
             // 
@@ -1603,11 +1623,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "A1013Q型测试系统";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.multiNum)).EndInit();
@@ -1652,7 +1673,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown port1;
         private IPAddressControlLib.IPAddressControl ipAddressControl2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
