@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.port1 = new System.Windows.Forms.NumericUpDown();
+            this.port2 = new System.Windows.Forms.NumericUpDown();
             this.ipAddressControl2 = new IPAddressControlLib.IPAddressControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnMulti = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnElect = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.port0 = new System.Windows.Forms.NumericUpDown();
+            this.port = new System.Windows.Forms.NumericUpDown();
             this.ipAddressControl = new IPAddressControlLib.IPAddressControl();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -158,11 +158,11 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.port1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port2)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.multiNum)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.port0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -197,6 +197,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -206,7 +207,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1273, 597);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "系统设置";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -214,7 +214,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.port1);
+            this.groupBox3.Controls.Add(this.port2);
             this.groupBox3.Controls.Add(this.ipAddressControl2);
             this.groupBox3.Location = new System.Drawing.Point(24, 314);
             this.groupBox3.Name = "groupBox3";
@@ -260,18 +260,18 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "端口号：";
             // 
-            // port1
+            // port2
             // 
-            this.port1.Location = new System.Drawing.Point(142, 118);
-            this.port1.Maximum = new decimal(new int[] {
+            this.port2.Location = new System.Drawing.Point(142, 118);
+            this.port2.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.port1.Name = "port1";
-            this.port1.Size = new System.Drawing.Size(207, 30);
-            this.port1.TabIndex = 9;
-            this.port1.Value = new decimal(new int[] {
+            this.port2.Name = "port2";
+            this.port2.Size = new System.Drawing.Size(207, 30);
+            this.port2.TabIndex = 9;
+            this.port2.Value = new decimal(new int[] {
             8080,
             0,
             0,
@@ -330,7 +330,7 @@
             // 
             this.groupBox1.Controls.Add(this.btnElect);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.port0);
+            this.groupBox1.Controls.Add(this.port);
             this.groupBox1.Controls.Add(this.ipAddressControl);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -360,18 +360,18 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "连接";
             // 
-            // port0
+            // port
             // 
-            this.port0.Location = new System.Drawing.Point(142, 110);
-            this.port0.Maximum = new decimal(new int[] {
+            this.port.Location = new System.Drawing.Point(142, 110);
+            this.port.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.port0.Name = "port0";
-            this.port0.Size = new System.Drawing.Size(207, 30);
-            this.port0.TabIndex = 3;
-            this.port0.Value = new decimal(new int[] {
+            this.port.Name = "port";
+            this.port.Size = new System.Drawing.Size(207, 30);
+            this.port.TabIndex = 3;
+            this.port.Value = new decimal(new int[] {
             8080,
             0,
             0,
@@ -408,6 +408,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Controls.Add(this.treeView1);
             this.tabPage2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -417,7 +418,6 @@
             this.tabPage2.Size = new System.Drawing.Size(1273, 597);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "试验用例";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
@@ -442,6 +442,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.skinTabControl1);
             this.panel1.Controls.Add(this.tablePanel);
@@ -533,14 +534,14 @@
             this.skinTabControl1.PageHover = ((System.Drawing.Image)(resources.GetObject("skinTabControl1.PageHover")));
             this.skinTabControl1.PageImagePosition = CCWin.SkinControl.SkinTabControl.ePageImagePosition.Left;
             this.skinTabControl1.PageNorml = null;
-            this.skinTabControl1.SelectedIndex = 1;
+            this.skinTabControl1.SelectedIndex = 0;
             this.skinTabControl1.Size = new System.Drawing.Size(269, 239);
             this.skinTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.skinTabControl1.TabIndex = 3;
             // 
             // skinTabPage1
             // 
-            this.skinTabPage1.BackColor = System.Drawing.Color.White;
+            this.skinTabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.skinTabPage1.BorderColor = System.Drawing.Color.Black;
             this.skinTabPage1.Controls.Add(this.skinLabel9);
             this.skinTabPage1.Controls.Add(this.sendChip1);
@@ -657,7 +658,7 @@
             // 
             // skinTabPage2
             // 
-            this.skinTabPage2.BackColor = System.Drawing.Color.White;
+            this.skinTabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.skinTabPage2.BorderColor = System.Drawing.Color.Black;
             this.skinTabPage2.Controls.Add(this.skinLabel10);
             this.skinTabPage2.Controls.Add(this.sendChip2);
@@ -1516,15 +1517,16 @@
             // 
             // treeView1
             // 
+            this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "基本功能测试";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "寄存器测试";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "基本功能测试";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1542,30 +1544,30 @@
             // dataView
             // 
             this.dataView.AllowUserToAddRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataView.ColumnFont = null;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataView.EnableHeadersVisualStyles = false;
             this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -1577,11 +1579,11 @@
             this.dataView.Name = "dataView";
             this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataView.RowTemplate.Height = 23;
             this.dataView.Size = new System.Drawing.Size(1273, 597);
             this.dataView.TabIndex = 0;
@@ -1628,13 +1630,13 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.port1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.multiNum)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.port0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.port)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -1673,13 +1675,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown port1;
+        private System.Windows.Forms.NumericUpDown port2;
         private IPAddressControlLib.IPAddressControl ipAddressControl2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnElect;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown port0;
+        private System.Windows.Forms.NumericUpDown port;
         private IPAddressControlLib.IPAddressControl ipAddressControl;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

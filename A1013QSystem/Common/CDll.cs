@@ -107,8 +107,8 @@ namespace A1013QSystem.Common
                 strPort = GetValueFromIniFile(strFilePath, "示波器", "端口号");
                 CGloabal.g_InstrScopeModule.port = int.Parse(strPort);
 
-                CGloabal.g_InstrMultimeterModule.ipAdress = GetValueFromIniFile(strFilePath, "万用表", "IP地址");
-                strPort = GetValueFromIniFile(strFilePath, "万用表", "端口号");
+                CGloabal.g_InstrMultimeterModule.ipAdress = GetValueFromIniFile(strFilePath, "万用表", "GPIB地址");
+                strPort = GetValueFromIniFile(strFilePath, "万用表", "GPIB地址");
                 CGloabal.g_InstrMultimeterModule.port = int.Parse(strPort);
             }
             else

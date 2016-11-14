@@ -41,6 +41,13 @@ namespace A1013QSystem
 
             //首先要从ini文件读取仪器的参数信息
             CDll.GetAlltheInstumentsParasFromIniFile();
+            ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port.Value = CGloabal.g_InstrPowerModule.port;
+
+            ipAddressControl2.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port2.Value= CGloabal.g_InstrScopeModule.port;
+
+            multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
         }
 
         private void btnElect_Click(object sender, EventArgs e)
@@ -52,7 +59,7 @@ namespace A1013QSystem
             if (btnElect.Text == "打开")//用户要连接仪器
             {
                 strIP = this.ipAddressControl.Text;
-                nPort = (UInt32)this.port0.Value;
+                nPort = (UInt32)this.port.Value;
                 //连接设备
                 resourceName = "TCPIP0::" + strIP + "::inst0::INSTR";
 
@@ -90,7 +97,7 @@ namespace A1013QSystem
             if (btnOscill.Text == "打开")//用户要连接仪器
             {
                 strIP = this.ipAddressControl2.Text;
-                nPort = (UInt32)this.port1.Value;
+                nPort = (UInt32)this.port2.Value;
                 //连接设备
                 resourceName = "TCPIP0::" + strIP + "::inst0::INSTR";
 
