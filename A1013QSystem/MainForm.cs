@@ -255,7 +255,7 @@ namespace A1013QSystem
         private void bunTuple1_Click(object sender, EventArgs e)
         {
             CGloabal.g_curTupple = "通道1";
-            bunTuple1.BaseColor = Color.DeepSkyBlue;
+            bunTuple1.BaseColor = Color.CornflowerBlue;
             bunTuple2.BaseColor = Color.LightGray;
             bunTuple3.BaseColor = Color.LightGray;
             bunTuple4.BaseColor = Color.LightGray;
@@ -266,7 +266,7 @@ namespace A1013QSystem
         {
             CGloabal.g_curTupple = "通道2";
             bunTuple1.BaseColor = Color.LightGray;
-            bunTuple2.BaseColor = Color.DeepSkyBlue;
+            bunTuple2.BaseColor = Color.CornflowerBlue;
             bunTuple3.BaseColor = Color.LightGray;
             bunTuple4.BaseColor = Color.LightGray;
         }
@@ -276,7 +276,7 @@ namespace A1013QSystem
             CGloabal.g_curTupple = "通道3";
             bunTuple1.BaseColor = Color.LightGray;
             bunTuple2.BaseColor = Color.LightGray;
-            bunTuple3.BaseColor = Color.DeepSkyBlue;
+            bunTuple3.BaseColor = Color.CornflowerBlue;
             bunTuple4.BaseColor = Color.LightGray;
         }
 
@@ -286,7 +286,7 @@ namespace A1013QSystem
             bunTuple1.BaseColor = Color.LightGray;
             bunTuple2.BaseColor = Color.LightGray;
             bunTuple3.BaseColor = Color.LightGray;
-            bunTuple4.BaseColor = Color.DeepSkyBlue;
+            bunTuple4.BaseColor = Color.CornflowerBlue;
         }
 
       

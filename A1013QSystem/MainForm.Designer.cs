@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -155,6 +155,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnTest = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -443,6 +444,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.btnTest);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.skinTabControl1);
             this.panel1.Controls.Add(this.tablePanel);
@@ -1199,6 +1201,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage4.Controls.Add(this.bunTuple4);
             this.tabPage4.Controls.Add(this.bunTuple3);
             this.tabPage4.Controls.Add(this.bunTuple2);
@@ -1210,11 +1213,10 @@
             this.tabPage4.Size = new System.Drawing.Size(1044, 555);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "寄存器测试";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // bunTuple4
             // 
-            this.bunTuple4.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.bunTuple4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunTuple4.BorderColor = System.Drawing.Color.Black;
             this.bunTuple4.ControlState = CCWin.SkinClass.ControlState.Normal;
@@ -1233,7 +1235,7 @@
             // 
             // bunTuple3
             // 
-            this.bunTuple3.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.bunTuple3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunTuple3.BorderColor = System.Drawing.Color.Black;
             this.bunTuple3.ControlState = CCWin.SkinClass.ControlState.Normal;
@@ -1252,7 +1254,7 @@
             // 
             // bunTuple2
             // 
-            this.bunTuple2.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.bunTuple2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunTuple2.BorderColor = System.Drawing.Color.Black;
             this.bunTuple2.ControlState = CCWin.SkinClass.ControlState.Normal;
@@ -1271,7 +1273,7 @@
             // 
             // bunTuple1
             // 
-            this.bunTuple1.BackColor = System.Drawing.Color.Transparent;
+            this.bunTuple1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.bunTuple1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunTuple1.BorderColor = System.Drawing.Color.Black;
             this.bunTuple1.ControlState = CCWin.SkinClass.ControlState.Normal;
@@ -1280,6 +1282,7 @@
             this.bunTuple1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.bunTuple1.Location = new System.Drawing.Point(11, 17);
             this.bunTuple1.MouseBack = null;
+            this.bunTuple1.MouseBaseColor = System.Drawing.Color.CornflowerBlue;
             this.bunTuple1.Name = "bunTuple1";
             this.bunTuple1.NormlBack = null;
             this.bunTuple1.Size = new System.Drawing.Size(116, 34);
@@ -1290,7 +1293,7 @@
             // 
             // skinGroupBox1
             // 
-            this.skinGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.skinGroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.skinGroupBox1.BorderColor = System.Drawing.Color.Black;
             this.skinGroupBox1.Controls.Add(this.textBox11);
             this.skinGroupBox1.Controls.Add(this.label58);
@@ -1520,13 +1523,13 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "基本功能测试";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "寄存器测试";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "基本功能测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
+            treeNode1,
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1544,30 +1547,30 @@
             // dataView
             // 
             this.dataView.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataView.ColumnFont = null;
             this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataView.EnableHeadersVisualStyles = false;
             this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -1579,11 +1582,11 @@
             this.dataView.Name = "dataView";
             this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataView.RowTemplate.Height = 23;
             this.dataView.Size = new System.Drawing.Size(1273, 597);
             this.dataView.TabIndex = 0;
@@ -1614,6 +1617,15 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
+            // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(145, 404);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(112, 47);
+            this.btnTest.TabIndex = 5;
+            this.btnTest.Text = "执行测试";
+            this.btnTest.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -1784,6 +1796,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label48;
         private CCWin.SkinControl.SkinDataGridView dataView;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
