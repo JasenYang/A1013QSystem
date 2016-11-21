@@ -65,6 +65,7 @@
     <Compile Include="Common\CCommonFuncs.cs" />
     <Compile Include="Common\CDll.cs" />
     <Compile Include="Common\CGloabal.cs" />
+    <Compile Include="Common\RecordModel.cs" />
     <Compile Include="Common\visa32.cs" />
     <Compile Include="DriverCommon\Multimeter_Driver.cs" />
     <Compile Include="DriverCommon\Oscilloscope_Driver.cs" />
