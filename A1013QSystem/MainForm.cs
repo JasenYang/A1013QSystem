@@ -1,5 +1,6 @@
 ﻿using A1013QSystem.Common;
 using A1013QSystem.DriverCommon;
+using DigitalCircuitSystem.DriverDAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,14 +14,26 @@ using System.Windows.Forms;
 namespace A1013QSystem
 {
     public partial class MainForm : Form
-    {
+    {       
+        public RecordModel RModel = new RecordModel();
+
         public System.IntPtr nHandle = (System.IntPtr)0;
+        DataTable dt = new DataTable();
         public MainForm()
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
 
-            //将数字键上下箭头去掉
+             //将数字键上下箭头去掉
+            volNum1.UpDownButton.Visible = false;
+            eleNum1.UpDownButton.Visible = false;
+            volNum2.UpDownButton.Visible = false;
+            eleNum2.UpDownButton.Visible = false;
+            volNum3.UpDownButton.Visible = false;
+            eleNum3.UpDownButton.Visible = false;
+            volNum4.UpDownButton.Visible = false;
+            eleNum4.UpDownButton.Visible = false;
+
             speedChip1.UpDownButton.Visible = false;
             speedChip2.UpDownButton.Visible = false;                        
             //           
@@ -31,6 +44,12 @@ namespace A1013QSystem
             time.Tick += Fn_ShowTime;
             time.Enabled = true;
 
+            //读取电压、电流
+            Timer tSave = new Timer();
+            tSave.Interval = 2000;
+            tSave.Tick += Fn_ReadVolAndEle;
+            tSave.Enabled = true;
+                       
             //
             //显示串口的默认参数
             //首先检测本机是否含有串口
@@ -56,6 +75,13 @@ namespace A1013QSystem
             cmbEvenBit.SelectedIndex = 0;
 
             CGloabal.CurSerialPortFlag = false; //告诉系统当前的串口配置为板卡的串口配置  
+
+          
+            dt.Columns.Add("时间"); dt.Columns.Add("电压1"); dt.Columns.Add("电流1"); dt.Columns.Add("电压2"); dt.Columns.Add("电流2"); dt.Columns.Add("速率");
+            dt.Columns.Add("芯片1通道1发"); dt.Columns.Add("芯片1通道1收"); dt.Columns.Add("芯片1通道1错误"); dt.Columns.Add("芯片2通道1发"); dt.Columns.Add("芯片2通道1收"); dt.Columns.Add("芯片2通道1错误");
+            dt.Columns.Add("芯片1通道2发"); dt.Columns.Add("芯片1通道2收"); dt.Columns.Add("芯片1通道2错误"); dt.Columns.Add("芯片2通道2发"); dt.Columns.Add("芯片2通道2收"); dt.Columns.Add("芯片2通道2错误");
+            dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
+            dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -65,7 +91,7 @@ namespace A1013QSystem
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             //显示应用程序在任务栏中的图标
             this.ShowInTaskbar = true;
-
+        
             //首先要从ini文件读取仪器的参数信息
             CDll.GetAlltheInstumentsParasFromIniFile();
             ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
@@ -80,7 +106,13 @@ namespace A1013QSystem
         //UUT的串口收到数据回调函数
         private List<byte> buffer = new List<byte>(4096);     
         private void g_serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {           
+        {
+            RModel.curDate = System.DateTime.Now;
+            RModel.volVal1 =double.Parse(string.IsNullOrEmpty(vol1.Text)?"0": vol1.Text);
+            RModel.eleVal1 = double.Parse(string.IsNullOrEmpty(ele1.Text) ? "0" : vol1.Text);
+            RModel.volVal2 = double.Parse(string.IsNullOrEmpty(vol2.Text) ? "0" : vol1.Text);
+            RModel.eleVal2 = double.Parse(string.IsNullOrEmpty(ele2.Text) ? "0" : vol1.Text);
+
             int length;
             byte[] ReceiveBytes = new byte[24];           
 
@@ -118,6 +150,8 @@ namespace A1013QSystem
         int tupError11 = 0; int tupError12 = 0; int tupError13 = 0; int tupError14 = 0;       
         int tupError21 = 0; int tupError22 = 0; int tupError23 = 0; int tupError24 = 0;
 
+      
+
         private int  CmdsAnalysis(byte[] CmdBuf, ref int nCmdID)
         {
             int nTmpVal;
@@ -135,13 +169,15 @@ namespace A1013QSystem
 
             //波特率
             if (CmdBuf[2] == 104) {
-                label14.Text = label15.Text = label16.Text = label17.Text="9600Bps";
-                label34.Text = label35.Text = label36.Text = label37.Text = "9600Bps";
+                RModel.rate = 9600;
+                label14.Text = label15.Text = label16.Text = label17.Text="9600bps";
+                label34.Text = label35.Text = label36.Text = label37.Text = "9600bps";
             }
             if (CmdBuf[2] == 2)
             {
-                label14.Text = label15.Text = label16.Text = label17.Text = "500KBps";
-                label34.Text = label35.Text = label36.Text = label37.Text = "500Bps";
+                RModel.rate = 500000;
+                label14.Text = label15.Text = label16.Text = label17.Text = "500Kbps";
+                label34.Text = label35.Text = label36.Text = label37.Text = "500Kbps";
             }
             //通道1
             tupSend1 += CmdBuf[6];
@@ -154,7 +190,11 @@ namespace A1013QSystem
 
             label19.Text = label44.Text = tupReceive1.ToString();
             label66.Text = tupError21.ToString();
-
+            //数据保存
+            RModel.sendVal11 = RModel.receivVal21 = CmdBuf[6];
+            RModel.errorVal11 = CmdBuf[7];
+            RModel.receivVal11 = RModel.sendVal21 = CmdBuf[8];
+            RModel.errorVal21 = CmdBuf[9];
 
             //通道2
             tupSend2 += CmdBuf[10];
@@ -162,35 +202,103 @@ namespace A1013QSystem
             tupReceive2 += CmdBuf[12];
             tupError22 += CmdBuf[13];
 
-            label20.Text = label45.Text = tupSend2.ToString();
-            label67.Text = tupError12.ToString();
+            label25.Text = label40.Text = tupSend2.ToString();
+            label71.Text = tupError12.ToString();
 
-            label25.Text = label40.Text = tupReceive2.ToString();
-            label71.Text = tupError22.ToString();
+            label20.Text = label45.Text = tupReceive2.ToString();
+            label67.Text = tupError22.ToString();
+
+            //数据保存
+            RModel.sendVal12 = RModel.receivVal22 = CmdBuf[10];
+            RModel.errorVal12 = CmdBuf[11];
+            RModel.receivVal12 = RModel.sendVal22 = CmdBuf[12];
+            RModel.errorVal22 = CmdBuf[13];
             //通道3
-            tupSend3 += CmdBuf[10];
-            tupError13 += CmdBuf[11];
-            tupReceive3 += CmdBuf[12];
-            tupError23 += CmdBuf[13];
+            tupSend3 += CmdBuf[14];
+            tupError13 += CmdBuf[15];
+            tupReceive3 += CmdBuf[16];
+            tupError23 += CmdBuf[17];
 
             label26.Text = label41.Text = tupSend3.ToString();
             label72.Text = tupError13.ToString();
-
             label21.Text = label46.Text = tupReceive3.ToString();
             label68.Text = tupError23.ToString();
+
+            //数据保存
+            RModel.sendVal13 = RModel.receivVal23 = CmdBuf[14];
+            RModel.errorVal13 = CmdBuf[15];
+            RModel.receivVal13 = RModel.sendVal23 = CmdBuf[16];
+            RModel.errorVal23 = CmdBuf[17];
             //通道4
-            tupSend4 += CmdBuf[12];
-            tupError14 += CmdBuf[13];
-            tupReceive4 += CmdBuf[12];
-            tupError24 += CmdBuf[13];
-
-            label22.Text = label42.Text = tupSend4.ToString();
-            label69.Text = tupError14.ToString();
-
-             label27.Text = label47.Text = tupReceive4.ToString();
+            tupSend4 += CmdBuf[18];
+            tupError14 += CmdBuf[19];
+            tupReceive4 += CmdBuf[20];
+            tupError24 += CmdBuf[21];
+            
+            label27.Text = label47.Text =  tupSend4.ToString();
             label73.Text = tupError24.ToString();
+            label22.Text = label42.Text = tupReceive4.ToString();
+            label69.Text = tupError14.ToString();
+            //数据保存
+            RModel.sendVal14 = RModel.receivVal24 = CmdBuf[18];
+            RModel.errorVal14 = CmdBuf[19];
+            RModel.receivVal14 = RModel.sendVal24 = CmdBuf[20];
+            RModel.errorVal24 = CmdBuf[21];
 
+            CGloabal.LModel.Add(RModel);
+                      
+            DataRow dr = dt.NewRow();            
+            foreach (var item in CGloabal.LModel)
+            {
+                dr["时间"] = item.curDate;dr["电压1"] = item.volVal1; dr["电流1"] = item.eleVal1;dr["电压2"] = item.volVal2;  dr["电流2"] = item.volVal2; dr["速率"] = item.rate;
+                dr["芯片1通道1发"] = item.sendVal11; dr["芯片1通道1收"] = item.receivVal11; dr["芯片1通道1错误"] = item.errorVal11;
+                dr["芯片2通道1发"] = item.sendVal21; dr["芯片2通道1收"] = item.receivVal21; dr["芯片2通道1错误"] = item.errorVal21;
+
+                dr["芯片1通道2发"] = item.sendVal12; dr["芯片1通道2收"] = item.receivVal12; dr["芯片1通道2错误"] = item.errorVal12;
+                dr["芯片2通道2发"] = item.sendVal22; dr["芯片2通道2收"] = item.receivVal22; dr["芯片2通道2错误"] = item.errorVal22;
+
+                dr["芯片1通道3发"] = item.sendVal13; dr["芯片1通道3收"] = item.receivVal13; dr["芯片1通道3错误"] = item.errorVal13;
+                dr["芯片2通道3发"] = item.sendVal23; dr["芯片2通道3收"] = item.receivVal23; dr["芯片2通道3错误"] = item.errorVal23;
+
+                dr["芯片1通道4发"] = item.sendVal14; dr["芯片1通道4收"] = item.receivVal14; dr["芯片1通道4错误"] = item.errorVal14;
+                dr["芯片2通道4发"] = item.sendVal24; dr["芯片2通道4收"] = item.receivVal24; dr["芯片2通道4错误"] = item.errorVal24;
+            }
+
+            dt.Rows.Add(dr);           
+
+            dataView.DataSource = dt;
+            if (dt.Rows.Count == 100) {
+                dt.Clear();
+            }
+            dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
+
+            dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+           
+            int kk = CDll.DataSaveExcel(CGloabal.LModel);
+            if (kk > 0) {
+                CGloabal.LModel.Clear();
+            }
             return 0;
+        }
+
+        public void Fn_ReadVolAndEle(object sender,EventArgs e) {
+            string strErrMsg = "";
+            int error;
+            double voltage1=0,eletage1=0;
+            double voltage2 = 0, eletage2 = 0;
+            if (btnElect.Text=="关闭")
+            {
+                error = Power_Driver.ReadVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, strErrMsg, ref voltage1);
+                error = Power_Driver.ReadCurrent(CGloabal.g_InstrPowerModule.nHandle, 3, strErrMsg, ref eletage1);
+                vol1.Text = voltage1.ToString("0.00000");
+                ele1.Text = eletage1.ToString("0.00000");
+
+                error = Power_Driver.ReadVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, strErrMsg, ref voltage2);
+                error = Power_Driver.ReadCurrent(CGloabal.g_InstrPowerModule.nHandle, 4, strErrMsg, ref eletage2);
+
+                vol2.Text = voltage2.ToString("0.00000");
+                ele2.Text = eletage2.ToString("0.00000");
+            }
         }
 
         private void btnTest_Click(object sender, EventArgs e)
@@ -211,7 +319,7 @@ namespace A1013QSystem
                 //连接设备
                 resourceName = "TCPIP0::" + strIP + "::inst0::INSTR";
 
-                error = CDll.ConnectSpecificInstrument(CGloabal.g_curInstrument.strInstruName, resourceName);
+                error = CDll.ConnectSpecificInstrument(CGloabal.g_InstrPowerModule.strInstruName, resourceName);
                 if (error < 0)//连接失败
                 {
                     CCommonFuncs.ShowHintInfor(eHintInfoType.error, "电源打开失败！");
@@ -219,13 +327,13 @@ namespace A1013QSystem
                 }
                 else//连接成功,则要将当前用户输入的IP地址和端口号保存到ini文件中
                 {
-                    CDll.SaveInputNetInforsToIniFile(CGloabal.g_curInstrument.strInstruName, strIP, nPort);
+                    CDll.SaveInputNetInforsToIniFile(CGloabal.g_InstrPowerModule.strInstruName, strIP, nPort);
                     btnElect.Text = "关闭";
                 }
             }
             else//此时用户要断开连接
             {
-                error = CDll.CloseSpecificInstrument(CGloabal.g_curInstrument.strInstruName);
+                error = CDll.CloseSpecificInstrument(CGloabal.g_InstrPowerModule.strInstruName);
                 if (error < 0)//断开失败，则还要将switchConnect恢复为连接状态      
                 {
                     btnElect.Text = "关闭";
@@ -249,7 +357,7 @@ namespace A1013QSystem
                 //连接设备
                 resourceName = "TCPIP0::" + strIP + "::inst0::INSTR";
 
-                error = CDll.ConnectSpecificInstrument(CGloabal.g_curInstrument.strInstruName, resourceName);
+                error = CDll.ConnectSpecificInstrument(CGloabal.g_InstrScopeModule.strInstruName, resourceName);
                 if (error < 0)//连接失败
                 {
                     CCommonFuncs.ShowHintInfor(eHintInfoType.error, "示波器打开失败！");
@@ -257,13 +365,13 @@ namespace A1013QSystem
                 }
                 else//连接成功,则要将当前用户输入的IP地址和端口号保存到ini文件中
                 {
-                    CDll.SaveInputNetInforsToIniFile(CGloabal.g_curInstrument.strInstruName, strIP, nPort);
+                    CDll.SaveInputNetInforsToIniFile(CGloabal.g_InstrScopeModule.strInstruName, strIP, nPort);
                     btnOscill.Text = "关闭";
                 }
             }
             else//此时用户要断开连接
             {
-                error = CDll.CloseSpecificInstrument(CGloabal.g_curInstrument.strInstruName);
+                error = CDll.CloseSpecificInstrument(CGloabal.g_InstrScopeModule.strInstruName);
                 if (error < 0)//断开失败，则还要将switchConnect恢复为连接状态      
                 {
                     btnOscill.Text = "关闭";
@@ -457,22 +565,28 @@ namespace A1013QSystem
                 tabControl2.TabPages.Add(tabPage4);                
             }
             if (tabSelect.Text == "结果查看") {
-                DataTable dt = new DataTable();
-                DataRow dr = dt.NewRow();
-               
-                dt.Columns.Add("编号");
-                dt.Columns.Add("时间");
-                dt.Columns.Add("内容");
-                dt.Columns.Add("结果");
-               
-                dr["编号"] = "AX";
-                dr["时间"] = "AX";
-                dr["内容"] = "AX";
-                dr["结果"] = "AX";
+                //DataTable dt = new DataTable();
+                //DataRow dr = dt.NewRow();               
+              
+                //dt.Columns.Add("时间");
+                //dt.Columns.Add("电压1");
+                //dt.Columns.Add("电流1");
+                //dt.Columns.Add("电压2");
+                //dt.Columns.Add("电流2");
 
-                dt.Rows.Add(dr);
+                //foreach (var item in CGloabal.LModel)
+                //{
+                //    dr["时间"] = item.curDate;
+                //    dr["电压1"] = "AX";
+                //    dr["电流1"] = "AX";
+                //    dr["电压2"] = "AX";
+                //    dr["电流2"] = "AX";
+                //}
+               
+
+                //dt.Rows.Add(dr);
                 dataView.AllowUserToAddRows = false;
-                dataView.DataSource = dt;
+             //   dataView.DataSource = CGloabal.LModel;
                 dataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
 
@@ -532,6 +646,91 @@ namespace A1013QSystem
             bunTuple4.BaseColor = Color.CornflowerBlue;
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+          // CDll.DataSaveExcel("tese", CGloabal.LModel);
+        }
+
+        private void btnSet_Click(object sender, EventArgs e)
+        {
+            int error;
+            string strMsg = "";
+            if (btnElect.Text == "关闭")//用户要连接仪器
+            {
+                for (int ChanID = 1; ChanID <= 4; ChanID++)
+                {
+
+                    error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 1, ref strMsg);
+                    if (error < 0)
+                    {
+                        strMsg = string.Format("电源通道{0}打开失败", ChanID);
+                        CCommonFuncs.ShowHintInfor(eHintInfoType.error, strMsg);
+                        return;
+                    }
+                    else
+                    {
+                        switch (ChanID)
+                        {
+                            case 1:
+                                error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum1.Value, strMsg);
+                                error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum1.Value, strMsg);
+                               
+                                break;
+                            case 2:
+                                error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum2.Value, strMsg);
+                                error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum2.Value, strMsg);
+                             
+                                break;
+                            case 3:
+                                error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum3.Value, strMsg);
+                                error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum3.Value, strMsg);
+                               
+                                break;
+                            case 4:
+                                error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum4.Value, strMsg);
+                                error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum4.Value, strMsg);
+                               
+                                break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先打开电源");
+            }
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            int error = 0;
+            string strMsg = "";
+            for (int ChanID = 1; ChanID <= 4; ChanID++)
+            {
+                error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 0, ref strMsg);
+                if (error < 0)
+                {
+                    CCommonFuncs.ShowHintInfor(eHintInfoType.error, strMsg);
+                }
+                else
+                {
+                    switch (ChanID)
+                    {
+                        case 1:
+                           // swchPowerChan1.Value = false;
+                            break;
+                        case 2:
+                         //   swchPowerChan2.Value = false;
+                            break;
+                        case 3:
+                          //  swchPowerChan3.Value = false;
+                            break;
+                        case 4:
+                          //  swchPowerChan4.Value = false;
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

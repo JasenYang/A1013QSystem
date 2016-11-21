@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.IO;
 using DigitalCircuitSystem.DriverDAL;
 using A1013QSystem.DriverCommon;
+using System.Data.OleDb;
+using System.Data;
 
 namespace A1013QSystem.Common
 {
@@ -456,6 +458,70 @@ namespace A1013QSystem.Common
             visa32.viSetAttribute(pnHandle, visa32.VI_ATTR_TMO_VALUE, 2000); //超时2000ms
 
             return 0;
+        }
+
+        public static int DataSaveExcel(List<RecordModel> LRModel)
+        {
+            string filename = Application.StartupPath + @"\Report\Result"+System.DateTime.Now.ToString("yyyyMMdd")+".xls";
+            string connstr = @"Provider=Microsoft.Jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data Source=" + filename + ";Extended Properties='Excel 8.0;HDR=Yes'";//这个链接字符串是excel2003的
+            OleDbConnection oleConn = new OleDbConnection(connstr);
+            try
+            {
+                oleConn.Open();
+
+                string sqlStr;
+                DataTable dt = oleConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables_Info, null);
+                bool existTable = false;
+
+                foreach (DataRow dr in dt.Rows)//检查是否有信息表
+                {
+                    if (dr["TABLE_NAME"].ToString() == "Sheet1$")//要加个$号
+                        existTable = true;
+                }
+                if (!existTable)
+                {
+                    sqlStr = @"create table Sheet1( 时间 varchar(30),  电压1 varchar(30), 电流1 varchar(30), 电压2 varchar(30), 电流2 varchar(30),  速率 varchar(30), 通道11发  varchar(30),  通道11收 varchar(30), 通道11错误数  varchar(30),"
+                   + @" 通道21发 varchar(30),通道21收 varchar(30),  通道21错误数 varchar(30), 通道12发 varchar(30),  通道12收 varchar(30), 通道12错误数  varchar(30),通道22发 varchar(30), 通道22收 varchar(30),  通道22错误数 varchar(30),"
+                   + @"通道13发 varchar(30),  通道13收 varchar(30),通道13错误数 varchar(30),通道23发 varchar(30),通道23收  varchar(30), 通道23错误数 varchar(30),通道14发  varchar(30), 通道14收 varchar(30),"
+                   + @"通道14错误数 varchar(30),通道24发 varchar(30),通道24收  varchar(30), 通道24错误数 varchar(30))";
+
+                   OleDbCommand oleCmd = new OleDbCommand(sqlStr, oleConn);
+                    oleCmd.ExecuteNonQuery();
+                }
+
+                //下面的代码用OleDbCommand的parameter添加参数
+                int aa = 0;
+                for (int i = 0; i < LRModel.Count; i++)
+                {
+                    sqlStr = "insert into Sheet1 values('" + LRModel[i].curDate + "','" + LRModel[i].volVal1 + "','" + LRModel[i].eleVal1 + "','" + LRModel[i].volVal1 + "','" + LRModel[i].eleVal1 + "','" + LRModel[i].rate + "','" + LRModel[i].sendVal11 + "','" + LRModel[i].receivVal11 + "','" + LRModel[i].errorVal11
+                        + @"','" + LRModel[i].sendVal21 + "','" + LRModel[i].receivVal21 + "','" + LRModel[i].errorVal21 + "','" + LRModel[i].sendVal12 + "','" + LRModel[i].receivVal12 + "','" + LRModel[i].errorVal12 + "','" + LRModel[i].sendVal22
+                        + @"','" + LRModel[i].receivVal22 + "','" + LRModel[i].errorVal22 + "','" + LRModel[i].sendVal13 + "','" + LRModel[i].receivVal13 + "','" + LRModel[i].errorVal13 + "','" + LRModel[i].sendVal23 + "','" + LRModel[i].receivVal23 
+                        + @"','" + LRModel[i].errorVal23 + "','" + LRModel[i].sendVal14 + "','" + LRModel[i].receivVal14 + "','" + LRModel[i].errorVal14 + "','" + LRModel[i].sendVal24 + "','" + LRModel[i].receivVal24 + "','"+ LRModel[i].errorVal24 + "')";
+                    OleDbCommand Cmd = new OleDbCommand(sqlStr, oleConn);
+                   aa=  Cmd.ExecuteNonQuery();
+                    if (aa <= 0) {
+                        break;
+                    }
+                }
+                if (aa <= 0)
+                {
+                    MessageBox.Show("添加数据失败！");
+                    return -1;
+                }
+                else {
+                    return aa;
+                }               
+            }
+            catch (Exception te)
+            {
+                MessageBox.Show(te.Message);
+                return -1;
+            }
+            finally
+            {
+                oleConn.Close();
+            }
+
         }
 
     }

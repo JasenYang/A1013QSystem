@@ -44,6 +44,9 @@ namespace A1013QSystem.Common
         //定义常量
         public const int nCOM_RECV_NUMS = 24;//定义串口接收到个数时，触发接收事件
 
+        //定义数据list
+        public static  List<RecordModel> LModel = new List<RecordModel>();
+
         //导入系统库
         [DllImport("user32.dll", EntryPoint = "SendMessage")]//dll导入
         public static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);

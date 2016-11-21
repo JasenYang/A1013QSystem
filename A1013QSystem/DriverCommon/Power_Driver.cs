@@ -158,18 +158,12 @@ namespace DigitalCircuitSystem.DriverDAL
         输出参数：
         返 回 值：
         */
-        public static int SetOutputVoltage(int nInstrumentHandle, int nSimulateFlag, int ChanID, double dVoltageV, string pErrMsg)
+        public static int SetOutputVoltage(int nInstrumentHandle,  int ChanID, double dVoltageV, string pErrMsg)
         {
             int error = 0;
             string CmdBuf;
             int retCnt;
-
-
-            //检测是否处于模拟状态
-            if (nSimulateFlag == 1)
-                return 0;
-
-
+            
             if (0 == nInstrumentHandle)
             {
                 pErrMsg = "已经关闭或初始化失败!";
@@ -233,16 +227,11 @@ namespace DigitalCircuitSystem.DriverDAL
         输出参数：
         返 回 值：
         */
-        public static int SetMaxElectricityVal(int nInstrumentHandle, int nSimulateFlag, int ChanID, double dValA, string pErrMsg)
+        public static int SetMaxElectricityVal(int nInstrumentHandle, int ChanID, double dValA, string pErrMsg)
         {
             int error = 0;
             string CmdBuf;
             int retCnt;
-
-            //检测是否处于模拟状态
-            if (nSimulateFlag == 1)
-                return 0;
-
 
             if (0 == nInstrumentHandle)
             {
@@ -312,16 +301,11 @@ namespace DigitalCircuitSystem.DriverDAL
         输出参数：
         返 回 值：
         */
-        public static int isEnableChannel(int nInstrumentHandle, int nSimulateFlag, int ChanID, int nFlag, ref string pErrMsg)
+        public static int isEnableChannel(int nInstrumentHandle,  int ChanID, int nFlag, ref string pErrMsg)
         {
             int error = 0;
             string CmdBuf;
-
-
-            //检测是否处于模拟状态
-            if (nSimulateFlag == 1)
-                return 0;
-
+            
             if (0 == nInstrumentHandle)
             {
                 pErrMsg = "已经关闭或初始化失败!";
@@ -345,6 +329,63 @@ namespace DigitalCircuitSystem.DriverDAL
             }
 
             return error;
+        }
+
+        public static int ReadVoltage(int nInstrumentHandle, int channel,  string strErrMsg, ref double voltage)
+        {
+            int status = 0;
+            string commands;
+            string strVal;
+            int retCnt;
+            byte[] byteArray = new byte[100];
+          
+            //:MEASure:SCALar:VOLTage:DC? (@1)
+            commands = ":MEASure:SCALar:VOLTage:DC? (@" + channel.ToString() + ")";
+            status = visa32.viWrite(nInstrumentHandle, System.Text.Encoding.Default.GetBytes(commands), commands.Length, out retCnt);
+            if (status < 0)
+            {
+                strErrMsg = "VISA函数错误!";
+                return status;
+            }
+            status = visa32.viRead(nInstrumentHandle, byteArray, BUFF_SIZE, out retCnt);
+            if (status < 0)
+            {
+                strErrMsg = "VISA函数错误!";
+                return status;
+            }
+            strVal = System.Text.Encoding.Default.GetString(byteArray);
+            voltage = Convert.ToDouble(strVal);
+            if (voltage < 0.0001)
+                voltage = 0;
+            return status;
+        }
+        public static int ReadCurrent(int nInstrumentHandle, int channel, string strErrMsg, ref double voltage)
+        {
+            int status = 0;
+            string commands;
+            string strVal;
+            int retCnt;
+            byte[] byteArray = new byte[100];
+
+            //:MEASure:SCALar:VOLTage:DC? (@1)
+            commands = ":MEASure:SCALar:CURRent:DC? (@" + channel.ToString() + ")";
+            status = visa32.viWrite(nInstrumentHandle, System.Text.Encoding.Default.GetBytes(commands), commands.Length, out retCnt);
+            if (status < 0)
+            {
+                strErrMsg = "VISA函数错误!";
+                return status;
+            }
+            status = visa32.viRead(nInstrumentHandle, byteArray, BUFF_SIZE, out retCnt);
+            if (status < 0)
+            {
+                strErrMsg = "VISA函数错误!";
+                return status;
+            }
+            strVal = System.Text.Encoding.Default.GetString(byteArray);
+            voltage = Convert.ToDouble(strVal);
+            if (voltage < 0.0001)
+                voltage = 0;
+            return status;
         }
 
     }
