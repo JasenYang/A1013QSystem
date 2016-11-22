@@ -462,7 +462,24 @@ namespace A1013QSystem.Common
 
         public static int DataSaveExcel(List<RecordModel> LRModel)
         {
-            string filename = Application.StartupPath + @"\Report\Result"+System.DateTime.Now.ToString("yyyyMMdd")+".xls";
+            var fileNa = System.DateTime.Now.Hour;
+            string fileNa1 = "";
+            if (fileNa >= 00 && fileNa <= 8)
+            {
+                fileNa1 = System.DateTime.Now.ToString("yyyyMMdd") + "08";
+            }
+            else if(fileNa > 8 && fileNa <= 16)
+            {
+                fileNa1 = System.DateTime.Now.ToString("yyyyMMdd") + "16";
+            }
+            else if (fileNa > 16 && fileNa < 24)
+            {
+                fileNa1 = System.DateTime.Now.ToString("yyyyMMdd") + "24";
+            }
+
+           
+
+            string filename = Application.StartupPath + @"\Report\Result"+ fileNa1 + ".xls";
             string connstr = @"Provider=Microsoft.Jet.OLEDB.4.0;Extended Properties=Excel 8.0;Data Source=" + filename + ";Extended Properties='Excel 8.0;HDR=Yes'";//这个链接字符串是excel2003的
             OleDbConnection oleConn = new OleDbConnection(connstr);
             try
@@ -493,7 +510,7 @@ namespace A1013QSystem.Common
                 int aa = 0;
                 for (int i = 0; i < LRModel.Count; i++)
                 {
-                    sqlStr = "insert into Sheet1 values('" + LRModel[i].curDate + "','" + LRModel[i].volVal1 + "','" + LRModel[i].eleVal1 + "','" + LRModel[i].volVal1 + "','" + LRModel[i].eleVal1 + "','" + LRModel[i].rate + "','" + LRModel[i].sendVal11 + "','" + LRModel[i].receivVal11 + "','" + LRModel[i].errorVal11
+                    sqlStr = "insert into Sheet1 values('" + LRModel[i].curDate + "','" + LRModel[i].volVal1 + "','" + LRModel[i].eleVal1 + "','" + LRModel[i].volVal2 + "','" + LRModel[i].eleVal2 + "','" + LRModel[i].rate + "','" + LRModel[i].sendVal11 + "','" + LRModel[i].receivVal11 + "','" + LRModel[i].errorVal11
                         + @"','" + LRModel[i].sendVal21 + "','" + LRModel[i].receivVal21 + "','" + LRModel[i].errorVal21 + "','" + LRModel[i].sendVal12 + "','" + LRModel[i].receivVal12 + "','" + LRModel[i].errorVal12 + "','" + LRModel[i].sendVal22
                         + @"','" + LRModel[i].receivVal22 + "','" + LRModel[i].errorVal22 + "','" + LRModel[i].sendVal13 + "','" + LRModel[i].receivVal13 + "','" + LRModel[i].errorVal13 + "','" + LRModel[i].sendVal23 + "','" + LRModel[i].receivVal23 
                         + @"','" + LRModel[i].errorVal23 + "','" + LRModel[i].sendVal14 + "','" + LRModel[i].receivVal14 + "','" + LRModel[i].errorVal14 + "','" + LRModel[i].sendVal24 + "','" + LRModel[i].receivVal24 + "','"+ LRModel[i].errorVal24 + "')";

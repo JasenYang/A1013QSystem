@@ -49,8 +49,9 @@ namespace A1013QSystem
             tSave.Interval = 2000;
             tSave.Tick += Fn_ReadVolAndEle;
             tSave.Enabled = true;
-                       
-            //
+
+
+                    //
             //显示串口的默认参数
             //首先检测本机是否含有串口
             string[] str = SerialPort.GetPortNames();
@@ -82,7 +83,75 @@ namespace A1013QSystem
             dt.Columns.Add("芯片1通道2发"); dt.Columns.Add("芯片1通道2收"); dt.Columns.Add("芯片1通道2错误"); dt.Columns.Add("芯片2通道2发"); dt.Columns.Add("芯片2通道2收"); dt.Columns.Add("芯片2通道2错误");
             dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
             dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
+
+            tabControl1.TabPages.Clear();
+            tabControl1.TabPages.Add(tabPage1);
+            tabControl1.TabPages.Add(tabPage2);
+
+
+            //变化电压3
+            Timer tVolChange = new Timer();
+            tVolChange.Interval = 300000;
+            tVolChange.Tick += Fn_CircleVol;
+            tVolChange.Enabled = true;
+
+            //变化电压4
+            Timer tEleChange = new Timer();
+            tEleChange.Interval =  1200000;
+            tEleChange.Tick += Fn_CircleEle;
+            tEleChange.Enabled = true;
         }
+
+        int cireVolNum = 4;
+        public void Fn_CircleVol(object sender, EventArgs e)
+        {
+           switch(cireVolNum)
+            {
+                case 4:
+                    volNum3.Value = (decimal)3.3;
+                    cireVolNum--;
+                    break;
+                case 3:
+                    volNum3.Value = (decimal)3.0;
+                    cireVolNum--;
+                    break;
+                case 2:
+                    volNum3.Value = (decimal)3.3;
+                    cireVolNum--;
+                    break;
+                case 1:
+                    volNum3.Value = (decimal)3.6;
+                    cireVolNum = 4;
+                    break;
+            }
+           int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
+        }
+
+        int cireEleNum = 4;
+        public void Fn_CircleEle(object sender, EventArgs e)
+        {
+            switch (cireEleNum)
+            {
+                case 4:
+                    volNum4.Value = (decimal)1.2;
+                    cireEleNum--;
+                    break;
+                case 3:
+                    volNum4.Value = (decimal)1.08;
+                    cireEleNum--;
+                    break;
+                case 2:
+                    volNum4.Value = (decimal)1.2;
+                    cireEleNum--;
+                    break;
+                case 1:
+                    volNum4.Value = (decimal)1.32;
+                    cireEleNum = 4;
+                    break;
+            }
+            int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, (double)volNum4.Value, "");
+        }
+            
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -109,9 +178,9 @@ namespace A1013QSystem
         {
             RModel.curDate = System.DateTime.Now;
             RModel.volVal1 =double.Parse(string.IsNullOrEmpty(vol1.Text)?"0": vol1.Text);
-            RModel.eleVal1 = double.Parse(string.IsNullOrEmpty(ele1.Text) ? "0" : vol1.Text);
-            RModel.volVal2 = double.Parse(string.IsNullOrEmpty(vol2.Text) ? "0" : vol1.Text);
-            RModel.eleVal2 = double.Parse(string.IsNullOrEmpty(ele2.Text) ? "0" : vol1.Text);
+            RModel.eleVal1 = double.Parse(string.IsNullOrEmpty(ele1.Text) ? "0" : ele1.Text);
+            RModel.volVal2 = double.Parse(string.IsNullOrEmpty(vol2.Text) ? "0" : vol2.Text);
+            RModel.eleVal2 = double.Parse(string.IsNullOrEmpty(ele2.Text) ? "0" : ele2.Text);
 
             int length;
             byte[] ReceiveBytes = new byte[24];           
@@ -250,7 +319,7 @@ namespace A1013QSystem
             DataRow dr = dt.NewRow();            
             foreach (var item in CGloabal.LModel)
             {
-                dr["时间"] = item.curDate;dr["电压1"] = item.volVal1; dr["电流1"] = item.eleVal1;dr["电压2"] = item.volVal2;  dr["电流2"] = item.volVal2; dr["速率"] = item.rate;
+                dr["时间"] = item.curDate;dr["电压1"] = item.volVal1; dr["电流1"] = item.eleVal1;dr["电压2"] = item.volVal2;  dr["电流2"] = item.eleVal2; dr["速率"] = item.rate;
                 dr["芯片1通道1发"] = item.sendVal11; dr["芯片1通道1收"] = item.receivVal11; dr["芯片1通道1错误"] = item.errorVal11;
                 dr["芯片2通道1发"] = item.sendVal21; dr["芯片2通道1收"] = item.receivVal21; dr["芯片2通道1错误"] = item.errorVal21;
 
@@ -264,15 +333,16 @@ namespace A1013QSystem
                 dr["芯片2通道4发"] = item.sendVal24; dr["芯片2通道4收"] = item.receivVal24; dr["芯片2通道4错误"] = item.errorVal24;
             }
 
-            dt.Rows.Add(dr);           
-
-            dataView.DataSource = dt;
-            if (dt.Rows.Count == 100) {
-                dt.Clear();
-            }
-            dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
-
-            dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dt.Rows.Add(dr);
+           
+            //if (dt.Rows.Count == 39)
+            //{
+            //    dt.Rows[0].Delete();
+            //}
+            //dataView.DataSource = dt;
+            ////dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
+           
+            //dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
            
             int kk = CDll.DataSaveExcel(CGloabal.LModel);
             if (kk > 0) {
