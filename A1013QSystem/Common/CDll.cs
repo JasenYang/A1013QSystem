@@ -262,7 +262,6 @@ namespace A1013QSystem.Common
                     error = Power_Driver.Close(CGloabal.g_InstrPowerModule.nHandle, 0, strError);
                     if (error < 0)
                     {
-
                         CCommonFuncs.ShowHintInfor(eHintInfoType.error, "电源断开失败");
                     }
                     else//断开成功，要将此时的连接状态更新到仪器参数中

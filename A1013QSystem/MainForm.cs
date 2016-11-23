@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,21 @@ namespace A1013QSystem
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            
+            GraphicsPath buttonPath = new GraphicsPath();
+            buttonPath.AddEllipse(5, 5, 20, 20);
 
-             //将数字键上下箭头去掉
+            btnLight1.Region = new System.Drawing.Region(buttonPath);
+            btnLight2.Region = new System.Drawing.Region(buttonPath);
+            btnLight3.Region = new System.Drawing.Region(buttonPath);
+            btnLight4.Region = new System.Drawing.Region(buttonPath);
+            btnLight5.Region = new System.Drawing.Region(buttonPath);
+            btnLight6.Region = new System.Drawing.Region(buttonPath);
+            btnLight7.Region = new System.Drawing.Region(buttonPath);
+            btnLight8.Region = new System.Drawing.Region(buttonPath);
+           
+
+            //将数字键上下箭头去掉
             volNum1.UpDownButton.Visible = false;
             eleNum1.UpDownButton.Visible = false;
             volNum2.UpDownButton.Visible = false;
@@ -84,9 +98,9 @@ namespace A1013QSystem
             dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
             dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
 
-            tabControl1.TabPages.Clear();
-            tabControl1.TabPages.Add(tabPage1);
-            tabControl1.TabPages.Add(tabPage2);
+            //tabControl1.TabPages.Clear();
+            //tabControl1.TabPages.Add(tabPage1);
+            //tabControl1.TabPages.Add(tabPage2);
 
 
             //变化电压3
@@ -101,11 +115,29 @@ namespace A1013QSystem
             tEleChange.Tick += Fn_CircleEle;
             tEleChange.Enabled = true;
         }
+        
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //居中显示
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            //显示应用程序在任务栏中的图标
+            this.ShowInTaskbar = true;
+        
+            //首先要从ini文件读取仪器的参数信息
+            CDll.GetAlltheInstumentsParasFromIniFile();
+            ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port.Value = CGloabal.g_InstrPowerModule.port;
 
+            ipAddressControl2.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port2.Value= CGloabal.g_InstrScopeModule.port;
+
+            multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
+        }
         int cireVolNum = 4;
         public void Fn_CircleVol(object sender, EventArgs e)
         {
-           switch(cireVolNum)
+            switch (cireVolNum)
             {
                 case 4:
                     volNum3.Value = (decimal)3.3;
@@ -124,7 +156,7 @@ namespace A1013QSystem
                     cireVolNum = 4;
                     break;
             }
-           int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
+            int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
         }
 
         int cireEleNum = 4;
@@ -150,26 +182,6 @@ namespace A1013QSystem
                     break;
             }
             int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, (double)volNum4.Value, "");
-        }
-            
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            //居中显示
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            //显示应用程序在任务栏中的图标
-            this.ShowInTaskbar = true;
-        
-            //首先要从ini文件读取仪器的参数信息
-            CDll.GetAlltheInstumentsParasFromIniFile();
-            ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
-            port.Value = CGloabal.g_InstrPowerModule.port;
-
-            ipAddressControl2.Text = CGloabal.g_InstrPowerModule.ipAdress;
-            port2.Value= CGloabal.g_InstrScopeModule.port;
-
-            multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
         }
 
         //UUT的串口收到数据回调函数
@@ -334,16 +346,22 @@ namespace A1013QSystem
             }
 
             dt.Rows.Add(dr);
-           
-            //if (dt.Rows.Count == 39)
-            //{
-            //    dt.Rows[0].Delete();
-            //}
+            // dt.Select("1=1", " 时间 desc");
+            if (dt.Rows.Count == 22)
+            {
+                dt.Rows[0].Delete();
+            }
             //dataView.DataSource = dt;
             ////dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
-           
+
             //dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-           
+            dataView.AllowUserToAddRows = false;    
+            dataView.ScrollBars = ScrollBars.Both;
+
+            dataView.DataSource = dt;// CGloabal.LModel;     
+            dataView.Columns[0].Width = 160;
+
+            //数据保存到Excel中
             int kk = CDll.DataSaveExcel(CGloabal.LModel);
             if (kk > 0) {
                 CGloabal.LModel.Clear();
@@ -370,12 +388,7 @@ namespace A1013QSystem
                 ele2.Text = eletage2.ToString("0.00000");
             }
         }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-          
-        }
-
+      
         private void btnElect_Click(object sender, EventArgs e)
         {
             string strIP;
@@ -632,36 +645,49 @@ namespace A1013QSystem
            if (tabSelect.Text == "试验用例")
             {
                 tabControl2.TabPages.Clear();
-                tabControl2.TabPages.Add(tabPage4);                
+                tabControl2.TabPages.Add(tabPage3);                
             }
             if (tabSelect.Text == "结果查看") {
-                //DataTable dt = new DataTable();
-                //DataRow dr = dt.NewRow();               
-              
-                //dt.Columns.Add("时间");
-                //dt.Columns.Add("电压1");
-                //dt.Columns.Add("电流1");
-                //dt.Columns.Add("电压2");
-                //dt.Columns.Add("电流2");
+                DataTable dt = new DataTable();              
 
-                //foreach (var item in CGloabal.LModel)
-                //{
-                //    dr["时间"] = item.curDate;
-                //    dr["电压1"] = "AX";
-                //    dr["电流1"] = "AX";
-                //    dr["电压2"] = "AX";
-                //    dr["电流2"] = "AX";
-                //}
-               
+            //    dt.Columns.Add("时间");
+            //    dt.Columns.Add("电压1");
+            //    dt.Columns.Add("电流1");
+            //    dt.Columns.Add("电压2");
+            //    dt.Columns.Add("电流2");
+            //    dt.Columns.Add("速率");
+            //    dt.Columns.Add("11"); dt.Columns.Add("12电流2电流2"); dt.Columns.Add("13"); dt.Columns.Add("14");
+            //    dt.Columns.Add("21"); dt.Columns.Add("22电流2电流2"); dt.Columns.Add("23"); dt.Columns.Add("24");
+            //    dt.Columns.Add("31"); dt.Columns.Add("32电流2电流2"); dt.Columns.Add("33"); dt.Columns.Add("34");
+            //    dt.Columns.Add("41"); dt.Columns.Add("42电流2电流2"); dt.Columns.Add("43"); dt.Columns.Add("44");
+            //    dt.Columns.Add("51"); dt.Columns.Add("52电流2电流2"); dt.Columns.Add("53"); dt.Columns.Add("54");
 
-                //dt.Rows.Add(dr);
-                dataView.AllowUserToAddRows = false;
-             //   dataView.DataSource = CGloabal.LModel;
-                dataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //    for (int i=0;i<10;i++)
+            //    {
+            //        DataRow dr = dt.NewRow();
+            //        dr["时间"] = "2016/11/22 12:00:"+i;
+            //        dr["电压1"] = "3233";
+            //        dr["电流1"] = "AX"+i;
+            //        dr["电压2"] = "AX";
+            //        dr["电流2"] = "AX";
+            //        dr["速率"] = "AX";
+            //        dr["11"] = "34000"; dr["12电流2电流2"] = "34000"; dr["13"] = "34000"; dr["14"] = "34000";
+            //        dr["21"] = "34000"; dr["22电流2电流2"] = "34000"; dr["23"] = "34000"; dr["24"] = "34000";
+            //        dr["31"] = "34000"; dr["32电流2电流2"] = "34000"; dr["33"] = "34000"; dr["34"] = "34000";
+            //        dr["41"] = "34000"; dr["42电流2电流2"] = "34000"; dr["43"] = "34000"; dr["44"] = "34000";
+            //        dr["51"] = "34000"; dr["52电流2电流2"] = "34000"; dr["53"] = "34000"; dr["54"] = "34000";
+
+            //        dt.Rows.Add(dr);
+            //    }
+            
+            //    dataView.AllowUserToAddRows = false;
+            //    dataView.DataSource = dt;// CGloabal.LModel;             
+            //    dataView.Columns[0].Width = 160;
+            //    dataView.ScrollBars = ScrollBars.Both;    
+
             }
 
-            tabControl2.TabPages.Clear();
-            tabControl2.TabPages.Add(tabPage3);
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -725,11 +751,19 @@ namespace A1013QSystem
         {
             int error;
             string strMsg = "";
+
+            //btnLight1.BackColor = Color.LightGreen;
+            //btnLight2.BackColor = Color.LightGreen;
+            //btnLight3.BackColor = Color.LightGreen;
+            //btnLight4.BackColor = Color.LightGreen;
+            //btnLight5.BackColor = Color.LightGreen;
+            //btnLight6.BackColor = Color.LightGreen;
+            //btnLight7.BackColor = Color.LightGreen;
+            //btnLight8.BackColor = Color.LightGreen;
             if (btnElect.Text == "关闭")//用户要连接仪器
-            {
+            {            
                 for (int ChanID = 1; ChanID <= 4; ChanID++)
                 {
-
                     error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 1, ref strMsg);
                     if (error < 0)
                     {
@@ -743,23 +777,27 @@ namespace A1013QSystem
                         {
                             case 1:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum1.Value, strMsg);
+                               btnLight1.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum1.Value, strMsg);
-                               
+                                btnLight2.BackColor = Color.LightGreen;
                                 break;
                             case 2:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum2.Value, strMsg);
+                                btnLight3.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum2.Value, strMsg);
-                             
+                                btnLight4.BackColor = Color.LightGreen;
                                 break;
                             case 3:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum3.Value, strMsg);
+                                btnLight5.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum3.Value, strMsg);
-                               
+                                btnLight6.BackColor = Color.LightGreen;
                                 break;
                             case 4:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum4.Value, strMsg);
+                                btnLight7.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum4.Value, strMsg);
-                               
+                                btnLight8.BackColor = Color.LightGreen;
                                 break;
                         }
                     }
@@ -775,6 +813,15 @@ namespace A1013QSystem
         {
             int error = 0;
             string strMsg = "";
+            //btnLight1.BackColor = Color.WhiteSmoke;
+            //btnLight2.BackColor = Color.WhiteSmoke;
+            //btnLight3.BackColor = Color.WhiteSmoke;
+            //btnLight4.BackColor = Color.WhiteSmoke;
+            //btnLight5.BackColor = Color.WhiteSmoke;
+            //btnLight6.BackColor = Color.WhiteSmoke;
+            //btnLight7.BackColor = Color.WhiteSmoke;
+            //btnLight8.BackColor = Color.WhiteSmoke;
+
             for (int ChanID = 1; ChanID <= 4; ChanID++)
             {
                 error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 0, ref strMsg);
@@ -787,16 +834,21 @@ namespace A1013QSystem
                     switch (ChanID)
                     {
                         case 1:
-                           // swchPowerChan1.Value = false;
+                            btnLight1.BackColor = Color.WhiteSmoke;
+                            btnLight2.BackColor = Color.WhiteSmoke;
+
                             break;
                         case 2:
-                         //   swchPowerChan2.Value = false;
+                            btnLight3.BackColor = Color.WhiteSmoke;
+                            btnLight4.BackColor = Color.WhiteSmoke;
                             break;
                         case 3:
-                          //  swchPowerChan3.Value = false;
+                            btnLight5.BackColor = Color.WhiteSmoke;
+                            btnLight6.BackColor = Color.WhiteSmoke;
                             break;
                         case 4:
-                          //  swchPowerChan4.Value = false;
+                            btnLight7.BackColor = Color.WhiteSmoke;
+                            btnLight8.BackColor = Color.WhiteSmoke;
                             break;
                     }
                 }
