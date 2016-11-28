@@ -501,9 +501,8 @@ namespace A1013QSystem
                 {//注册回掉函数    
 
                     btnSerial.Text = "关闭";
-                    CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
-                  
-                    CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
+                    //CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;                  
+                    //CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
                 }
                 else
                 {
@@ -707,6 +706,11 @@ namespace A1013QSystem
             {
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage6);
+
+                //芯片系统默认设置
+                chipSelect.SelectedIndex = 0;
+                pathSelect.SelectedIndex = 0;
+
             }
             else if (SelectNode.Text == "基本功能测试")
             {
@@ -863,6 +867,51 @@ namespace A1013QSystem
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 稳定性测试——执行测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
+            CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
+        }
+
+        private void btnRead1_Click(object sender, EventArgs e)
+        {
+            this.lsrList.GridLines = true; //显示表格线
+            this.lsrList.View = View.Details;//显示表格细节
+            this.lsrList.LabelEdit = true; //是否可编辑,ListView只可编辑第一列。
+            this.lsrList.Scrollable = true;//有滚动条
+            this.lsrList.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.lsrList.FullRowSelect = true;//是否可以选择行
+
+            //this.listView1.HotTracking = true;// 当选择此属性时则HoverSelection自动为true和Activation属性为oneClick
+            //this.listView1.HoverSelection = true;
+            //this.listView1.Activation = ItemActivation.Standard; //
+
+            lsrList.Columns.Clear();
+            //添加表头
+            for (int i = 0; i < 8; i++)
+            {
+                this.lsrList.Columns.Add((i+1).ToString(), 41);
+            }
+
+            //添加各项
+            ListViewItem[] p = new ListViewItem[1];
+            p[0] = new ListViewItem(new string[] { "00", "aa", "bb" ,"cc","dd","ee","ff"});
+           // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.lsrList.Items.AddRange(p);         
+        }
+
+        private void btnChipSet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

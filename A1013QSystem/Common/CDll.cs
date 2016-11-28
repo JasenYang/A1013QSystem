@@ -459,6 +459,11 @@ namespace A1013QSystem.Common
             return 0;
         }
 
+        /// <summary>
+        /// 数据保存到Excel中
+        /// </summary>
+        /// <param name="LRModel"></param>
+        /// <returns></returns>
         public static int DataSaveExcel(List<RecordModel> LRModel)
         {
             var fileNa = System.DateTime.Now.Hour;
@@ -540,5 +545,16 @@ namespace A1013QSystem.Common
 
         }
 
+
+        /// <summary>
+        /// 基本功能测试读取数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="pathNum">通道</param>
+        /// <param name="typeName">类型</param>
+        public static void BaseTestReadData(int chipNum,int pathNum ,string typeName)
+        {
+
+        }
     }
 }
