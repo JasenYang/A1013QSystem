@@ -1,5 +1,6 @@
 ﻿using A1013QSystem.Common;
 using A1013QSystem.DriverCommon;
+using A1013QSystem.Model;
 using DigitalCircuitSystem.DriverDAL;
 using System;
 using System.Collections.Generic;
@@ -911,6 +912,39 @@ namespace A1013QSystem
 
         private void btnChipSet_Click(object sender, EventArgs e)
         {
+            ChipModel CHIPMODEL = new ChipModel();
+            CHIPMODEL.chipSelect = chipSelect.SelectedText;
+            CHIPMODEL.pathSelect = pathSelect.SelectedText;
+
+            CHIPMODEL.baudRate = baudRate.Text;
+            CHIPMODEL.parityCheck = parityCheck.SelectedText;
+            CHIPMODEL.stopBit = stopBit.SelectedText;
+            CHIPMODEL.byteLength = byteLength.SelectedText;
+            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedText;
+            CHIPMODEL.DMAPattern = DMAPattern.SelectedText;
+            CHIPMODEL.receiveFIFO = receiveFIFO.SelectedText;
+            CHIPMODEL.sendTarget = sendTarget.SelectedText;
+            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedText;
+            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedText;
+            CHIPMODEL.receiveCache = receiveCache.SelectedText;
+
+
+
+            //var chipID = chipSelect.SelectedText;
+            //var pathID = pathSelect.SelectedText;
+
+            //double baudRateStr = Convert.ToDouble(baudRate.Text);
+            //var parityCheckStr = parityCheck.SelectedText;
+            //var stopBitStr = stopBit.SelectedText;
+            //var byteLengthStr = byteLength.SelectedText;
+            //var FIFOSelectStr = FIFOSelect.SelectedText;
+            //var DMAPatternStr = DMAPattern.SelectedText;
+            //var receiveFIFOStr = receiveFIFO.SelectedText;
+            //var sendTargetStr = sendTarget.SelectedText;
+            //var receiveInterruptStr = receiveInterrupt.SelectedText;
+            //var sendInterruptStr = sendInterrupt.SelectedText;
+            //var receiveCacheStr = receiveCache.SelectedText;
+
 
         }
     }

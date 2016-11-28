@@ -9,6 +9,7 @@ using DigitalCircuitSystem.DriverDAL;
 using A1013QSystem.DriverCommon;
 using System.Data.OleDb;
 using System.Data;
+using A1013QSystem.Model;
 
 namespace A1013QSystem.Common
 {
@@ -553,6 +554,11 @@ namespace A1013QSystem.Common
         /// <param name="pathNum">通道</param>
         /// <param name="typeName">类型</param>
         public static void BaseTestReadData(int chipNum,int pathNum ,string typeName)
+        {
+
+        }
+
+        public static void ChipSet(ChipModel MODEL)
         {
 
         }

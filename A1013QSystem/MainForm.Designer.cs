@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -204,6 +204,24 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.receiveCache = new System.Windows.Forms.ComboBox();
+            this.sendInterrupt = new System.Windows.Forms.ComboBox();
+            this.receiveInterrupt = new System.Windows.Forms.ComboBox();
+            this.sendTarget = new System.Windows.Forms.ComboBox();
+            this.receiveFIFO = new System.Windows.Forms.ComboBox();
+            this.DMAPattern = new System.Windows.Forms.ComboBox();
+            this.FIFOSelect = new System.Windows.Forms.ComboBox();
+            this.byteLength = new System.Windows.Forms.ComboBox();
+            this.stopBit = new System.Windows.Forms.ComboBox();
+            this.parityCheck = new System.Windows.Forms.ComboBox();
+            this.btnChipSet = new System.Windows.Forms.Button();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
             this.baudRate = new System.Windows.Forms.TextBox();
             this.label87 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
@@ -215,14 +233,28 @@
             this.label82 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.listView3 = new System.Windows.Forms.ListView();
             this.button6 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.textBox25 = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
             this.textBox26 = new System.Windows.Forms.TextBox();
+            this.listView4 = new System.Windows.Forms.ListView();
             this.label98 = new System.Windows.Forms.Label();
+            this.button12 = new System.Windows.Forms.Button();
             this.label99 = new System.Windows.Forms.Label();
+            this.listView5 = new System.Windows.Forms.ListView();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label104 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label102 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.btnRead0 = new System.Windows.Forms.Button();
             this.btnRead1 = new System.Windows.Forms.Button();
             this.lsrList = new System.Windows.Forms.ListView();
@@ -240,38 +272,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label102 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label103 = new System.Windows.Forms.Label();
-            this.listView4 = new System.Windows.Forms.ListView();
-            this.button12 = new System.Windows.Forms.Button();
-            this.listView5 = new System.Windows.Forms.ListView();
-            this.label104 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.btnChipSet = new System.Windows.Forms.Button();
-            this.label93 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
-            this.parityCheck = new System.Windows.Forms.ComboBox();
-            this.stopBit = new System.Windows.Forms.ComboBox();
-            this.byteLength = new System.Windows.Forms.ComboBox();
-            this.FIFOSelect = new System.Windows.Forms.ComboBox();
-            this.DMAPattern = new System.Windows.Forms.ComboBox();
-            this.receiveFIFO = new System.Windows.Forms.ComboBox();
-            this.sendTarget = new System.Windows.Forms.ComboBox();
-            this.receiveInterrupt = new System.Windows.Forms.ComboBox();
-            this.endInterrupt = new System.Windows.Forms.ComboBox();
-            this.receiveCache = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -2414,7 +2414,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.receiveCache);
-            this.groupBox7.Controls.Add(this.endInterrupt);
+            this.groupBox7.Controls.Add(this.sendInterrupt);
             this.groupBox7.Controls.Add(this.receiveInterrupt);
             this.groupBox7.Controls.Add(this.sendTarget);
             this.groupBox7.Controls.Add(this.receiveFIFO);
@@ -2441,6 +2441,197 @@
             this.groupBox7.Size = new System.Drawing.Size(685, 549);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
+            // 
+            // receiveCache
+            // 
+            this.receiveCache.FormattingEnabled = true;
+            this.receiveCache.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.receiveCache.Location = new System.Drawing.Point(199, 482);
+            this.receiveCache.Name = "receiveCache";
+            this.receiveCache.Size = new System.Drawing.Size(148, 29);
+            this.receiveCache.TabIndex = 37;
+            // 
+            // sendInterrupt
+            // 
+            this.sendInterrupt.FormattingEnabled = true;
+            this.sendInterrupt.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.sendInterrupt.Location = new System.Drawing.Point(199, 438);
+            this.sendInterrupt.Name = "sendInterrupt";
+            this.sendInterrupt.Size = new System.Drawing.Size(148, 29);
+            this.sendInterrupt.TabIndex = 36;
+            // 
+            // receiveInterrupt
+            // 
+            this.receiveInterrupt.FormattingEnabled = true;
+            this.receiveInterrupt.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.receiveInterrupt.Location = new System.Drawing.Point(199, 396);
+            this.receiveInterrupt.Name = "receiveInterrupt";
+            this.receiveInterrupt.Size = new System.Drawing.Size(148, 29);
+            this.receiveInterrupt.TabIndex = 35;
+            // 
+            // sendTarget
+            // 
+            this.sendTarget.FormattingEnabled = true;
+            this.sendTarget.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.sendTarget.Location = new System.Drawing.Point(199, 354);
+            this.sendTarget.Name = "sendTarget";
+            this.sendTarget.Size = new System.Drawing.Size(148, 29);
+            this.sendTarget.TabIndex = 34;
+            // 
+            // receiveFIFO
+            // 
+            this.receiveFIFO.FormattingEnabled = true;
+            this.receiveFIFO.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.receiveFIFO.Location = new System.Drawing.Point(199, 311);
+            this.receiveFIFO.Name = "receiveFIFO";
+            this.receiveFIFO.Size = new System.Drawing.Size(148, 29);
+            this.receiveFIFO.TabIndex = 33;
+            // 
+            // DMAPattern
+            // 
+            this.DMAPattern.FormattingEnabled = true;
+            this.DMAPattern.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.DMAPattern.Location = new System.Drawing.Point(199, 267);
+            this.DMAPattern.Name = "DMAPattern";
+            this.DMAPattern.Size = new System.Drawing.Size(148, 29);
+            this.DMAPattern.TabIndex = 32;
+            // 
+            // FIFOSelect
+            // 
+            this.FIFOSelect.FormattingEnabled = true;
+            this.FIFOSelect.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.FIFOSelect.Location = new System.Drawing.Point(199, 222);
+            this.FIFOSelect.Name = "FIFOSelect";
+            this.FIFOSelect.Size = new System.Drawing.Size(148, 29);
+            this.FIFOSelect.TabIndex = 31;
+            // 
+            // byteLength
+            // 
+            this.byteLength.FormattingEnabled = true;
+            this.byteLength.Items.AddRange(new object[] {
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.byteLength.Location = new System.Drawing.Point(199, 174);
+            this.byteLength.Name = "byteLength";
+            this.byteLength.Size = new System.Drawing.Size(148, 29);
+            this.byteLength.TabIndex = 30;
+            // 
+            // stopBit
+            // 
+            this.stopBit.FormattingEnabled = true;
+            this.stopBit.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.stopBit.Location = new System.Drawing.Point(199, 130);
+            this.stopBit.Name = "stopBit";
+            this.stopBit.Size = new System.Drawing.Size(148, 29);
+            this.stopBit.TabIndex = 29;
+            // 
+            // parityCheck
+            // 
+            this.parityCheck.FormattingEnabled = true;
+            this.parityCheck.Items.AddRange(new object[] {
+            "奇校验",
+            "偶校验",
+            "无校验"});
+            this.parityCheck.Location = new System.Drawing.Point(199, 88);
+            this.parityCheck.Name = "parityCheck";
+            this.parityCheck.Size = new System.Drawing.Size(148, 29);
+            this.parityCheck.TabIndex = 28;
+            // 
+            // btnChipSet
+            // 
+            this.btnChipSet.Location = new System.Drawing.Point(449, 482);
+            this.btnChipSet.Name = "btnChipSet";
+            this.btnChipSet.Size = new System.Drawing.Size(76, 31);
+            this.btnChipSet.TabIndex = 27;
+            this.btnChipSet.Text = "设置";
+            this.btnChipSet.UseVisualStyleBackColor = true;
+            this.btnChipSet.Click += new System.EventHandler(this.btnChipSet_Click);
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(31, 482);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(164, 21);
+            this.label93.TabIndex = 23;
+            this.label93.Text = "接收缓存中断：";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(76, 441);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(120, 21);
+            this.label94.TabIndex = 22;
+            this.label94.Text = "发送中断：";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(76, 399);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(120, 21);
+            this.label95.TabIndex = 21;
+            this.label95.Text = "接收中断：";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(54, 354);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(142, 21);
+            this.label88.TabIndex = 16;
+            this.label88.Text = "发送触发级：";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(6, 311);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(190, 21);
+            this.label89.TabIndex = 15;
+            this.label89.Text = "接收FIFO触发器：";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(84, 270);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(112, 21);
+            this.label90.TabIndex = 14;
+            this.label90.Text = "DMA模式：";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(72, 225);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(124, 21);
+            this.label91.TabIndex = 13;
+            this.label91.Text = "FIFO使能：";
             // 
             // baudRate
             // 
@@ -2564,6 +2755,36 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "OUT2";
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(942, 183);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 29);
+            this.button10.TabIndex = 23;
+            this.button10.Text = "读取";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(331, 143);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 29);
+            this.button9.TabIndex = 14;
+            this.button9.Text = "读取";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // listView3
+            // 
+            this.listView3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.listView3.GridLines = true;
+            this.listView3.Location = new System.Drawing.Point(572, 169);
+            this.listView3.MultiSelect = false;
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(335, 62);
+            this.listView3.TabIndex = 22;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(331, 107);
@@ -2573,6 +2794,15 @@
             this.button6.Text = "发送";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(942, 107);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 29);
+            this.button11.TabIndex = 21;
+            this.button11.Text = "读取";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // textBox25
             // 
             this.textBox25.Location = new System.Drawing.Point(123, 142);
@@ -2581,12 +2811,33 @@
             this.textBox25.Size = new System.Drawing.Size(176, 31);
             this.textBox25.TabIndex = 12;
             // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(506, 111);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(58, 21);
+            this.label103.TabIndex = 20;
+            this.label103.Text = "IIR:";
+            // 
             // textBox26
             // 
             this.textBox26.Location = new System.Drawing.Point(123, 105);
             this.textBox26.Name = "textBox26";
             this.textBox26.Size = new System.Drawing.Size(176, 31);
             this.textBox26.TabIndex = 11;
+            // 
+            // listView4
+            // 
+            this.listView4.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.listView4.GridLines = true;
+            this.listView4.Location = new System.Drawing.Point(572, 96);
+            this.listView4.MultiSelect = false;
+            this.listView4.Name = "listView4";
+            this.listView4.Size = new System.Drawing.Size(335, 62);
+            this.listView4.TabIndex = 19;
+            this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
             // 
             // label98
             // 
@@ -2597,6 +2848,15 @@
             this.label98.TabIndex = 10;
             this.label98.Text = "接收数据:";
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(942, 38);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 29);
+            this.button12.TabIndex = 18;
+            this.button12.Text = "读取";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // label99
             // 
             this.label99.AutoSize = true;
@@ -2605,6 +2865,18 @@
             this.label99.Size = new System.Drawing.Size(110, 21);
             this.label99.TabIndex = 9;
             this.label99.Text = "发送数据:";
+            // 
+            // listView5
+            // 
+            this.listView5.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.listView5.GridLines = true;
+            this.listView5.Location = new System.Drawing.Point(571, 23);
+            this.listView5.MultiSelect = false;
+            this.listView5.Name = "listView5";
+            this.listView5.Size = new System.Drawing.Size(335, 62);
+            this.listView5.TabIndex = 16;
+            this.listView5.UseCompatibleStateImageBehavior = false;
+            this.listView5.View = System.Windows.Forms.View.Details;
             // 
             // comboBox4
             // 
@@ -2618,6 +2890,15 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(121, 29);
             this.comboBox4.TabIndex = 8;
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(506, 42);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(58, 21);
+            this.label104.TabIndex = 17;
+            this.label104.Text = "LSR:";
             // 
             // label100
             // 
@@ -2652,6 +2933,57 @@
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "OUT1";
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(944, 190);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(75, 29);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "读取";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // listView2
+            // 
+            this.listView2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.listView2.GridLines = true;
+            this.listView2.Location = new System.Drawing.Point(574, 176);
+            this.listView2.MultiSelect = false;
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(335, 62);
+            this.listView2.TabIndex = 14;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(944, 114);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 29);
+            this.button7.TabIndex = 13;
+            this.button7.Text = "读取";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(508, 118);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(58, 21);
+            this.label102.TabIndex = 12;
+            this.label102.Text = "IIR:";
+            // 
+            // listView1
+            // 
+            this.listView1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.listView1.GridLines = true;
+            this.listView1.Location = new System.Drawing.Point(574, 103);
+            this.listView1.MultiSelect = false;
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(335, 62);
+            this.listView1.TabIndex = 11;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // btnRead0
             // 
@@ -2762,19 +3094,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "稳定性测试";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "寄存器测试";
-            treeNode7.Name = "节点0";
-            treeNode7.Text = "芯片设置";
-            treeNode8.Name = "节点1";
-            treeNode8.Text = "基本功能测试";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "稳定性测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "芯片设置";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -2821,338 +3153,6 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
-            // 
-            // listView1
-            // 
-            this.listView1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(574, 103);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(335, 62);
-            this.listView1.TabIndex = 11;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(508, 118);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(58, 21);
-            this.label102.TabIndex = 12;
-            this.label102.Text = "IIR:";
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(944, 114);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 29);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "读取";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(574, 176);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(335, 62);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(944, 190);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 29);
-            this.button8.TabIndex = 15;
-            this.button8.Text = "读取";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(331, 143);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 29);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "读取";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(942, 183);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 29);
-            this.button10.TabIndex = 23;
-            this.button10.Text = "读取";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // listView3
-            // 
-            this.listView3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView3.GridLines = true;
-            this.listView3.Location = new System.Drawing.Point(572, 169);
-            this.listView3.MultiSelect = false;
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(335, 62);
-            this.listView3.TabIndex = 22;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(942, 107);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 29);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "读取";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(506, 111);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(58, 21);
-            this.label103.TabIndex = 20;
-            this.label103.Text = "IIR:";
-            // 
-            // listView4
-            // 
-            this.listView4.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView4.GridLines = true;
-            this.listView4.Location = new System.Drawing.Point(572, 96);
-            this.listView4.MultiSelect = false;
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(335, 62);
-            this.listView4.TabIndex = 19;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(942, 38);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 29);
-            this.button12.TabIndex = 18;
-            this.button12.Text = "读取";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // listView5
-            // 
-            this.listView5.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView5.GridLines = true;
-            this.listView5.Location = new System.Drawing.Point(571, 23);
-            this.listView5.MultiSelect = false;
-            this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(335, 62);
-            this.listView5.TabIndex = 16;
-            this.listView5.UseCompatibleStateImageBehavior = false;
-            this.listView5.View = System.Windows.Forms.View.Details;
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(506, 42);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(58, 21);
-            this.label104.TabIndex = 17;
-            this.label104.Text = "LSR:";
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(54, 354);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(142, 21);
-            this.label88.TabIndex = 16;
-            this.label88.Text = "发送触发级：";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(6, 311);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(190, 21);
-            this.label89.TabIndex = 15;
-            this.label89.Text = "接收FIFO触发器：";
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(84, 270);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(112, 21);
-            this.label90.TabIndex = 14;
-            this.label90.Text = "DMA模式：";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(72, 225);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(124, 21);
-            this.label91.TabIndex = 13;
-            this.label91.Text = "FIFO使能：";
-            // 
-            // btnChipSet
-            // 
-            this.btnChipSet.Location = new System.Drawing.Point(449, 482);
-            this.btnChipSet.Name = "btnChipSet";
-            this.btnChipSet.Size = new System.Drawing.Size(76, 31);
-            this.btnChipSet.TabIndex = 27;
-            this.btnChipSet.Text = "设置";
-            this.btnChipSet.UseVisualStyleBackColor = true;
-            this.btnChipSet.Click += new System.EventHandler(this.btnChipSet_Click);
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(31, 482);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(164, 21);
-            this.label93.TabIndex = 23;
-            this.label93.Text = "接收缓存中断：";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(76, 441);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(120, 21);
-            this.label94.TabIndex = 22;
-            this.label94.Text = "发送中断：";
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(76, 399);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(120, 21);
-            this.label95.TabIndex = 21;
-            this.label95.Text = "接收中断：";
-            // 
-            // parityCheck
-            // 
-            this.parityCheck.FormattingEnabled = true;
-            this.parityCheck.Items.AddRange(new object[] {
-            "奇校验",
-            "偶校验",
-            "无校验"});
-            this.parityCheck.Location = new System.Drawing.Point(199, 88);
-            this.parityCheck.Name = "parityCheck";
-            this.parityCheck.Size = new System.Drawing.Size(148, 29);
-            this.parityCheck.TabIndex = 28;
-            // 
-            // stopBit
-            // 
-            this.stopBit.FormattingEnabled = true;
-            this.stopBit.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.stopBit.Location = new System.Drawing.Point(199, 130);
-            this.stopBit.Name = "stopBit";
-            this.stopBit.Size = new System.Drawing.Size(148, 29);
-            this.stopBit.TabIndex = 29;
-            // 
-            // byteLength
-            // 
-            this.byteLength.FormattingEnabled = true;
-            this.byteLength.Items.AddRange(new object[] {
-            "5",
-            "6",
-            "7",
-            "8"});
-            this.byteLength.Location = new System.Drawing.Point(199, 174);
-            this.byteLength.Name = "byteLength";
-            this.byteLength.Size = new System.Drawing.Size(148, 29);
-            this.byteLength.TabIndex = 30;
-            // 
-            // FIFOSelect
-            // 
-            this.FIFOSelect.FormattingEnabled = true;
-            this.FIFOSelect.Items.AddRange(new object[] {
-            "使能",
-            "不使能"});
-            this.FIFOSelect.Location = new System.Drawing.Point(199, 222);
-            this.FIFOSelect.Name = "FIFOSelect";
-            this.FIFOSelect.Size = new System.Drawing.Size(148, 29);
-            this.FIFOSelect.TabIndex = 31;
-            // 
-            // DMAPattern
-            // 
-            this.DMAPattern.FormattingEnabled = true;
-            this.DMAPattern.Items.AddRange(new object[] {
-            "0",
-            "1"});
-            this.DMAPattern.Location = new System.Drawing.Point(199, 267);
-            this.DMAPattern.Name = "DMAPattern";
-            this.DMAPattern.Size = new System.Drawing.Size(148, 29);
-            this.DMAPattern.TabIndex = 32;
-            // 
-            // receiveFIFO
-            // 
-            this.receiveFIFO.FormattingEnabled = true;
-            this.receiveFIFO.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
-            this.receiveFIFO.Location = new System.Drawing.Point(199, 311);
-            this.receiveFIFO.Name = "receiveFIFO";
-            this.receiveFIFO.Size = new System.Drawing.Size(148, 29);
-            this.receiveFIFO.TabIndex = 33;
-            // 
-            // sendTarget
-            // 
-            this.sendTarget.FormattingEnabled = true;
-            this.sendTarget.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
-            this.sendTarget.Location = new System.Drawing.Point(199, 354);
-            this.sendTarget.Name = "sendTarget";
-            this.sendTarget.Size = new System.Drawing.Size(148, 29);
-            this.sendTarget.TabIndex = 34;
-            // 
-            // receiveInterrupt
-            // 
-            this.receiveInterrupt.FormattingEnabled = true;
-            this.receiveInterrupt.Items.AddRange(new object[] {
-            "使能",
-            "不使能"});
-            this.receiveInterrupt.Location = new System.Drawing.Point(199, 396);
-            this.receiveInterrupt.Name = "receiveInterrupt";
-            this.receiveInterrupt.Size = new System.Drawing.Size(148, 29);
-            this.receiveInterrupt.TabIndex = 35;
-            // 
-            // endInterrupt
-            // 
-            this.endInterrupt.FormattingEnabled = true;
-            this.endInterrupt.Items.AddRange(new object[] {
-            "使能",
-            "不使能"});
-            this.endInterrupt.Location = new System.Drawing.Point(199, 438);
-            this.endInterrupt.Name = "endInterrupt";
-            this.endInterrupt.Size = new System.Drawing.Size(148, 29);
-            this.endInterrupt.TabIndex = 36;
-            // 
-            // receiveCache
-            // 
-            this.receiveCache.FormattingEnabled = true;
-            this.receiveCache.Items.AddRange(new object[] {
-            "使能",
-            "不使能"});
-            this.receiveCache.Location = new System.Drawing.Point(199, 482);
-            this.receiveCache.Name = "receiveCache";
-            this.receiveCache.Size = new System.Drawing.Size(148, 29);
-            this.receiveCache.TabIndex = 37;
             // 
             // MainForm
             // 
@@ -3446,7 +3446,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ComboBox receiveCache;
-        private System.Windows.Forms.ComboBox endInterrupt;
+        private System.Windows.Forms.ComboBox sendInterrupt;
         private System.Windows.Forms.ComboBox receiveInterrupt;
         private System.Windows.Forms.ComboBox sendTarget;
         private System.Windows.Forms.ComboBox receiveFIFO;
