@@ -913,22 +913,24 @@ namespace A1013QSystem
         private void btnChipSet_Click(object sender, EventArgs e)
         {
             ChipModel CHIPMODEL = new ChipModel();
-            CHIPMODEL.chipSelect = chipSelect.SelectedText;
-            CHIPMODEL.pathSelect = pathSelect.SelectedText;
+            CHIPMODEL.chipSelect = chipSelect.SelectedIndex;
+            CHIPMODEL.pathSelect = pathSelect.SelectedIndex;
 
             CHIPMODEL.baudRate = baudRate.Text;
-            CHIPMODEL.parityCheck = parityCheck.SelectedText;
-            CHIPMODEL.stopBit = stopBit.SelectedText;
-            CHIPMODEL.byteLength = byteLength.SelectedText;
-            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedText;
-            CHIPMODEL.DMAPattern = DMAPattern.SelectedText;
-            CHIPMODEL.receiveFIFO = receiveFIFO.SelectedText;
-            CHIPMODEL.sendTarget = sendTarget.SelectedText;
-            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedText;
-            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedText;
-            CHIPMODEL.receiveCache = receiveCache.SelectedText;
+            CHIPMODEL.parityCheck = parityCheck.SelectedItem.ToString();
+            CHIPMODEL.stopBit = stopBit.SelectedItem.ToString();
+            CHIPMODEL.byteLength = byteLength.SelectedItem.ToString();
 
+            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedIndex;
 
+            CHIPMODEL.DMAPattern = DMAPattern.SelectedItem.ToString();
+            CHIPMODEL.receiveFIFO = receiveFIFO.SelectedItem.ToString();
+            CHIPMODEL.sendTarget = sendTarget.SelectedItem.ToString();
+
+            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedIndex;
+            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedIndex;
+            CHIPMODEL.receiveCache = receiveCache.SelectedIndex;
+            
 
             //var chipID = chipSelect.SelectedText;
             //var pathID = pathSelect.SelectedText;

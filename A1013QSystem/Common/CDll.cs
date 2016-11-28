@@ -560,7 +560,14 @@ namespace A1013QSystem.Common
 
         public static void ChipSet(ChipModel MODEL)
         {
+            Byte[] cmdByte = new Byte[10];
+            cmdByte[0] = 0xAA;
+            cmdByte[9] = 0xBB;
+            //设置DUT波特率
 
+            //设置奇偶校验，停止位，字长
+
+            //FIFO使能，DMA模式，接收FIFO触发器，发送触发器
         }
     }
 }
