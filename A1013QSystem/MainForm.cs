@@ -954,5 +954,22 @@ namespace A1013QSystem
 
 
         }
+
+        private void chipReset_Click(object sender, EventArgs e)
+        {
+            var chip =(byte) chipSelect.SelectedIndex;
+            var path = (byte)pathSelect.SelectedIndex;
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XBB };
+            cmdByte[1] = chip;
+            cmdByte[2] = path;
+
+            int  error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                MessageBox.Show("芯片复位失败");
+                return;
+            }
+
+        }
     }
 }

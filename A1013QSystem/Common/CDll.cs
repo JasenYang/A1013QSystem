@@ -561,14 +561,15 @@ namespace A1013QSystem.Common
         public static int ChipSet(ChipModel CHIPMODEL)
         {
             int error = 0;
-            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0XBB };          
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0XBB };
+            cmdByte[1] = 0x08;
             cmdByte[2] = (byte)CHIPMODEL.chipSelect;
             cmdByte[3] = (byte)CHIPMODEL.pathSelect;
           
             //设置DUT波特率
 
             //设置奇偶校验，停止位，字长
-            cmdByte[1] = 0x05;
+          
             cmdByte[3] = 0x00;
             cmdByte[3] += ValueReturn(CHIPMODEL.parityCheck, "奇偶校验");
             cmdByte[3] += ValueReturn(CHIPMODEL.stopBit, "停止位");
