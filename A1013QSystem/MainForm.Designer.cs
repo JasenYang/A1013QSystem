@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -202,7 +202,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.chipReset = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.receiveCache = new System.Windows.Forms.ComboBox();
             this.sendInterrupt = new System.Windows.Forms.ComboBox();
@@ -2390,7 +2390,7 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage6.Controls.Add(this.button4);
+            this.tabPage6.Controls.Add(this.chipReset);
             this.tabPage6.Controls.Add(this.groupBox7);
             this.tabPage6.Controls.Add(this.pathSelect);
             this.tabPage6.Controls.Add(this.chipSelect);
@@ -2402,14 +2402,14 @@
             this.tabPage6.TabIndex = 2;
             this.tabPage6.Text = "芯片设置";
             // 
-            // button4
+            // chipReset
             // 
-            this.button4.Location = new System.Drawing.Point(28, 465);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 31);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "芯片复位";
-            this.button4.UseVisualStyleBackColor = true;
+            this.chipReset.Location = new System.Drawing.Point(28, 465);
+            this.chipReset.Name = "chipReset";
+            this.chipReset.Size = new System.Drawing.Size(116, 31);
+            this.chipReset.TabIndex = 14;
+            this.chipReset.Text = "芯片复位";
+            this.chipReset.UseVisualStyleBackColor = true;
             // 
             // groupBox7
             // 
@@ -2541,8 +2541,7 @@
             this.stopBit.FormattingEnabled = true;
             this.stopBit.Items.AddRange(new object[] {
             "1",
-            "2",
-            "3"});
+            "2"});
             this.stopBit.Location = new System.Drawing.Point(199, 130);
             this.stopBit.Name = "stopBit";
             this.stopBit.Size = new System.Drawing.Size(148, 29);
@@ -2552,9 +2551,9 @@
             // 
             this.parityCheck.FormattingEnabled = true;
             this.parityCheck.Items.AddRange(new object[] {
+            "无",
             "奇校验",
-            "偶校验",
-            "无校验"});
+            "偶校验"});
             this.parityCheck.Location = new System.Drawing.Point(199, 88);
             this.parityCheck.Name = "parityCheck";
             this.parityCheck.Size = new System.Drawing.Size(148, 29);
@@ -2604,7 +2603,7 @@
             this.label88.Name = "label88";
             this.label88.Size = new System.Drawing.Size(142, 21);
             this.label88.TabIndex = 16;
-            this.label88.Text = "发送触发级：";
+            this.label88.Text = "发送触发器：";
             // 
             // label89
             // 
@@ -3094,19 +3093,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode13.Name = "节点0";
-            treeNode13.Text = "稳定性测试";
-            treeNode14.Name = "节点1";
-            treeNode14.Text = "寄存器测试";
-            treeNode15.Name = "节点0";
-            treeNode15.Text = "芯片设置";
-            treeNode16.Name = "节点1";
-            treeNode16.Text = "基本功能测试";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "稳定性测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "芯片设置";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -3400,7 +3399,7 @@
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button chipReset;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox baudRate;
         private System.Windows.Forms.Label label87;

@@ -921,7 +921,7 @@ namespace A1013QSystem
             CHIPMODEL.stopBit = stopBit.SelectedItem.ToString();
             CHIPMODEL.byteLength = byteLength.SelectedItem.ToString();
 
-            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedIndex;
+            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedItem.ToString();
 
             CHIPMODEL.DMAPattern = DMAPattern.SelectedItem.ToString();
             CHIPMODEL.receiveFIFO = receiveFIFO.SelectedItem.ToString();
@@ -930,7 +930,12 @@ namespace A1013QSystem
             CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedIndex;
             CHIPMODEL.sendInterrupt = sendInterrupt.SelectedIndex;
             CHIPMODEL.receiveCache = receiveCache.SelectedIndex;
-            
+
+            int error = CDll.ChipSet(CHIPMODEL);
+            if (error>=0)
+            {
+
+            }
 
             //var chipID = chipSelect.SelectedText;
             //var pathID = pathSelect.SelectedText;

@@ -14,7 +14,7 @@ namespace A1013QSystem.Model
         public string parityCheck { set; get; }
         public string stopBit { set; get; }
         public string byteLength { set; get; }
-        public int FIFOSelect { set; get; }
+        public string FIFOSelect { set; get; }
         public string DMAPattern { set; get; }
         public string receiveFIFO { set; get; }
         public string sendTarget { set; get; }
