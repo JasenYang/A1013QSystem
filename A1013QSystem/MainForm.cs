@@ -879,39 +879,12 @@ namespace A1013QSystem
         {
             CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
             CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
-        }
-
-        private void btnRead1_Click(object sender, EventArgs e)
-        {
-            this.lsrList.GridLines = true; //显示表格线
-            this.lsrList.View = View.Details;//显示表格细节
-            this.lsrList.LabelEdit = true; //是否可编辑,ListView只可编辑第一列。
-            this.lsrList.Scrollable = true;//有滚动条
-            this.lsrList.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
-            this.lsrList.FullRowSelect = true;//是否可以选择行
-
-            //this.listView1.HotTracking = true;// 当选择此属性时则HoverSelection自动为true和Activation属性为oneClick
-            //this.listView1.HoverSelection = true;
-            //this.listView1.Activation = ItemActivation.Standard; //
-
-            lsrList.Columns.Clear();
-            //添加表头
-            for (int i = 0; i < 8; i++)
-            {
-                this.lsrList.Columns.Add((i+1).ToString(), 41);
-            }
-
-            //添加各项
-            ListViewItem[] p = new ListViewItem[1];
-            p[0] = new ListViewItem(new string[] { "00", "aa", "bb" ,"cc","dd","ee","ff"});
-           // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
-            this.lsrList.Items.AddRange(p);         
-        }
+        }      
 
         private void btnChipSet_Click(object sender, EventArgs e)
         {
+            setLabel.Text = "";
+
             ChipModel CHIPMODEL = new ChipModel();
             CHIPMODEL.chipSelect = chipSelect.SelectedIndex;
             CHIPMODEL.pathSelect = pathSelect.SelectedIndex;
@@ -934,25 +907,8 @@ namespace A1013QSystem
             int error = CDll.ChipSet(CHIPMODEL);
             if (error>=0)
             {
-
+                setLabel.Text = "设置成功...";
             }
-
-            //var chipID = chipSelect.SelectedText;
-            //var pathID = pathSelect.SelectedText;
-
-            //double baudRateStr = Convert.ToDouble(baudRate.Text);
-            //var parityCheckStr = parityCheck.SelectedText;
-            //var stopBitStr = stopBit.SelectedText;
-            //var byteLengthStr = byteLength.SelectedText;
-            //var FIFOSelectStr = FIFOSelect.SelectedText;
-            //var DMAPatternStr = DMAPattern.SelectedText;
-            //var receiveFIFOStr = receiveFIFO.SelectedText;
-            //var sendTargetStr = sendTarget.SelectedText;
-            //var receiveInterruptStr = receiveInterrupt.SelectedText;
-            //var sendInterruptStr = sendInterrupt.SelectedText;
-            //var receiveCacheStr = receiveCache.SelectedText;
-
-
         }
 
         private void chipReset_Click(object sender, EventArgs e)
@@ -970,6 +926,248 @@ namespace A1013QSystem
                 return;
             }
 
+        }
+
+        private void baseSend1_Click(object sender, EventArgs e)
+        {                      
+            CDll.BaseTestSendData(1, basePath1.Text, Convert.ToInt32(sendData1.Text));
+        }
+
+        private void baseRead1_Click(object sender, EventArgs e)
+        {
+          byte[] readByte =  CDll.BaseTestReadData(1, basePath1.Text, "BASE");
+            baseRead1.Text = ((int)readByte[4]).ToString();
+        }
+
+        private void baseSend2_Click(object sender, EventArgs e)
+        {
+            CDll.BaseTestSendData(2, basePath2.Text, Convert.ToInt32(sendData1.Text));
+        }
+
+        private void baseRead2_Click(object sender, EventArgs e)
+        {
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "BASE");
+            baseRead2.Text = ((int)readByte[4]).ToString();
+        }
+
+        private void btnLSRRead1_Click(object sender, EventArgs e)
+        {
+            this.lsrList1.GridLines = true; //显示表格线
+            this.lsrList1.View = View.Details;//显示表格细节
+            this.lsrList1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.lsrList1.Scrollable = true;//有滚动条
+            this.lsrList1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.lsrList1.FullRowSelect = true;//是否可以选择行           
+
+            lsrList1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "LSR");
+
+            this.lsrList1.Columns.Add("FIFOERR", 41);
+            this.lsrList1.Columns.Add("TEMT", 41);
+            this.lsrList1.Columns.Add("THRE", 41);
+            this.lsrList1.Columns.Add("BI", 41);
+            this.lsrList1.Columns.Add("FE", 41);
+            this.lsrList1.Columns.Add("PE", 41);
+            this.lsrList1.Columns.Add("OE", 41);
+            this.lsrList1.Columns.Add("DR", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.lsrList1.Items.AddRange(p);
+        }
+
+        private void btnIIRRead1_Click(object sender, EventArgs e)
+        {
+            this.iirList1.GridLines = true; //显示表格线
+            this.iirList1.View = View.Details;//显示表格细节
+            this.iirList1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.iirList1.Scrollable = true;//有滚动条
+            this.iirList1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.iirList1.FullRowSelect = true;//是否可以选择行           
+
+            iirList1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "IIR");
+
+            this.iirList1.Columns.Add("FIFOE", 41);
+            this.iirList1.Columns.Add("FIFOE", 41);
+            this.iirList1.Columns.Add("ID4", 41);
+            this.iirList1.Columns.Add("ID3", 41);
+            this.iirList1.Columns.Add("ID2", 41);
+            this.iirList1.Columns.Add("ID1", 41);
+            this.iirList1.Columns.Add("ID0", 41);
+            this.iirList1.Columns.Add("NINT", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.iirList1.Items.AddRange(p);
+        }
+
+        private void btnRead1_Click(object sender, EventArgs e)
+        {
+            this.list1.GridLines = true; //显示表格线
+            this.list1.View = View.Details;//显示表格细节
+            this.list1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.list1.Scrollable = true;//有滚动条
+            this.list1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.list1.FullRowSelect = true;//是否可以选择行           
+
+            list1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "ARM");
+
+            this.list1.Columns.Add("TXRDY", 41);
+            this.list1.Columns.Add("RXRDY", 41);
+            this.list1.Columns.Add("IRQ", 41);
+        
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[3] { "", "", "" };
+
+            //添加
+            for (int i = 0; i < 3; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.list1.Items.AddRange(p);
+        }
+
+        private void btnLSRRead2_Click(object sender, EventArgs e)
+        {
+            this.lsrList2.GridLines = true; //显示表格线
+            this.lsrList2.View = View.Details;//显示表格细节
+            this.lsrList2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.lsrList2.Scrollable = true;//有滚动条
+            this.lsrList2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.lsrList2.FullRowSelect = true;//是否可以选择行           
+
+            lsrList2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "LSR");
+
+            this.lsrList2.Columns.Add("FIFOERR", 41);
+            this.lsrList2.Columns.Add("TEMT", 41);
+            this.lsrList2.Columns.Add("THRE", 41);
+            this.lsrList2.Columns.Add("BI", 41);
+            this.lsrList2.Columns.Add("FE", 41);
+            this.lsrList2.Columns.Add("PE", 41);
+            this.lsrList2.Columns.Add("OE", 41);
+            this.lsrList2.Columns.Add("DR", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.lsrList2.Items.AddRange(p);
+        }
+
+        private void btnIIRRead2_Click(object sender, EventArgs e)
+        {
+            this.iirList2.GridLines = true; //显示表格线
+            this.iirList2.View = View.Details;//显示表格细节
+            this.iirList2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.iirList2.Scrollable = true;//有滚动条
+            this.iirList2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.iirList2.FullRowSelect = true;//是否可以选择行           
+
+            iirList2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "IIR");
+
+            this.iirList2.Columns.Add("FIFOE", 41);
+            this.iirList2.Columns.Add("FIFOE", 41);
+            this.iirList2.Columns.Add("ID4", 41);
+            this.iirList2.Columns.Add("ID3", 41);
+            this.iirList2.Columns.Add("ID2", 41);
+            this.iirList2.Columns.Add("ID1", 41);
+            this.iirList2.Columns.Add("ID0", 41);
+            this.iirList2.Columns.Add("NINT", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.iirList2.Items.AddRange(p);
+        }
+
+        private void btnRead2_Click(object sender, EventArgs e)
+        {
+            this.list2.GridLines = true; //显示表格线
+            this.list2.View = View.Details;//显示表格细节
+            this.list2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.list2.Scrollable = true;//有滚动条
+            this.list2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.list2.FullRowSelect = true;//是否可以选择行           
+
+            list2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "ARM");
+
+            this.list2.Columns.Add("TXRDY", 41);
+            this.list2.Columns.Add("RXRDY", 41);
+            this.list2.Columns.Add("IRQ", 41);
+
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[3] { "", "", "" };
+
+            //添加
+            for (int i = 0; i < 3; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.list2.Items.AddRange(p);
         }
     }
 }

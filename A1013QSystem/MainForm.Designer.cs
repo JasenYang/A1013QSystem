@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -233,38 +233,38 @@
             this.label82 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.btnRead2 = new System.Windows.Forms.Button();
+            this.baseRead2 = new System.Windows.Forms.Button();
+            this.list2 = new System.Windows.Forms.ListView();
+            this.baseSend2 = new System.Windows.Forms.Button();
+            this.btnIIRRead2 = new System.Windows.Forms.Button();
+            this.receiveData2 = new System.Windows.Forms.TextBox();
             this.label103 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.listView4 = new System.Windows.Forms.ListView();
+            this.sendData2 = new System.Windows.Forms.TextBox();
+            this.iirList2 = new System.Windows.Forms.ListView();
             this.label98 = new System.Windows.Forms.Label();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnLSRRead2 = new System.Windows.Forms.Button();
             this.label99 = new System.Windows.Forms.Label();
-            this.listView5 = new System.Windows.Forms.ListView();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.lsrList2 = new System.Windows.Forms.ListView();
+            this.basePath2 = new System.Windows.Forms.ComboBox();
             this.label104 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label102 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.btnRead0 = new System.Windows.Forms.Button();
             this.btnRead1 = new System.Windows.Forms.Button();
-            this.lsrList = new System.Windows.Forms.ListView();
+            this.list1 = new System.Windows.Forms.ListView();
+            this.btnIIRRead1 = new System.Windows.Forms.Button();
+            this.label102 = new System.Windows.Forms.Label();
+            this.iirList1 = new System.Windows.Forms.ListView();
+            this.baseRead1 = new System.Windows.Forms.Button();
+            this.btnLSRRead1 = new System.Windows.Forms.Button();
+            this.lsrList1 = new System.Windows.Forms.ListView();
             this.label101 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.baseSend1 = new System.Windows.Forms.Button();
+            this.receiveData1 = new System.Windows.Forms.TextBox();
+            this.sendData1 = new System.Windows.Forms.TextBox();
             this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.basePath1 = new System.Windows.Forms.ComboBox();
             this.label92 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -272,6 +272,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.setLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -2414,6 +2415,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.setLabel);
             this.groupBox7.Controls.Add(this.receiveCache);
             this.groupBox7.Controls.Add(this.sendInterrupt);
             this.groupBox7.Controls.Add(this.receiveInterrupt);
@@ -2732,20 +2734,20 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.button10);
-            this.groupBox11.Controls.Add(this.button9);
-            this.groupBox11.Controls.Add(this.listView3);
-            this.groupBox11.Controls.Add(this.button6);
-            this.groupBox11.Controls.Add(this.button11);
-            this.groupBox11.Controls.Add(this.textBox25);
+            this.groupBox11.Controls.Add(this.btnRead2);
+            this.groupBox11.Controls.Add(this.baseRead2);
+            this.groupBox11.Controls.Add(this.list2);
+            this.groupBox11.Controls.Add(this.baseSend2);
+            this.groupBox11.Controls.Add(this.btnIIRRead2);
+            this.groupBox11.Controls.Add(this.receiveData2);
             this.groupBox11.Controls.Add(this.label103);
-            this.groupBox11.Controls.Add(this.textBox26);
-            this.groupBox11.Controls.Add(this.listView4);
+            this.groupBox11.Controls.Add(this.sendData2);
+            this.groupBox11.Controls.Add(this.iirList2);
             this.groupBox11.Controls.Add(this.label98);
-            this.groupBox11.Controls.Add(this.button12);
+            this.groupBox11.Controls.Add(this.btnLSRRead2);
             this.groupBox11.Controls.Add(this.label99);
-            this.groupBox11.Controls.Add(this.listView5);
-            this.groupBox11.Controls.Add(this.comboBox4);
+            this.groupBox11.Controls.Add(this.lsrList2);
+            this.groupBox11.Controls.Add(this.basePath2);
             this.groupBox11.Controls.Add(this.label104);
             this.groupBox11.Controls.Add(this.label100);
             this.groupBox11.Location = new System.Drawing.Point(2, 265);
@@ -2755,61 +2757,65 @@
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "OUT2";
             // 
-            // button10
+            // btnRead2
             // 
-            this.button10.Location = new System.Drawing.Point(942, 183);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 29);
-            this.button10.TabIndex = 23;
-            this.button10.Text = "读取";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnRead2.Location = new System.Drawing.Point(942, 183);
+            this.btnRead2.Name = "btnRead2";
+            this.btnRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnRead2.TabIndex = 23;
+            this.btnRead2.Text = "读取";
+            this.btnRead2.UseVisualStyleBackColor = true;
+            this.btnRead2.Click += new System.EventHandler(this.btnRead2_Click);
             // 
-            // button9
+            // baseRead2
             // 
-            this.button9.Location = new System.Drawing.Point(331, 143);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 29);
-            this.button9.TabIndex = 14;
-            this.button9.Text = "读取";
-            this.button9.UseVisualStyleBackColor = true;
+            this.baseRead2.Location = new System.Drawing.Point(331, 143);
+            this.baseRead2.Name = "baseRead2";
+            this.baseRead2.Size = new System.Drawing.Size(75, 29);
+            this.baseRead2.TabIndex = 14;
+            this.baseRead2.Text = "读取";
+            this.baseRead2.UseVisualStyleBackColor = true;
+            this.baseRead2.Click += new System.EventHandler(this.baseRead2_Click);
             // 
-            // listView3
+            // list2
             // 
-            this.listView3.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView3.GridLines = true;
-            this.listView3.Location = new System.Drawing.Point(572, 169);
-            this.listView3.MultiSelect = false;
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(335, 62);
-            this.listView3.TabIndex = 22;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.list2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.list2.GridLines = true;
+            this.list2.Location = new System.Drawing.Point(572, 169);
+            this.list2.MultiSelect = false;
+            this.list2.Name = "list2";
+            this.list2.Size = new System.Drawing.Size(335, 62);
+            this.list2.TabIndex = 22;
+            this.list2.UseCompatibleStateImageBehavior = false;
+            this.list2.View = System.Windows.Forms.View.Details;
             // 
-            // button6
+            // baseSend2
             // 
-            this.button6.Location = new System.Drawing.Point(331, 107);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 29);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "发送";
-            this.button6.UseVisualStyleBackColor = true;
+            this.baseSend2.Location = new System.Drawing.Point(331, 107);
+            this.baseSend2.Name = "baseSend2";
+            this.baseSend2.Size = new System.Drawing.Size(75, 29);
+            this.baseSend2.TabIndex = 13;
+            this.baseSend2.Text = "发送";
+            this.baseSend2.UseVisualStyleBackColor = true;
+            this.baseSend2.Click += new System.EventHandler(this.baseSend2_Click);
             // 
-            // button11
+            // btnIIRRead2
             // 
-            this.button11.Location = new System.Drawing.Point(942, 107);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 29);
-            this.button11.TabIndex = 21;
-            this.button11.Text = "读取";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnIIRRead2.Location = new System.Drawing.Point(942, 107);
+            this.btnIIRRead2.Name = "btnIIRRead2";
+            this.btnIIRRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnIIRRead2.TabIndex = 21;
+            this.btnIIRRead2.Text = "读取";
+            this.btnIIRRead2.UseVisualStyleBackColor = true;
+            this.btnIIRRead2.Click += new System.EventHandler(this.btnIIRRead2_Click);
             // 
-            // textBox25
+            // receiveData2
             // 
-            this.textBox25.Location = new System.Drawing.Point(123, 142);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.ReadOnly = true;
-            this.textBox25.Size = new System.Drawing.Size(176, 31);
-            this.textBox25.TabIndex = 12;
+            this.receiveData2.Location = new System.Drawing.Point(123, 142);
+            this.receiveData2.Name = "receiveData2";
+            this.receiveData2.ReadOnly = true;
+            this.receiveData2.Size = new System.Drawing.Size(176, 31);
+            this.receiveData2.TabIndex = 12;
             // 
             // label103
             // 
@@ -2820,24 +2826,24 @@
             this.label103.TabIndex = 20;
             this.label103.Text = "IIR:";
             // 
-            // textBox26
+            // sendData2
             // 
-            this.textBox26.Location = new System.Drawing.Point(123, 105);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(176, 31);
-            this.textBox26.TabIndex = 11;
+            this.sendData2.Location = new System.Drawing.Point(123, 105);
+            this.sendData2.Name = "sendData2";
+            this.sendData2.Size = new System.Drawing.Size(176, 31);
+            this.sendData2.TabIndex = 11;
             // 
-            // listView4
+            // iirList2
             // 
-            this.listView4.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView4.GridLines = true;
-            this.listView4.Location = new System.Drawing.Point(572, 96);
-            this.listView4.MultiSelect = false;
-            this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(335, 62);
-            this.listView4.TabIndex = 19;
-            this.listView4.UseCompatibleStateImageBehavior = false;
-            this.listView4.View = System.Windows.Forms.View.Details;
+            this.iirList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.iirList2.GridLines = true;
+            this.iirList2.Location = new System.Drawing.Point(572, 96);
+            this.iirList2.MultiSelect = false;
+            this.iirList2.Name = "iirList2";
+            this.iirList2.Size = new System.Drawing.Size(335, 62);
+            this.iirList2.TabIndex = 19;
+            this.iirList2.UseCompatibleStateImageBehavior = false;
+            this.iirList2.View = System.Windows.Forms.View.Details;
             // 
             // label98
             // 
@@ -2848,14 +2854,15 @@
             this.label98.TabIndex = 10;
             this.label98.Text = "接收数据:";
             // 
-            // button12
+            // btnLSRRead2
             // 
-            this.button12.Location = new System.Drawing.Point(942, 38);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 29);
-            this.button12.TabIndex = 18;
-            this.button12.Text = "读取";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnLSRRead2.Location = new System.Drawing.Point(942, 38);
+            this.btnLSRRead2.Name = "btnLSRRead2";
+            this.btnLSRRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnLSRRead2.TabIndex = 18;
+            this.btnLSRRead2.Text = "读取";
+            this.btnLSRRead2.UseVisualStyleBackColor = true;
+            this.btnLSRRead2.Click += new System.EventHandler(this.btnLSRRead2_Click);
             // 
             // label99
             // 
@@ -2866,30 +2873,30 @@
             this.label99.TabIndex = 9;
             this.label99.Text = "发送数据:";
             // 
-            // listView5
+            // lsrList2
             // 
-            this.listView5.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView5.GridLines = true;
-            this.listView5.Location = new System.Drawing.Point(571, 23);
-            this.listView5.MultiSelect = false;
-            this.listView5.Name = "listView5";
-            this.listView5.Size = new System.Drawing.Size(335, 62);
-            this.listView5.TabIndex = 16;
-            this.listView5.UseCompatibleStateImageBehavior = false;
-            this.listView5.View = System.Windows.Forms.View.Details;
+            this.lsrList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.lsrList2.GridLines = true;
+            this.lsrList2.Location = new System.Drawing.Point(571, 23);
+            this.lsrList2.MultiSelect = false;
+            this.lsrList2.Name = "lsrList2";
+            this.lsrList2.Size = new System.Drawing.Size(335, 62);
+            this.lsrList2.TabIndex = 16;
+            this.lsrList2.UseCompatibleStateImageBehavior = false;
+            this.lsrList2.View = System.Windows.Forms.View.Details;
             // 
-            // comboBox4
+            // basePath2
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.basePath2.FormattingEnabled = true;
+            this.basePath2.Items.AddRange(new object[] {
             "通道1",
             "通道2",
             "通道3",
             "通道4"});
-            this.comboBox4.Location = new System.Drawing.Point(123, 34);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 29);
-            this.comboBox4.TabIndex = 8;
+            this.basePath2.Location = new System.Drawing.Point(123, 34);
+            this.basePath2.Name = "basePath2";
+            this.basePath2.Size = new System.Drawing.Size(121, 29);
+            this.basePath2.TabIndex = 8;
             // 
             // label104
             // 
@@ -2911,21 +2918,21 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.button8);
-            this.groupBox10.Controls.Add(this.listView2);
-            this.groupBox10.Controls.Add(this.button7);
-            this.groupBox10.Controls.Add(this.label102);
-            this.groupBox10.Controls.Add(this.listView1);
-            this.groupBox10.Controls.Add(this.btnRead0);
             this.groupBox10.Controls.Add(this.btnRead1);
-            this.groupBox10.Controls.Add(this.lsrList);
+            this.groupBox10.Controls.Add(this.list1);
+            this.groupBox10.Controls.Add(this.btnIIRRead1);
+            this.groupBox10.Controls.Add(this.label102);
+            this.groupBox10.Controls.Add(this.iirList1);
+            this.groupBox10.Controls.Add(this.baseRead1);
+            this.groupBox10.Controls.Add(this.btnLSRRead1);
+            this.groupBox10.Controls.Add(this.lsrList1);
             this.groupBox10.Controls.Add(this.label101);
-            this.groupBox10.Controls.Add(this.button5);
-            this.groupBox10.Controls.Add(this.textBox24);
-            this.groupBox10.Controls.Add(this.textBox20);
+            this.groupBox10.Controls.Add(this.baseSend1);
+            this.groupBox10.Controls.Add(this.receiveData1);
+            this.groupBox10.Controls.Add(this.sendData1);
             this.groupBox10.Controls.Add(this.label97);
             this.groupBox10.Controls.Add(this.label96);
-            this.groupBox10.Controls.Add(this.comboBox3);
+            this.groupBox10.Controls.Add(this.basePath1);
             this.groupBox10.Controls.Add(this.label92);
             this.groupBox10.Location = new System.Drawing.Point(0, 3);
             this.groupBox10.Name = "groupBox10";
@@ -2934,35 +2941,37 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "OUT1";
             // 
-            // button8
+            // btnRead1
             // 
-            this.button8.Location = new System.Drawing.Point(944, 190);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 29);
-            this.button8.TabIndex = 15;
-            this.button8.Text = "读取";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnRead1.Location = new System.Drawing.Point(944, 190);
+            this.btnRead1.Name = "btnRead1";
+            this.btnRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnRead1.TabIndex = 15;
+            this.btnRead1.Text = "读取";
+            this.btnRead1.UseVisualStyleBackColor = true;
+            this.btnRead1.Click += new System.EventHandler(this.btnRead1_Click);
             // 
-            // listView2
+            // list1
             // 
-            this.listView2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(574, 176);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(335, 62);
-            this.listView2.TabIndex = 14;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.list1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.list1.GridLines = true;
+            this.list1.Location = new System.Drawing.Point(574, 176);
+            this.list1.MultiSelect = false;
+            this.list1.Name = "list1";
+            this.list1.Size = new System.Drawing.Size(335, 62);
+            this.list1.TabIndex = 14;
+            this.list1.UseCompatibleStateImageBehavior = false;
+            this.list1.View = System.Windows.Forms.View.Details;
             // 
-            // button7
+            // btnIIRRead1
             // 
-            this.button7.Location = new System.Drawing.Point(944, 114);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 29);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "读取";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnIIRRead1.Location = new System.Drawing.Point(944, 114);
+            this.btnIIRRead1.Name = "btnIIRRead1";
+            this.btnIIRRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnIIRRead1.TabIndex = 13;
+            this.btnIIRRead1.Text = "读取";
+            this.btnIIRRead1.UseVisualStyleBackColor = true;
+            this.btnIIRRead1.Click += new System.EventHandler(this.btnIIRRead1_Click);
             // 
             // label102
             // 
@@ -2973,48 +2982,49 @@
             this.label102.TabIndex = 12;
             this.label102.Text = "IIR:";
             // 
-            // listView1
+            // iirList1
             // 
-            this.listView1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(574, 103);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(335, 62);
-            this.listView1.TabIndex = 11;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.iirList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.iirList1.GridLines = true;
+            this.iirList1.Location = new System.Drawing.Point(574, 103);
+            this.iirList1.MultiSelect = false;
+            this.iirList1.Name = "iirList1";
+            this.iirList1.Size = new System.Drawing.Size(335, 62);
+            this.iirList1.TabIndex = 11;
+            this.iirList1.UseCompatibleStateImageBehavior = false;
+            this.iirList1.View = System.Windows.Forms.View.Details;
             // 
-            // btnRead0
+            // baseRead1
             // 
-            this.btnRead0.Location = new System.Drawing.Point(307, 128);
-            this.btnRead0.Name = "btnRead0";
-            this.btnRead0.Size = new System.Drawing.Size(75, 29);
-            this.btnRead0.TabIndex = 10;
-            this.btnRead0.Text = "读取";
-            this.btnRead0.UseVisualStyleBackColor = true;
+            this.baseRead1.Location = new System.Drawing.Point(333, 128);
+            this.baseRead1.Name = "baseRead1";
+            this.baseRead1.Size = new System.Drawing.Size(75, 29);
+            this.baseRead1.TabIndex = 10;
+            this.baseRead1.Text = "读取";
+            this.baseRead1.UseVisualStyleBackColor = true;
+            this.baseRead1.Click += new System.EventHandler(this.baseRead1_Click);
             // 
-            // btnRead1
+            // btnLSRRead1
             // 
-            this.btnRead1.Location = new System.Drawing.Point(944, 45);
-            this.btnRead1.Name = "btnRead1";
-            this.btnRead1.Size = new System.Drawing.Size(75, 29);
-            this.btnRead1.TabIndex = 9;
-            this.btnRead1.Text = "读取";
-            this.btnRead1.UseVisualStyleBackColor = true;
-            this.btnRead1.Click += new System.EventHandler(this.btnRead1_Click);
+            this.btnLSRRead1.Location = new System.Drawing.Point(944, 45);
+            this.btnLSRRead1.Name = "btnLSRRead1";
+            this.btnLSRRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnLSRRead1.TabIndex = 9;
+            this.btnLSRRead1.Text = "读取";
+            this.btnLSRRead1.UseVisualStyleBackColor = true;
+            this.btnLSRRead1.Click += new System.EventHandler(this.btnLSRRead1_Click);
             // 
-            // lsrList
+            // lsrList1
             // 
-            this.lsrList.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
-            this.lsrList.GridLines = true;
-            this.lsrList.Location = new System.Drawing.Point(573, 30);
-            this.lsrList.MultiSelect = false;
-            this.lsrList.Name = "lsrList";
-            this.lsrList.Size = new System.Drawing.Size(335, 62);
-            this.lsrList.TabIndex = 1;
-            this.lsrList.UseCompatibleStateImageBehavior = false;
-            this.lsrList.View = System.Windows.Forms.View.Details;
+            this.lsrList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.lsrList1.GridLines = true;
+            this.lsrList1.Location = new System.Drawing.Point(573, 30);
+            this.lsrList1.MultiSelect = false;
+            this.lsrList1.Name = "lsrList1";
+            this.lsrList1.Size = new System.Drawing.Size(335, 62);
+            this.lsrList1.TabIndex = 1;
+            this.lsrList1.UseCompatibleStateImageBehavior = false;
+            this.lsrList1.View = System.Windows.Forms.View.Details;
             // 
             // label101
             // 
@@ -3025,29 +3035,30 @@
             this.label101.TabIndex = 7;
             this.label101.Text = "LSR:";
             // 
-            // button5
+            // baseSend1
             // 
-            this.button5.Location = new System.Drawing.Point(307, 93);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 29);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "发送";
-            this.button5.UseVisualStyleBackColor = true;
+            this.baseSend1.Location = new System.Drawing.Point(333, 86);
+            this.baseSend1.Name = "baseSend1";
+            this.baseSend1.Size = new System.Drawing.Size(75, 29);
+            this.baseSend1.TabIndex = 6;
+            this.baseSend1.Text = "发送";
+            this.baseSend1.UseVisualStyleBackColor = true;
+            this.baseSend1.Click += new System.EventHandler(this.baseSend1_Click);
             // 
-            // textBox24
+            // receiveData1
             // 
-            this.textBox24.Location = new System.Drawing.Point(125, 125);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.ReadOnly = true;
-            this.textBox24.Size = new System.Drawing.Size(176, 31);
-            this.textBox24.TabIndex = 5;
+            this.receiveData1.Location = new System.Drawing.Point(125, 125);
+            this.receiveData1.Name = "receiveData1";
+            this.receiveData1.ReadOnly = true;
+            this.receiveData1.Size = new System.Drawing.Size(176, 31);
+            this.receiveData1.TabIndex = 5;
             // 
-            // textBox20
+            // sendData1
             // 
-            this.textBox20.Location = new System.Drawing.Point(125, 88);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(176, 31);
-            this.textBox20.TabIndex = 4;
+            this.sendData1.Location = new System.Drawing.Point(125, 88);
+            this.sendData1.Name = "sendData1";
+            this.sendData1.Size = new System.Drawing.Size(176, 31);
+            this.sendData1.TabIndex = 4;
             // 
             // label97
             // 
@@ -3067,18 +3078,18 @@
             this.label96.TabIndex = 2;
             this.label96.Text = "发送数据:";
             // 
-            // comboBox3
+            // basePath1
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.basePath1.FormattingEnabled = true;
+            this.basePath1.Items.AddRange(new object[] {
             "通道1",
             "通道2",
             "通道3",
             "通道4"});
-            this.comboBox3.Location = new System.Drawing.Point(117, 31);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 29);
-            this.comboBox3.TabIndex = 1;
+            this.basePath1.Location = new System.Drawing.Point(117, 31);
+            this.basePath1.Name = "basePath1";
+            this.basePath1.Size = new System.Drawing.Size(121, 29);
+            this.basePath1.TabIndex = 1;
             // 
             // label92
             // 
@@ -3094,19 +3105,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "稳定性测试";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "寄存器测试";
-            treeNode7.Name = "节点0";
-            treeNode7.Text = "芯片设置";
-            treeNode8.Name = "节点1";
-            treeNode8.Text = "基本功能测试";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "稳定性测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "芯片设置";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -3153,6 +3164,14 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
+            // 
+            // setLabel
+            // 
+            this.setLabel.AutoSize = true;
+            this.setLabel.Location = new System.Drawing.Point(532, 488);
+            this.setLabel.Name = "setLabel";
+            this.setLabel.Size = new System.Drawing.Size(0, 21);
+            this.setLabel.TabIndex = 38;
             // 
             // MainForm
             // 
@@ -3412,39 +3431,39 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.Button baseSend2;
+        private System.Windows.Forms.TextBox receiveData2;
+        private System.Windows.Forms.TextBox sendData2;
         private System.Windows.Forms.Label label98;
         private System.Windows.Forms.Label label99;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox basePath2;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Button baseSend1;
+        private System.Windows.Forms.TextBox receiveData1;
+        private System.Windows.Forms.TextBox sendData1;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox basePath1;
         private System.Windows.Forms.Label label92;
-        private System.Windows.Forms.ListView lsrList;
+        private System.Windows.Forms.ListView lsrList1;
         private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.Button btnRead0;
-        private System.Windows.Forms.Button btnRead1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button baseRead1;
+        private System.Windows.Forms.Button btnLSRRead1;
+        private System.Windows.Forms.Button btnIIRRead1;
         private System.Windows.Forms.Label label102;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.ListView iirList1;
+        private System.Windows.Forms.Button btnRead2;
+        private System.Windows.Forms.Button baseRead2;
+        private System.Windows.Forms.ListView list2;
+        private System.Windows.Forms.Button btnIIRRead2;
         private System.Windows.Forms.Label label103;
-        private System.Windows.Forms.ListView listView4;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.ListView listView5;
+        private System.Windows.Forms.ListView iirList2;
+        private System.Windows.Forms.Button btnLSRRead2;
+        private System.Windows.Forms.ListView lsrList2;
         private System.Windows.Forms.Label label104;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.Button btnRead1;
+        private System.Windows.Forms.ListView list1;
         private System.Windows.Forms.ComboBox receiveCache;
         private System.Windows.Forms.ComboBox sendInterrupt;
         private System.Windows.Forms.ComboBox receiveInterrupt;
@@ -3463,6 +3482,7 @@
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label setLabel;
     }
 }
 

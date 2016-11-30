@@ -10,6 +10,7 @@ using A1013QSystem.DriverCommon;
 using System.Data.OleDb;
 using System.Data;
 using A1013QSystem.Model;
+using System.Threading;
 
 namespace A1013QSystem.Common
 {
@@ -548,16 +549,129 @@ namespace A1013QSystem.Common
 
 
         /// <summary>
+        /// 基本功能测试发送数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="pathNum">通道</param>
+        /// <param name="typeName">类型</param>
+        public static void BaseTestSendData(int chipNum, string basePath, int sendNum)
+        {
+            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)5;
+            cmdByte[2] = (byte)chipNum;
+            
+            if (basePath == "通道1")
+            {
+                cmdByte[3] = (byte)1;
+            }
+            else if (basePath == "通道2")
+            {
+                cmdByte[3] = (byte)2;
+            }
+            else if (basePath == "通道3")
+            {
+                cmdByte[3] = (byte)3;
+            }
+            else if (basePath == "通道4")
+            {
+                cmdByte[3] = (byte)4;
+            }
+
+            int error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                MessageBox.Show("芯片"+chipNum+""+basePath+"发送失败");
+                return;
+            }
+        }
+
+        /// <summary>
         /// 基本功能测试读取数据
         /// </summary>
         /// <param name="chipNum">芯片</param>
         /// <param name="pathNum">通道</param>
         /// <param name="typeName">类型</param>
-        public static void BaseTestReadData(int chipNum,int pathNum ,string typeName)
+        public static byte[] BaseTestReadData(int chipNum, string basePath, string typeName)
         {
+            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)6;
+            cmdByte[2] = (byte)chipNum;
 
+            if (basePath == "通道1")
+            {
+                cmdByte[3] = (byte)1;
+            }
+            else if (basePath == "通道2")
+            {
+                cmdByte[3] = (byte)2;
+            }
+            else if (basePath == "通道3")
+            {
+                cmdByte[3] = (byte)3;
+            }
+            else if (basePath == "通道4")
+            {
+                cmdByte[3] = (byte)4;
+            }
+
+            int error = 0;
+            switch (typeName)
+            {
+                case "BASE":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "ISR":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "IIR":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "ARM":
+                    error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                  
+                    break;
+            }
+            if (error < 0)
+            {
+                MessageBox.Show("芯片" + chipNum + "" + basePath + "读取失败");
+            }
+
+            Thread.Sleep(2000);
+           
+            List<byte> buffer = new List<byte>(4096);
+            int length;
+            byte[] ReceiveBytes = new byte[24];
+
+            CGloabal.g_bIsComRecvedDataFlag = true;  //串口是否收到数据
+            length = CGloabal.g_serialPorForUUT.BytesToRead;
+            byte[] Receivebuf = new byte[8];
+            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 8);
+            //1、缓存数据
+            buffer.AddRange(Receivebuf);
+            //2、完整性判断
+            while (buffer.Count >= 8)
+            {
+                if (buffer[0] == 0xAA)
+                {
+                    //得到完整的数据，复制到ReceiveBytes中进行校验
+                    buffer.CopyTo(0, ReceiveBytes, 0, 24);
+                    buffer.RemoveRange(0, 24);
+                    return ReceiveBytes;
+                }
+                else //帧头不正确时，记得清除
+                {
+                    buffer.RemoveAt(0);
+                }
+            }
+
+            return ReceiveBytes;
         }
 
+
+        /// <summary>
+        /// 芯片设置
+        /// </summary>
+        /// <param name="CHIPMODEL"></param>
+        /// <returns></returns>
         public static int ChipSet(ChipModel CHIPMODEL)
         {
             int error = 0;
