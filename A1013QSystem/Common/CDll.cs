@@ -9,6 +9,8 @@ using DigitalCircuitSystem.DriverDAL;
 using A1013QSystem.DriverCommon;
 using System.Data.OleDb;
 using System.Data;
+using A1013QSystem.Model;
+using System.Threading;
 
 namespace A1013QSystem.Common
 {
@@ -262,7 +264,6 @@ namespace A1013QSystem.Common
                     error = Power_Driver.Close(CGloabal.g_InstrPowerModule.nHandle, 0, strError);
                     if (error < 0)
                     {
-
                         CCommonFuncs.ShowHintInfor(eHintInfoType.error, "电源断开失败");
                     }
                     else//断开成功，要将此时的连接状态更新到仪器参数中
@@ -460,6 +461,11 @@ namespace A1013QSystem.Common
             return 0;
         }
 
+        /// <summary>
+        /// 数据保存到Excel中
+        /// </summary>
+        /// <param name="LRModel"></param>
+        /// <returns></returns>
         public static int DataSaveExcel(List<RecordModel> LRModel)
         {
             var fileNa = System.DateTime.Now.Hour;
@@ -541,5 +547,321 @@ namespace A1013QSystem.Common
 
         }
 
+
+        /// <summary>
+        /// 基本功能测试发送数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="pathNum">通道</param>
+        /// <param name="typeName">类型</param>
+        public static void BaseTestSendData(int chipNum, string basePath, int sendNum)
+        {
+            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)5;
+            cmdByte[2] = (byte)chipNum;
+            
+            if (basePath == "通道1")
+            {
+                cmdByte[3] = (byte)1;
+            }
+            else if (basePath == "通道2")
+            {
+                cmdByte[3] = (byte)2;
+            }
+            else if (basePath == "通道3")
+            {
+                cmdByte[3] = (byte)3;
+            }
+            else if (basePath == "通道4")
+            {
+                cmdByte[3] = (byte)4;
+            }
+
+            int error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                MessageBox.Show("芯片"+chipNum+""+basePath+"发送失败");
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 基本功能测试读取数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="pathNum">通道</param>
+        /// <param name="typeName">类型</param>
+        public static byte[] BaseTestReadData(int chipNum, string basePath, string typeName)
+        {
+            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)6;
+            cmdByte[2] = (byte)chipNum;
+
+            if (basePath == "通道1")
+            {
+                cmdByte[3] = (byte)1;
+            }
+            else if (basePath == "通道2")
+            {
+                cmdByte[3] = (byte)2;
+            }
+            else if (basePath == "通道3")
+            {
+                cmdByte[3] = (byte)3;
+            }
+            else if (basePath == "通道4")
+            {
+                cmdByte[3] = (byte)4;
+            }
+
+            int error = 0;
+            switch (typeName)
+            {
+                case "BASE":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "ISR":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "IIR":
+                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    break;
+                case "ARM":
+                    error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                  
+                    break;
+            }
+            if (error < 0)
+            {
+                MessageBox.Show("芯片" + chipNum + "" + basePath + "读取失败");
+            }
+
+            Thread.Sleep(2000);
+           
+            List<byte> buffer = new List<byte>(4096);
+            int length;
+            byte[] ReceiveBytes = new byte[24];
+
+            CGloabal.g_bIsComRecvedDataFlag = true;  //串口是否收到数据
+            length = CGloabal.g_serialPorForUUT.BytesToRead;
+            byte[] Receivebuf = new byte[8];
+            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 8);
+            //1、缓存数据
+            buffer.AddRange(Receivebuf);
+            //2、完整性判断
+            while (buffer.Count >= 8)
+            {
+                if (buffer[0] == 0xAA)
+                {
+                    //得到完整的数据，复制到ReceiveBytes中进行校验
+                    buffer.CopyTo(0, ReceiveBytes, 0, 24);
+                    buffer.RemoveRange(0, 24);
+                    return ReceiveBytes;
+                }
+                else //帧头不正确时，记得清除
+                {
+                    buffer.RemoveAt(0);
+                }
+            }
+
+            return ReceiveBytes;
+        }
+
+
+        /// <summary>
+        /// 芯片设置
+        /// </summary>
+        /// <param name="CHIPMODEL"></param>
+        /// <returns></returns>
+        public static int ChipSet(ChipModel CHIPMODEL)
+        {
+            int error = 0;
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0XBB };
+            cmdByte[1] = 0x08;
+            cmdByte[2] = (byte)CHIPMODEL.chipSelect;
+            cmdByte[3] = (byte)CHIPMODEL.pathSelect;
+          
+            //设置DUT波特率
+
+            //设置奇偶校验，停止位，字长
+          
+            cmdByte[3] = 0x00;
+            cmdByte[3] += ValueReturn(CHIPMODEL.parityCheck, "奇偶校验");
+            cmdByte[3] += ValueReturn(CHIPMODEL.stopBit, "停止位");
+            cmdByte[3] += ValueReturn(CHIPMODEL.byteLength, "字长");
+
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0) {
+                return -1;
+            }
+
+            //FIFO使能，DMA模式，接收FIFO触发器，发送触发器
+            cmdByte[3] = 0x00;
+            cmdByte[3] += ValueReturn(CHIPMODEL.FIFOSelect, "FIFO使能");
+            cmdByte[3] += ValueReturn(CHIPMODEL.DMAPattern, "DMA模式");
+            cmdByte[3] += ValueReturn(CHIPMODEL.receiveFIFO, "接收触发器");
+            cmdByte[3] += ValueReturn(CHIPMODEL.sendTarget, "发送触发器");
+
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                return -2;
+            }
+
+            //发送中断、接收中断、接收缓存中断
+            cmdByte[3] = 0x00;
+            cmdByte[3] += ValueReturn(CHIPMODEL.FIFOSelect, "接收中断");
+            cmdByte[3] += ValueReturn(CHIPMODEL.DMAPattern, "发送中断");
+            cmdByte[3] += ValueReturn(CHIPMODEL.receiveFIFO, "接收缓存中断");
+
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                return -3;
+            }
+            return error;
+        }
+
+
+        private static byte ValueReturn(string  data, string typeName)
+        {
+            byte byVal=0x00;
+
+            switch (typeName) {
+                case "奇偶校验":
+                    if (data == "无")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "奇校验")
+                    {
+                        byVal = 0x08;
+                    }
+                    else if (data == "偶校验")
+                    {
+                        byVal = 0x18;
+                    }
+                    break;
+                case "停止位":
+                    if (data == "1")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "2")
+                    {
+                        byVal = 0x04;
+                    }
+                    break;
+                case "字长":
+
+                    if (data == "5")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "6")
+                    {
+                        byVal = 0x01;
+                    }
+                    else if (data == "7")
+                    {
+                        byVal = 0x02;
+                    }
+                    else if (data == "8")
+                    {
+                        byVal = 0x03;
+                    }
+                    break;
+                case "DMA模式":
+                    if (data == "0")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "1")
+                    {
+                        byVal = 0x08;
+                    }
+                    break;
+                case "接收触发器":
+                    if (data == "1")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "2")
+                    {
+                        byVal = 0x40;
+                    }
+                    else if (data == "3")
+                    {
+                        byVal = 0x80;
+                    }
+                    else if (data == "4")
+                    {
+                        byVal = 0xC0;
+                    }
+                    break;
+                case "发送触发器":
+                    if (data == "1")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "2")
+                    {
+                        byVal = 0x10;
+                    }
+                    else if (data == "3")
+                    {
+                        byVal = 0x20;
+                    }
+                    else if (data == "4")
+                    {
+                        byVal = 0x30;
+                    }
+                    break;
+                case "FIFO使能":
+                    if (data == "0")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "1")
+                    {
+                        byVal = 0x01;
+                    }
+                    break;
+                case "接收中断":
+                    if (data == "0")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "1")
+                    {
+                        byVal = 0x04;
+                    }
+                    break;
+                case "发送中断":
+                    if (data == "0")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "1")
+                    {
+                        byVal = 0x02;
+                    }
+                    break;
+                case "接收缓存中断":
+                    if (data == "0")
+                    {
+                        byVal = 0x00;
+                    }
+                    else if (data == "1")
+                    {
+                        byVal = 0x01;
+                    }
+                    break;
+                default:
+                    byVal = 0x00;
+                    break;
+            }
+
+            return byVal;
+        } 
     }
 }

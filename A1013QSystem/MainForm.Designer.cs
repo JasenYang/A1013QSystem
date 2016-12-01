@@ -30,15 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnLight8 = new System.Windows.Forms.Button();
+            this.btnLight7 = new System.Windows.Forms.Button();
+            this.btnLight6 = new System.Windows.Forms.Button();
+            this.btnLight5 = new System.Windows.Forms.Button();
+            this.btnLight4 = new System.Windows.Forms.Button();
+            this.btnLight3 = new System.Windows.Forms.Button();
+            this.btnLight2 = new System.Windows.Forms.Button();
+            this.btnLight1 = new System.Windows.Forms.Button();
             this.btnOff = new System.Windows.Forms.Button();
             this.btnSet = new System.Windows.Forms.Button();
             this.eleNum4 = new CCWin.SkinControl.SkinNumericUpDown();
@@ -195,12 +201,78 @@
             this.label49 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.chipReset = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.receiveCache = new System.Windows.Forms.ComboBox();
+            this.sendInterrupt = new System.Windows.Forms.ComboBox();
+            this.receiveInterrupt = new System.Windows.Forms.ComboBox();
+            this.sendTarget = new System.Windows.Forms.ComboBox();
+            this.receiveFIFO = new System.Windows.Forms.ComboBox();
+            this.DMAPattern = new System.Windows.Forms.ComboBox();
+            this.FIFOSelect = new System.Windows.Forms.ComboBox();
+            this.byteLength = new System.Windows.Forms.ComboBox();
+            this.stopBit = new System.Windows.Forms.ComboBox();
+            this.parityCheck = new System.Windows.Forms.ComboBox();
+            this.btnChipSet = new System.Windows.Forms.Button();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.baudRate = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.pathSelect = new System.Windows.Forms.ComboBox();
+            this.chipSelect = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnRead2 = new System.Windows.Forms.Button();
+            this.baseRead2 = new System.Windows.Forms.Button();
+            this.list2 = new System.Windows.Forms.ListView();
+            this.baseSend2 = new System.Windows.Forms.Button();
+            this.btnIIRRead2 = new System.Windows.Forms.Button();
+            this.receiveData2 = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.sendData2 = new System.Windows.Forms.TextBox();
+            this.iirList2 = new System.Windows.Forms.ListView();
+            this.label98 = new System.Windows.Forms.Label();
+            this.btnLSRRead2 = new System.Windows.Forms.Button();
+            this.label99 = new System.Windows.Forms.Label();
+            this.lsrList2 = new System.Windows.Forms.ListView();
+            this.basePath2 = new System.Windows.Forms.ComboBox();
+            this.label104 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.btnRead1 = new System.Windows.Forms.Button();
+            this.list1 = new System.Windows.Forms.ListView();
+            this.btnIIRRead1 = new System.Windows.Forms.Button();
+            this.label102 = new System.Windows.Forms.Label();
+            this.iirList1 = new System.Windows.Forms.ListView();
+            this.baseRead1 = new System.Windows.Forms.Button();
+            this.btnLSRRead1 = new System.Windows.Forms.Button();
+            this.lsrList1 = new System.Windows.Forms.ListView();
+            this.label101 = new System.Windows.Forms.Label();
+            this.baseSend1 = new System.Windows.Forms.Button();
+            this.receiveData1 = new System.Windows.Forms.TextBox();
+            this.sendData1 = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.basePath1 = new System.Windows.Forms.ComboBox();
+            this.label92 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dataView = new CCWin.SkinControl.SkinDataGridView();
+            this.dataView = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.setLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -232,6 +304,11 @@
             this.tablePanel.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.skinGroupBox1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -269,6 +346,14 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnLight8);
+            this.groupBox6.Controls.Add(this.btnLight7);
+            this.groupBox6.Controls.Add(this.btnLight6);
+            this.groupBox6.Controls.Add(this.btnLight5);
+            this.groupBox6.Controls.Add(this.btnLight4);
+            this.groupBox6.Controls.Add(this.btnLight3);
+            this.groupBox6.Controls.Add(this.btnLight2);
+            this.groupBox6.Controls.Add(this.btnLight1);
             this.groupBox6.Controls.Add(this.btnOff);
             this.groupBox6.Controls.Add(this.btnSet);
             this.groupBox6.Controls.Add(this.eleNum4);
@@ -293,6 +378,80 @@
             this.groupBox6.TabIndex = 15;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "电源设置";
+            // 
+            // btnLight8
+            // 
+            this.btnLight8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight8.Location = new System.Drawing.Point(182, 393);
+            this.btnLight8.Name = "btnLight8";
+            this.btnLight8.Size = new System.Drawing.Size(37, 29);
+            this.btnLight8.TabIndex = 24;
+            this.btnLight8.UseVisualStyleBackColor = false;
+            // 
+            // btnLight7
+            // 
+            this.btnLight7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight7.Location = new System.Drawing.Point(182, 349);
+            this.btnLight7.Name = "btnLight7";
+            this.btnLight7.Size = new System.Drawing.Size(37, 29);
+            this.btnLight7.TabIndex = 23;
+            this.btnLight7.UseVisualStyleBackColor = false;
+            // 
+            // btnLight6
+            // 
+            this.btnLight6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight6.Location = new System.Drawing.Point(182, 293);
+            this.btnLight6.Name = "btnLight6";
+            this.btnLight6.Size = new System.Drawing.Size(37, 29);
+            this.btnLight6.TabIndex = 22;
+            this.btnLight6.UseVisualStyleBackColor = false;
+            // 
+            // btnLight5
+            // 
+            this.btnLight5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight5.Location = new System.Drawing.Point(182, 249);
+            this.btnLight5.Name = "btnLight5";
+            this.btnLight5.Size = new System.Drawing.Size(37, 29);
+            this.btnLight5.TabIndex = 21;
+            this.btnLight5.UseVisualStyleBackColor = false;
+            // 
+            // btnLight4
+            // 
+            this.btnLight4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight4.Location = new System.Drawing.Point(182, 202);
+            this.btnLight4.Name = "btnLight4";
+            this.btnLight4.Size = new System.Drawing.Size(37, 29);
+            this.btnLight4.TabIndex = 20;
+            this.btnLight4.UseVisualStyleBackColor = false;
+            // 
+            // btnLight3
+            // 
+            this.btnLight3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight3.Location = new System.Drawing.Point(182, 158);
+            this.btnLight3.Name = "btnLight3";
+            this.btnLight3.Size = new System.Drawing.Size(37, 29);
+            this.btnLight3.TabIndex = 19;
+            this.btnLight3.UseVisualStyleBackColor = false;
+            // 
+            // btnLight2
+            // 
+            this.btnLight2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight2.Enabled = false;
+            this.btnLight2.Location = new System.Drawing.Point(182, 100);
+            this.btnLight2.Name = "btnLight2";
+            this.btnLight2.Size = new System.Drawing.Size(37, 29);
+            this.btnLight2.TabIndex = 18;
+            this.btnLight2.UseVisualStyleBackColor = false;
+            // 
+            // btnLight1
+            // 
+            this.btnLight1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLight1.Enabled = false;
+            this.btnLight1.Location = new System.Drawing.Point(182, 58);
+            this.btnLight1.Name = "btnLight1";
+            this.btnLight1.Size = new System.Drawing.Size(37, 29);
+            this.btnLight1.TabIndex = 17;
+            this.btnLight1.UseVisualStyleBackColor = false;
             // 
             // btnOff
             // 
@@ -389,6 +548,7 @@
             // eleNum2
             // 
             this.eleNum2.ArrowColor = System.Drawing.Color.Gray;
+            this.eleNum2.BaseColor = System.Drawing.Color.WhiteSmoke;
             this.eleNum2.BorderColor = System.Drawing.Color.Black;
             this.eleNum2.DecimalPlaces = 2;
             this.eleNum2.Location = new System.Drawing.Point(84, 200);
@@ -913,6 +1073,8 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Location = new System.Drawing.Point(221, 7);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -927,7 +1089,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1044, 555);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "基本功能测试";
+            this.tabPage3.Text = "稳定性测试";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -2226,18 +2388,736 @@
             this.label48.TabIndex = 0;
             this.label48.Text = "RBR 接收缓存寄存器：";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage6.Controls.Add(this.chipReset);
+            this.tabPage6.Controls.Add(this.groupBox7);
+            this.tabPage6.Controls.Add(this.pathSelect);
+            this.tabPage6.Controls.Add(this.chipSelect);
+            this.tabPage6.Controls.Add(this.label83);
+            this.tabPage6.Controls.Add(this.label82);
+            this.tabPage6.Location = new System.Drawing.Point(4, 31);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1044, 555);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "芯片设置";
+            // 
+            // chipReset
+            // 
+            this.chipReset.Location = new System.Drawing.Point(28, 465);
+            this.chipReset.Name = "chipReset";
+            this.chipReset.Size = new System.Drawing.Size(116, 31);
+            this.chipReset.TabIndex = 14;
+            this.chipReset.Text = "芯片复位";
+            this.chipReset.UseVisualStyleBackColor = true;
+            this.chipReset.Click += new System.EventHandler(this.chipReset_Click);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.setLabel);
+            this.groupBox7.Controls.Add(this.receiveCache);
+            this.groupBox7.Controls.Add(this.sendInterrupt);
+            this.groupBox7.Controls.Add(this.receiveInterrupt);
+            this.groupBox7.Controls.Add(this.sendTarget);
+            this.groupBox7.Controls.Add(this.receiveFIFO);
+            this.groupBox7.Controls.Add(this.DMAPattern);
+            this.groupBox7.Controls.Add(this.FIFOSelect);
+            this.groupBox7.Controls.Add(this.byteLength);
+            this.groupBox7.Controls.Add(this.stopBit);
+            this.groupBox7.Controls.Add(this.parityCheck);
+            this.groupBox7.Controls.Add(this.btnChipSet);
+            this.groupBox7.Controls.Add(this.label93);
+            this.groupBox7.Controls.Add(this.label94);
+            this.groupBox7.Controls.Add(this.label95);
+            this.groupBox7.Controls.Add(this.label88);
+            this.groupBox7.Controls.Add(this.label89);
+            this.groupBox7.Controls.Add(this.label90);
+            this.groupBox7.Controls.Add(this.label91);
+            this.groupBox7.Controls.Add(this.baudRate);
+            this.groupBox7.Controls.Add(this.label87);
+            this.groupBox7.Controls.Add(this.label86);
+            this.groupBox7.Controls.Add(this.label85);
+            this.groupBox7.Controls.Add(this.label84);
+            this.groupBox7.Location = new System.Drawing.Point(312, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(685, 549);
+            this.groupBox7.TabIndex = 4;
+            this.groupBox7.TabStop = false;
+            // 
+            // receiveCache
+            // 
+            this.receiveCache.FormattingEnabled = true;
+            this.receiveCache.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.receiveCache.Location = new System.Drawing.Point(199, 482);
+            this.receiveCache.Name = "receiveCache";
+            this.receiveCache.Size = new System.Drawing.Size(148, 29);
+            this.receiveCache.TabIndex = 37;
+            // 
+            // sendInterrupt
+            // 
+            this.sendInterrupt.FormattingEnabled = true;
+            this.sendInterrupt.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.sendInterrupt.Location = new System.Drawing.Point(199, 438);
+            this.sendInterrupt.Name = "sendInterrupt";
+            this.sendInterrupt.Size = new System.Drawing.Size(148, 29);
+            this.sendInterrupt.TabIndex = 36;
+            // 
+            // receiveInterrupt
+            // 
+            this.receiveInterrupt.FormattingEnabled = true;
+            this.receiveInterrupt.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.receiveInterrupt.Location = new System.Drawing.Point(199, 396);
+            this.receiveInterrupt.Name = "receiveInterrupt";
+            this.receiveInterrupt.Size = new System.Drawing.Size(148, 29);
+            this.receiveInterrupt.TabIndex = 35;
+            // 
+            // sendTarget
+            // 
+            this.sendTarget.FormattingEnabled = true;
+            this.sendTarget.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.sendTarget.Location = new System.Drawing.Point(199, 354);
+            this.sendTarget.Name = "sendTarget";
+            this.sendTarget.Size = new System.Drawing.Size(148, 29);
+            this.sendTarget.TabIndex = 34;
+            // 
+            // receiveFIFO
+            // 
+            this.receiveFIFO.FormattingEnabled = true;
+            this.receiveFIFO.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.receiveFIFO.Location = new System.Drawing.Point(199, 311);
+            this.receiveFIFO.Name = "receiveFIFO";
+            this.receiveFIFO.Size = new System.Drawing.Size(148, 29);
+            this.receiveFIFO.TabIndex = 33;
+            // 
+            // DMAPattern
+            // 
+            this.DMAPattern.FormattingEnabled = true;
+            this.DMAPattern.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.DMAPattern.Location = new System.Drawing.Point(199, 267);
+            this.DMAPattern.Name = "DMAPattern";
+            this.DMAPattern.Size = new System.Drawing.Size(148, 29);
+            this.DMAPattern.TabIndex = 32;
+            // 
+            // FIFOSelect
+            // 
+            this.FIFOSelect.FormattingEnabled = true;
+            this.FIFOSelect.Items.AddRange(new object[] {
+            "使能",
+            "不使能"});
+            this.FIFOSelect.Location = new System.Drawing.Point(199, 222);
+            this.FIFOSelect.Name = "FIFOSelect";
+            this.FIFOSelect.Size = new System.Drawing.Size(148, 29);
+            this.FIFOSelect.TabIndex = 31;
+            // 
+            // byteLength
+            // 
+            this.byteLength.FormattingEnabled = true;
+            this.byteLength.Items.AddRange(new object[] {
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.byteLength.Location = new System.Drawing.Point(199, 174);
+            this.byteLength.Name = "byteLength";
+            this.byteLength.Size = new System.Drawing.Size(148, 29);
+            this.byteLength.TabIndex = 30;
+            // 
+            // stopBit
+            // 
+            this.stopBit.FormattingEnabled = true;
+            this.stopBit.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.stopBit.Location = new System.Drawing.Point(199, 130);
+            this.stopBit.Name = "stopBit";
+            this.stopBit.Size = new System.Drawing.Size(148, 29);
+            this.stopBit.TabIndex = 29;
+            // 
+            // parityCheck
+            // 
+            this.parityCheck.FormattingEnabled = true;
+            this.parityCheck.Items.AddRange(new object[] {
+            "无",
+            "奇校验",
+            "偶校验"});
+            this.parityCheck.Location = new System.Drawing.Point(199, 88);
+            this.parityCheck.Name = "parityCheck";
+            this.parityCheck.Size = new System.Drawing.Size(148, 29);
+            this.parityCheck.TabIndex = 28;
+            // 
+            // btnChipSet
+            // 
+            this.btnChipSet.Location = new System.Drawing.Point(449, 482);
+            this.btnChipSet.Name = "btnChipSet";
+            this.btnChipSet.Size = new System.Drawing.Size(76, 31);
+            this.btnChipSet.TabIndex = 27;
+            this.btnChipSet.Text = "设置";
+            this.btnChipSet.UseVisualStyleBackColor = true;
+            this.btnChipSet.Click += new System.EventHandler(this.btnChipSet_Click);
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(31, 482);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(164, 21);
+            this.label93.TabIndex = 23;
+            this.label93.Text = "接收缓存中断：";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(76, 441);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(120, 21);
+            this.label94.TabIndex = 22;
+            this.label94.Text = "发送中断：";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(76, 399);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(120, 21);
+            this.label95.TabIndex = 21;
+            this.label95.Text = "接收中断：";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(54, 354);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(142, 21);
+            this.label88.TabIndex = 16;
+            this.label88.Text = "发送触发器：";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(6, 311);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(190, 21);
+            this.label89.TabIndex = 15;
+            this.label89.Text = "接收FIFO触发器：";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(84, 270);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(112, 21);
+            this.label90.TabIndex = 14;
+            this.label90.Text = "DMA模式：";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(72, 225);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(124, 21);
+            this.label91.TabIndex = 13;
+            this.label91.Text = "FIFO使能：";
+            // 
+            // baudRate
+            // 
+            this.baudRate.Location = new System.Drawing.Point(199, 35);
+            this.baudRate.Name = "baudRate";
+            this.baudRate.Size = new System.Drawing.Size(148, 31);
+            this.baudRate.TabIndex = 9;
+            this.baudRate.Text = "9600";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(120, 174);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(76, 21);
+            this.label87.TabIndex = 8;
+            this.label87.Text = "字长：";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(97, 130);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(98, 21);
+            this.label86.TabIndex = 7;
+            this.label86.Text = "停止位：";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(76, 87);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(120, 21);
+            this.label85.TabIndex = 6;
+            this.label85.Text = "奇偶校验：";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(98, 41);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(98, 21);
+            this.label84.TabIndex = 5;
+            this.label84.Text = "波特率：";
+            // 
+            // pathSelect
+            // 
+            this.pathSelect.FormattingEnabled = true;
+            this.pathSelect.Items.AddRange(new object[] {
+            "通道1",
+            "通道2",
+            "通道3",
+            "通道4"});
+            this.pathSelect.Location = new System.Drawing.Point(146, 79);
+            this.pathSelect.Name = "pathSelect";
+            this.pathSelect.Size = new System.Drawing.Size(121, 29);
+            this.pathSelect.TabIndex = 3;
+            // 
+            // chipSelect
+            // 
+            this.chipSelect.FormattingEnabled = true;
+            this.chipSelect.Items.AddRange(new object[] {
+            "芯片1",
+            "芯片2"});
+            this.chipSelect.Location = new System.Drawing.Point(146, 23);
+            this.chipSelect.Name = "chipSelect";
+            this.chipSelect.Size = new System.Drawing.Size(121, 29);
+            this.chipSelect.TabIndex = 2;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(24, 83);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(120, 21);
+            this.label83.TabIndex = 1;
+            this.label83.Text = "通道选择：";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(23, 27);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(120, 21);
+            this.label82.TabIndex = 0;
+            this.label82.Text = "芯片选择：";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage7.Controls.Add(this.groupBox11);
+            this.tabPage7.Controls.Add(this.groupBox10);
+            this.tabPage7.Location = new System.Drawing.Point(4, 31);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(1044, 555);
+            this.tabPage7.TabIndex = 3;
+            this.tabPage7.Text = "基本功能测试";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.btnRead2);
+            this.groupBox11.Controls.Add(this.baseRead2);
+            this.groupBox11.Controls.Add(this.list2);
+            this.groupBox11.Controls.Add(this.baseSend2);
+            this.groupBox11.Controls.Add(this.btnIIRRead2);
+            this.groupBox11.Controls.Add(this.receiveData2);
+            this.groupBox11.Controls.Add(this.label103);
+            this.groupBox11.Controls.Add(this.sendData2);
+            this.groupBox11.Controls.Add(this.iirList2);
+            this.groupBox11.Controls.Add(this.label98);
+            this.groupBox11.Controls.Add(this.btnLSRRead2);
+            this.groupBox11.Controls.Add(this.label99);
+            this.groupBox11.Controls.Add(this.lsrList2);
+            this.groupBox11.Controls.Add(this.basePath2);
+            this.groupBox11.Controls.Add(this.label104);
+            this.groupBox11.Controls.Add(this.label100);
+            this.groupBox11.Location = new System.Drawing.Point(2, 265);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(1041, 287);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "OUT2";
+            // 
+            // btnRead2
+            // 
+            this.btnRead2.Location = new System.Drawing.Point(942, 183);
+            this.btnRead2.Name = "btnRead2";
+            this.btnRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnRead2.TabIndex = 23;
+            this.btnRead2.Text = "读取";
+            this.btnRead2.UseVisualStyleBackColor = true;
+            this.btnRead2.Click += new System.EventHandler(this.btnRead2_Click);
+            // 
+            // baseRead2
+            // 
+            this.baseRead2.Location = new System.Drawing.Point(331, 143);
+            this.baseRead2.Name = "baseRead2";
+            this.baseRead2.Size = new System.Drawing.Size(75, 29);
+            this.baseRead2.TabIndex = 14;
+            this.baseRead2.Text = "读取";
+            this.baseRead2.UseVisualStyleBackColor = true;
+            this.baseRead2.Click += new System.EventHandler(this.baseRead2_Click);
+            // 
+            // list2
+            // 
+            this.list2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.list2.GridLines = true;
+            this.list2.Location = new System.Drawing.Point(572, 169);
+            this.list2.MultiSelect = false;
+            this.list2.Name = "list2";
+            this.list2.Size = new System.Drawing.Size(335, 62);
+            this.list2.TabIndex = 22;
+            this.list2.UseCompatibleStateImageBehavior = false;
+            this.list2.View = System.Windows.Forms.View.Details;
+            // 
+            // baseSend2
+            // 
+            this.baseSend2.Location = new System.Drawing.Point(331, 107);
+            this.baseSend2.Name = "baseSend2";
+            this.baseSend2.Size = new System.Drawing.Size(75, 29);
+            this.baseSend2.TabIndex = 13;
+            this.baseSend2.Text = "发送";
+            this.baseSend2.UseVisualStyleBackColor = true;
+            this.baseSend2.Click += new System.EventHandler(this.baseSend2_Click);
+            // 
+            // btnIIRRead2
+            // 
+            this.btnIIRRead2.Location = new System.Drawing.Point(942, 107);
+            this.btnIIRRead2.Name = "btnIIRRead2";
+            this.btnIIRRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnIIRRead2.TabIndex = 21;
+            this.btnIIRRead2.Text = "读取";
+            this.btnIIRRead2.UseVisualStyleBackColor = true;
+            this.btnIIRRead2.Click += new System.EventHandler(this.btnIIRRead2_Click);
+            // 
+            // receiveData2
+            // 
+            this.receiveData2.Location = new System.Drawing.Point(123, 142);
+            this.receiveData2.Name = "receiveData2";
+            this.receiveData2.ReadOnly = true;
+            this.receiveData2.Size = new System.Drawing.Size(176, 31);
+            this.receiveData2.TabIndex = 12;
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(506, 111);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(58, 21);
+            this.label103.TabIndex = 20;
+            this.label103.Text = "IIR:";
+            // 
+            // sendData2
+            // 
+            this.sendData2.Location = new System.Drawing.Point(123, 105);
+            this.sendData2.Name = "sendData2";
+            this.sendData2.Size = new System.Drawing.Size(176, 31);
+            this.sendData2.TabIndex = 11;
+            // 
+            // iirList2
+            // 
+            this.iirList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.iirList2.GridLines = true;
+            this.iirList2.Location = new System.Drawing.Point(572, 96);
+            this.iirList2.MultiSelect = false;
+            this.iirList2.Name = "iirList2";
+            this.iirList2.Size = new System.Drawing.Size(335, 62);
+            this.iirList2.TabIndex = 19;
+            this.iirList2.UseCompatibleStateImageBehavior = false;
+            this.iirList2.View = System.Windows.Forms.View.Details;
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(6, 147);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(110, 21);
+            this.label98.TabIndex = 10;
+            this.label98.Text = "接收数据:";
+            // 
+            // btnLSRRead2
+            // 
+            this.btnLSRRead2.Location = new System.Drawing.Point(942, 38);
+            this.btnLSRRead2.Name = "btnLSRRead2";
+            this.btnLSRRead2.Size = new System.Drawing.Size(75, 29);
+            this.btnLSRRead2.TabIndex = 18;
+            this.btnLSRRead2.Text = "读取";
+            this.btnLSRRead2.UseVisualStyleBackColor = true;
+            this.btnLSRRead2.Click += new System.EventHandler(this.btnLSRRead2_Click);
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(6, 110);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(110, 21);
+            this.label99.TabIndex = 9;
+            this.label99.Text = "发送数据:";
+            // 
+            // lsrList2
+            // 
+            this.lsrList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.lsrList2.GridLines = true;
+            this.lsrList2.Location = new System.Drawing.Point(571, 23);
+            this.lsrList2.MultiSelect = false;
+            this.lsrList2.Name = "lsrList2";
+            this.lsrList2.Size = new System.Drawing.Size(335, 62);
+            this.lsrList2.TabIndex = 16;
+            this.lsrList2.UseCompatibleStateImageBehavior = false;
+            this.lsrList2.View = System.Windows.Forms.View.Details;
+            // 
+            // basePath2
+            // 
+            this.basePath2.FormattingEnabled = true;
+            this.basePath2.Items.AddRange(new object[] {
+            "通道1",
+            "通道2",
+            "通道3",
+            "通道4"});
+            this.basePath2.Location = new System.Drawing.Point(123, 34);
+            this.basePath2.Name = "basePath2";
+            this.basePath2.Size = new System.Drawing.Size(121, 29);
+            this.basePath2.TabIndex = 8;
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(506, 42);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(58, 21);
+            this.label104.TabIndex = 17;
+            this.label104.Text = "LSR:";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(6, 37);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(110, 21);
+            this.label100.TabIndex = 7;
+            this.label100.Text = "通道选择:";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.btnRead1);
+            this.groupBox10.Controls.Add(this.list1);
+            this.groupBox10.Controls.Add(this.btnIIRRead1);
+            this.groupBox10.Controls.Add(this.label102);
+            this.groupBox10.Controls.Add(this.iirList1);
+            this.groupBox10.Controls.Add(this.baseRead1);
+            this.groupBox10.Controls.Add(this.btnLSRRead1);
+            this.groupBox10.Controls.Add(this.lsrList1);
+            this.groupBox10.Controls.Add(this.label101);
+            this.groupBox10.Controls.Add(this.baseSend1);
+            this.groupBox10.Controls.Add(this.receiveData1);
+            this.groupBox10.Controls.Add(this.sendData1);
+            this.groupBox10.Controls.Add(this.label97);
+            this.groupBox10.Controls.Add(this.label96);
+            this.groupBox10.Controls.Add(this.basePath1);
+            this.groupBox10.Controls.Add(this.label92);
+            this.groupBox10.Location = new System.Drawing.Point(0, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(1041, 256);
+            this.groupBox10.TabIndex = 0;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "OUT1";
+            // 
+            // btnRead1
+            // 
+            this.btnRead1.Location = new System.Drawing.Point(944, 190);
+            this.btnRead1.Name = "btnRead1";
+            this.btnRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnRead1.TabIndex = 15;
+            this.btnRead1.Text = "读取";
+            this.btnRead1.UseVisualStyleBackColor = true;
+            this.btnRead1.Click += new System.EventHandler(this.btnRead1_Click);
+            // 
+            // list1
+            // 
+            this.list1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.list1.GridLines = true;
+            this.list1.Location = new System.Drawing.Point(574, 176);
+            this.list1.MultiSelect = false;
+            this.list1.Name = "list1";
+            this.list1.Size = new System.Drawing.Size(335, 62);
+            this.list1.TabIndex = 14;
+            this.list1.UseCompatibleStateImageBehavior = false;
+            this.list1.View = System.Windows.Forms.View.Details;
+            // 
+            // btnIIRRead1
+            // 
+            this.btnIIRRead1.Location = new System.Drawing.Point(944, 114);
+            this.btnIIRRead1.Name = "btnIIRRead1";
+            this.btnIIRRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnIIRRead1.TabIndex = 13;
+            this.btnIIRRead1.Text = "读取";
+            this.btnIIRRead1.UseVisualStyleBackColor = true;
+            this.btnIIRRead1.Click += new System.EventHandler(this.btnIIRRead1_Click);
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(508, 118);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(58, 21);
+            this.label102.TabIndex = 12;
+            this.label102.Text = "IIR:";
+            // 
+            // iirList1
+            // 
+            this.iirList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.iirList1.GridLines = true;
+            this.iirList1.Location = new System.Drawing.Point(574, 103);
+            this.iirList1.MultiSelect = false;
+            this.iirList1.Name = "iirList1";
+            this.iirList1.Size = new System.Drawing.Size(335, 62);
+            this.iirList1.TabIndex = 11;
+            this.iirList1.UseCompatibleStateImageBehavior = false;
+            this.iirList1.View = System.Windows.Forms.View.Details;
+            // 
+            // baseRead1
+            // 
+            this.baseRead1.Location = new System.Drawing.Point(333, 128);
+            this.baseRead1.Name = "baseRead1";
+            this.baseRead1.Size = new System.Drawing.Size(75, 29);
+            this.baseRead1.TabIndex = 10;
+            this.baseRead1.Text = "读取";
+            this.baseRead1.UseVisualStyleBackColor = true;
+            this.baseRead1.Click += new System.EventHandler(this.baseRead1_Click);
+            // 
+            // btnLSRRead1
+            // 
+            this.btnLSRRead1.Location = new System.Drawing.Point(944, 45);
+            this.btnLSRRead1.Name = "btnLSRRead1";
+            this.btnLSRRead1.Size = new System.Drawing.Size(75, 29);
+            this.btnLSRRead1.TabIndex = 9;
+            this.btnLSRRead1.Text = "读取";
+            this.btnLSRRead1.UseVisualStyleBackColor = true;
+            this.btnLSRRead1.Click += new System.EventHandler(this.btnLSRRead1_Click);
+            // 
+            // lsrList1
+            // 
+            this.lsrList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
+            this.lsrList1.GridLines = true;
+            this.lsrList1.Location = new System.Drawing.Point(573, 30);
+            this.lsrList1.MultiSelect = false;
+            this.lsrList1.Name = "lsrList1";
+            this.lsrList1.Size = new System.Drawing.Size(335, 62);
+            this.lsrList1.TabIndex = 1;
+            this.lsrList1.UseCompatibleStateImageBehavior = false;
+            this.lsrList1.View = System.Windows.Forms.View.Details;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(508, 49);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(58, 21);
+            this.label101.TabIndex = 7;
+            this.label101.Text = "LSR:";
+            // 
+            // baseSend1
+            // 
+            this.baseSend1.Location = new System.Drawing.Point(333, 86);
+            this.baseSend1.Name = "baseSend1";
+            this.baseSend1.Size = new System.Drawing.Size(75, 29);
+            this.baseSend1.TabIndex = 6;
+            this.baseSend1.Text = "发送";
+            this.baseSend1.UseVisualStyleBackColor = true;
+            this.baseSend1.Click += new System.EventHandler(this.baseSend1_Click);
+            // 
+            // receiveData1
+            // 
+            this.receiveData1.Location = new System.Drawing.Point(125, 125);
+            this.receiveData1.Name = "receiveData1";
+            this.receiveData1.ReadOnly = true;
+            this.receiveData1.Size = new System.Drawing.Size(176, 31);
+            this.receiveData1.TabIndex = 5;
+            // 
+            // sendData1
+            // 
+            this.sendData1.Location = new System.Drawing.Point(125, 88);
+            this.sendData1.Name = "sendData1";
+            this.sendData1.Size = new System.Drawing.Size(176, 31);
+            this.sendData1.TabIndex = 4;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(8, 130);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(110, 21);
+            this.label97.TabIndex = 3;
+            this.label97.Text = "接收数据:";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(8, 93);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(110, 21);
+            this.label96.TabIndex = 2;
+            this.label96.Text = "发送数据:";
+            // 
+            // basePath1
+            // 
+            this.basePath1.FormattingEnabled = true;
+            this.basePath1.Items.AddRange(new object[] {
+            "通道1",
+            "通道2",
+            "通道3",
+            "通道4"});
+            this.basePath1.Location = new System.Drawing.Point(117, 31);
+            this.basePath1.Name = "basePath1";
+            this.basePath1.Size = new System.Drawing.Size(121, 29);
+            this.basePath1.TabIndex = 1;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(7, 35);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(110, 21);
+            this.label92.TabIndex = 0;
+            this.label92.Text = "通道选择:";
+            // 
             // treeView1
             // 
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点0";
-            treeNode1.Text = "基本功能测试";
+            treeNode1.Text = "稳定性测试";
             treeNode2.Name = "节点1";
             treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "芯片设置";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2});
+            treeNode2,
+            treeNode3,
+            treeNode4});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -2254,57 +3134,12 @@
             // 
             // dataView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataView.ColumnFont = null;
-            this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.ColumnSelectBackColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataView.EnableHeadersVisualStyles = false;
-            this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dataView.HeadFont = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataView.HeadSelectBackColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.HeadSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.Location = new System.Drawing.Point(0, 0);
-            this.dataView.MouseCellBackColor = System.Drawing.Color.LightSkyBlue;
-            this.dataView.MultiSelect = false;
+            this.dataView.Location = new System.Drawing.Point(3, 4);
             this.dataView.Name = "dataView";
-            this.dataView.ReadOnly = true;
-            this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataView.RowTemplate.Height = 23;
-            this.dataView.Size = new System.Drawing.Size(1285, 632);
+            this.dataView.Size = new System.Drawing.Size(1279, 588);
             this.dataView.TabIndex = 0;
-            this.dataView.TitleBack = null;
-            this.dataView.TitleBackColorBegin = System.Drawing.Color.White;
-            this.dataView.TitleBackColorEnd = System.Drawing.Color.WhiteSmoke;
             // 
             // statusStrip1
             // 
@@ -2329,6 +3164,14 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
+            // 
+            // setLabel
+            // 
+            this.setLabel.AutoSize = true;
+            this.setLabel.Location = new System.Drawing.Point(532, 488);
+            this.setLabel.Name = "setLabel";
+            this.setLabel.Size = new System.Drawing.Size(0, 21);
+            this.setLabel.TabIndex = 38;
             // 
             // MainForm
             // 
@@ -2381,6 +3224,15 @@
             this.tabPage4.ResumeLayout(false);
             this.skinGroupBox1.ResumeLayout(false);
             this.skinGroupBox1.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -2556,7 +3408,81 @@
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Button btnOff;
-        private CCWin.SkinControl.SkinDataGridView dataView;
+        private System.Windows.Forms.Button btnLight1;
+        private System.Windows.Forms.Button btnLight3;
+        private System.Windows.Forms.Button btnLight2;
+        private System.Windows.Forms.Button btnLight8;
+        private System.Windows.Forms.Button btnLight7;
+        private System.Windows.Forms.Button btnLight6;
+        private System.Windows.Forms.Button btnLight5;
+        private System.Windows.Forms.Button btnLight4;
+        private System.Windows.Forms.DataGridView dataView;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Button chipReset;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox baudRate;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.ComboBox pathSelect;
+        private System.Windows.Forms.ComboBox chipSelect;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.Button baseSend2;
+        private System.Windows.Forms.TextBox receiveData2;
+        private System.Windows.Forms.TextBox sendData2;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.ComboBox basePath2;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Button baseSend1;
+        private System.Windows.Forms.TextBox receiveData1;
+        private System.Windows.Forms.TextBox sendData1;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.ComboBox basePath1;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.ListView lsrList1;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Button baseRead1;
+        private System.Windows.Forms.Button btnLSRRead1;
+        private System.Windows.Forms.Button btnIIRRead1;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.ListView iirList1;
+        private System.Windows.Forms.Button btnRead2;
+        private System.Windows.Forms.Button baseRead2;
+        private System.Windows.Forms.ListView list2;
+        private System.Windows.Forms.Button btnIIRRead2;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.ListView iirList2;
+        private System.Windows.Forms.Button btnLSRRead2;
+        private System.Windows.Forms.ListView lsrList2;
+        private System.Windows.Forms.Label label104;
+        private System.Windows.Forms.Button btnRead1;
+        private System.Windows.Forms.ListView list1;
+        private System.Windows.Forms.ComboBox receiveCache;
+        private System.Windows.Forms.ComboBox sendInterrupt;
+        private System.Windows.Forms.ComboBox receiveInterrupt;
+        private System.Windows.Forms.ComboBox sendTarget;
+        private System.Windows.Forms.ComboBox receiveFIFO;
+        private System.Windows.Forms.ComboBox DMAPattern;
+        private System.Windows.Forms.ComboBox FIFOSelect;
+        private System.Windows.Forms.ComboBox byteLength;
+        private System.Windows.Forms.ComboBox stopBit;
+        private System.Windows.Forms.ComboBox parityCheck;
+        private System.Windows.Forms.Button btnChipSet;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label setLabel;
     }
 }
 

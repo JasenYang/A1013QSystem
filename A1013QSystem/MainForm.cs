@@ -1,11 +1,13 @@
 ﻿using A1013QSystem.Common;
 using A1013QSystem.DriverCommon;
+using A1013QSystem.Model;
 using DigitalCircuitSystem.DriverDAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -23,8 +25,21 @@ namespace A1013QSystem
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            
+            GraphicsPath buttonPath = new GraphicsPath();
+            buttonPath.AddEllipse(5, 5, 20, 20);
 
-             //将数字键上下箭头去掉
+            btnLight1.Region = new System.Drawing.Region(buttonPath);
+            btnLight2.Region = new System.Drawing.Region(buttonPath);
+            btnLight3.Region = new System.Drawing.Region(buttonPath);
+            btnLight4.Region = new System.Drawing.Region(buttonPath);
+            btnLight5.Region = new System.Drawing.Region(buttonPath);
+            btnLight6.Region = new System.Drawing.Region(buttonPath);
+            btnLight7.Region = new System.Drawing.Region(buttonPath);
+            btnLight8.Region = new System.Drawing.Region(buttonPath);
+           
+
+            //将数字键上下箭头去掉
             volNum1.UpDownButton.Visible = false;
             eleNum1.UpDownButton.Visible = false;
             volNum2.UpDownButton.Visible = false;
@@ -84,9 +99,9 @@ namespace A1013QSystem
             dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
             dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
 
-            tabControl1.TabPages.Clear();
-            tabControl1.TabPages.Add(tabPage1);
-            tabControl1.TabPages.Add(tabPage2);
+            //tabControl1.TabPages.Clear();
+            //tabControl1.TabPages.Add(tabPage1);
+            //tabControl1.TabPages.Add(tabPage2);
 
 
             //变化电压3
@@ -101,11 +116,29 @@ namespace A1013QSystem
             tEleChange.Tick += Fn_CircleEle;
             tEleChange.Enabled = true;
         }
+        
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //居中显示
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            //显示应用程序在任务栏中的图标
+            this.ShowInTaskbar = true;
+        
+            //首先要从ini文件读取仪器的参数信息
+            CDll.GetAlltheInstumentsParasFromIniFile();
+            ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port.Value = CGloabal.g_InstrPowerModule.port;
 
+            ipAddressControl2.Text = CGloabal.g_InstrPowerModule.ipAdress;
+            port2.Value= CGloabal.g_InstrScopeModule.port;
+
+            multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
+        }
         int cireVolNum = 4;
         public void Fn_CircleVol(object sender, EventArgs e)
         {
-           switch(cireVolNum)
+            switch (cireVolNum)
             {
                 case 4:
                     volNum3.Value = (decimal)3.3;
@@ -124,7 +157,7 @@ namespace A1013QSystem
                     cireVolNum = 4;
                     break;
             }
-           int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
+            int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
         }
 
         int cireEleNum = 4;
@@ -150,26 +183,6 @@ namespace A1013QSystem
                     break;
             }
             int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, (double)volNum4.Value, "");
-        }
-            
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            //居中显示
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            //显示应用程序在任务栏中的图标
-            this.ShowInTaskbar = true;
-        
-            //首先要从ini文件读取仪器的参数信息
-            CDll.GetAlltheInstumentsParasFromIniFile();
-            ipAddressControl.Text = CGloabal.g_InstrPowerModule.ipAdress;
-            port.Value = CGloabal.g_InstrPowerModule.port;
-
-            ipAddressControl2.Text = CGloabal.g_InstrPowerModule.ipAdress;
-            port2.Value= CGloabal.g_InstrScopeModule.port;
-
-            multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
         }
 
         //UUT的串口收到数据回调函数
@@ -334,16 +347,22 @@ namespace A1013QSystem
             }
 
             dt.Rows.Add(dr);
-           
-            //if (dt.Rows.Count == 39)
-            //{
-            //    dt.Rows[0].Delete();
-            //}
+            // dt.Select("1=1", " 时间 desc");
+            if (dt.Rows.Count == 22)
+            {
+                dt.Rows[0].Delete();
+            }
             //dataView.DataSource = dt;
             ////dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
-           
+
             //dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-           
+            dataView.AllowUserToAddRows = false;    
+            dataView.ScrollBars = ScrollBars.Both;
+
+            dataView.DataSource = dt;// CGloabal.LModel;     
+            dataView.Columns[0].Width = 160;
+
+            //数据保存到Excel中
             int kk = CDll.DataSaveExcel(CGloabal.LModel);
             if (kk > 0) {
                 CGloabal.LModel.Clear();
@@ -370,12 +389,7 @@ namespace A1013QSystem
                 ele2.Text = eletage2.ToString("0.00000");
             }
         }
-
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-          
-        }
-
+      
         private void btnElect_Click(object sender, EventArgs e)
         {
             string strIP;
@@ -488,9 +502,8 @@ namespace A1013QSystem
                 {//注册回掉函数    
 
                     btnSerial.Text = "关闭";
-                    CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
-                  
-                    CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
+                    //CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;                  
+                    //CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
                 }
                 else
                 {
@@ -632,42 +645,55 @@ namespace A1013QSystem
            if (tabSelect.Text == "试验用例")
             {
                 tabControl2.TabPages.Clear();
-                tabControl2.TabPages.Add(tabPage4);                
+                tabControl2.TabPages.Add(tabPage3);                
             }
             if (tabSelect.Text == "结果查看") {
-                //DataTable dt = new DataTable();
-                //DataRow dr = dt.NewRow();               
-              
-                //dt.Columns.Add("时间");
-                //dt.Columns.Add("电压1");
-                //dt.Columns.Add("电流1");
-                //dt.Columns.Add("电压2");
-                //dt.Columns.Add("电流2");
+                DataTable dt = new DataTable();              
 
-                //foreach (var item in CGloabal.LModel)
-                //{
-                //    dr["时间"] = item.curDate;
-                //    dr["电压1"] = "AX";
-                //    dr["电流1"] = "AX";
-                //    dr["电压2"] = "AX";
-                //    dr["电流2"] = "AX";
-                //}
-               
+            //    dt.Columns.Add("时间");
+            //    dt.Columns.Add("电压1");
+            //    dt.Columns.Add("电流1");
+            //    dt.Columns.Add("电压2");
+            //    dt.Columns.Add("电流2");
+            //    dt.Columns.Add("速率");
+            //    dt.Columns.Add("11"); dt.Columns.Add("12电流2电流2"); dt.Columns.Add("13"); dt.Columns.Add("14");
+            //    dt.Columns.Add("21"); dt.Columns.Add("22电流2电流2"); dt.Columns.Add("23"); dt.Columns.Add("24");
+            //    dt.Columns.Add("31"); dt.Columns.Add("32电流2电流2"); dt.Columns.Add("33"); dt.Columns.Add("34");
+            //    dt.Columns.Add("41"); dt.Columns.Add("42电流2电流2"); dt.Columns.Add("43"); dt.Columns.Add("44");
+            //    dt.Columns.Add("51"); dt.Columns.Add("52电流2电流2"); dt.Columns.Add("53"); dt.Columns.Add("54");
 
-                //dt.Rows.Add(dr);
-                dataView.AllowUserToAddRows = false;
-             //   dataView.DataSource = CGloabal.LModel;
-                dataView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //    for (int i=0;i<10;i++)
+            //    {
+            //        DataRow dr = dt.NewRow();
+            //        dr["时间"] = "2016/11/22 12:00:"+i;
+            //        dr["电压1"] = "3233";
+            //        dr["电流1"] = "AX"+i;
+            //        dr["电压2"] = "AX";
+            //        dr["电流2"] = "AX";
+            //        dr["速率"] = "AX";
+            //        dr["11"] = "34000"; dr["12电流2电流2"] = "34000"; dr["13"] = "34000"; dr["14"] = "34000";
+            //        dr["21"] = "34000"; dr["22电流2电流2"] = "34000"; dr["23"] = "34000"; dr["24"] = "34000";
+            //        dr["31"] = "34000"; dr["32电流2电流2"] = "34000"; dr["33"] = "34000"; dr["34"] = "34000";
+            //        dr["41"] = "34000"; dr["42电流2电流2"] = "34000"; dr["43"] = "34000"; dr["44"] = "34000";
+            //        dr["51"] = "34000"; dr["52电流2电流2"] = "34000"; dr["53"] = "34000"; dr["54"] = "34000";
+
+            //        dt.Rows.Add(dr);
+            //    }
+            
+            //    dataView.AllowUserToAddRows = false;
+            //    dataView.DataSource = dt;// CGloabal.LModel;             
+            //    dataView.Columns[0].Width = 160;
+            //    dataView.ScrollBars = ScrollBars.Both;    
+
             }
 
-            tabControl2.TabPages.Clear();
-            tabControl2.TabPages.Add(tabPage3);
+            
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             var SelectNode = (sender as TreeView).SelectedNode;
-            if (SelectNode.Text == "基本功能测试")
+            if (SelectNode.Text == "稳定性测试")
             {
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage3);
@@ -676,7 +702,22 @@ namespace A1013QSystem
             {
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage4);
-            }           
+            }
+            else if (SelectNode.Text == "芯片设置")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage6);
+
+                //芯片系统默认设置
+                chipSelect.SelectedIndex = 0;
+                pathSelect.SelectedIndex = 0;
+
+            }
+            else if (SelectNode.Text == "基本功能测试")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage7);
+            }  
         }
 
         private void bunTuple1_Click(object sender, EventArgs e)
@@ -725,11 +766,19 @@ namespace A1013QSystem
         {
             int error;
             string strMsg = "";
+
+            //btnLight1.BackColor = Color.LightGreen;
+            //btnLight2.BackColor = Color.LightGreen;
+            //btnLight3.BackColor = Color.LightGreen;
+            //btnLight4.BackColor = Color.LightGreen;
+            //btnLight5.BackColor = Color.LightGreen;
+            //btnLight6.BackColor = Color.LightGreen;
+            //btnLight7.BackColor = Color.LightGreen;
+            //btnLight8.BackColor = Color.LightGreen;
             if (btnElect.Text == "关闭")//用户要连接仪器
-            {
+            {            
                 for (int ChanID = 1; ChanID <= 4; ChanID++)
                 {
-
                     error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 1, ref strMsg);
                     if (error < 0)
                     {
@@ -743,23 +792,27 @@ namespace A1013QSystem
                         {
                             case 1:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum1.Value, strMsg);
+                               btnLight1.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum1.Value, strMsg);
-                               
+                                btnLight2.BackColor = Color.LightGreen;
                                 break;
                             case 2:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum2.Value, strMsg);
+                                btnLight3.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum2.Value, strMsg);
-                             
+                                btnLight4.BackColor = Color.LightGreen;
                                 break;
                             case 3:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum3.Value, strMsg);
+                                btnLight5.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum3.Value, strMsg);
-                               
+                                btnLight6.BackColor = Color.LightGreen;
                                 break;
                             case 4:
                                 error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)volNum4.Value, strMsg);
+                                btnLight7.BackColor = Color.LightGreen;
                                 error = Power_Driver.SetMaxElectricityVal(CGloabal.g_InstrPowerModule.nHandle, ChanID, (double)eleNum4.Value, strMsg);
-                               
+                                btnLight8.BackColor = Color.LightGreen;
                                 break;
                         }
                     }
@@ -775,6 +828,15 @@ namespace A1013QSystem
         {
             int error = 0;
             string strMsg = "";
+            //btnLight1.BackColor = Color.WhiteSmoke;
+            //btnLight2.BackColor = Color.WhiteSmoke;
+            //btnLight3.BackColor = Color.WhiteSmoke;
+            //btnLight4.BackColor = Color.WhiteSmoke;
+            //btnLight5.BackColor = Color.WhiteSmoke;
+            //btnLight6.BackColor = Color.WhiteSmoke;
+            //btnLight7.BackColor = Color.WhiteSmoke;
+            //btnLight8.BackColor = Color.WhiteSmoke;
+
             for (int ChanID = 1; ChanID <= 4; ChanID++)
             {
                 error = Power_Driver.isEnableChannel(CGloabal.g_InstrPowerModule.nHandle, ChanID, 0, ref strMsg);
@@ -787,20 +849,325 @@ namespace A1013QSystem
                     switch (ChanID)
                     {
                         case 1:
-                           // swchPowerChan1.Value = false;
+                            btnLight1.BackColor = Color.WhiteSmoke;
+                            btnLight2.BackColor = Color.WhiteSmoke;
+
                             break;
                         case 2:
-                         //   swchPowerChan2.Value = false;
+                            btnLight3.BackColor = Color.WhiteSmoke;
+                            btnLight4.BackColor = Color.WhiteSmoke;
                             break;
                         case 3:
-                          //  swchPowerChan3.Value = false;
+                            btnLight5.BackColor = Color.WhiteSmoke;
+                            btnLight6.BackColor = Color.WhiteSmoke;
                             break;
                         case 4:
-                          //  swchPowerChan4.Value = false;
+                            btnLight7.BackColor = Color.WhiteSmoke;
+                            btnLight8.BackColor = Color.WhiteSmoke;
                             break;
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 稳定性测试——执行测试
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
+            CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
+        }      
+
+        private void btnChipSet_Click(object sender, EventArgs e)
+        {
+            setLabel.Text = "";
+
+            ChipModel CHIPMODEL = new ChipModel();
+            CHIPMODEL.chipSelect = chipSelect.SelectedIndex;
+            CHIPMODEL.pathSelect = pathSelect.SelectedIndex;
+
+            CHIPMODEL.baudRate = baudRate.Text;
+            CHIPMODEL.parityCheck = parityCheck.SelectedItem.ToString();
+            CHIPMODEL.stopBit = stopBit.SelectedItem.ToString();
+            CHIPMODEL.byteLength = byteLength.SelectedItem.ToString();
+
+            CHIPMODEL.FIFOSelect = FIFOSelect.SelectedItem.ToString();
+
+            CHIPMODEL.DMAPattern = DMAPattern.SelectedItem.ToString();
+            CHIPMODEL.receiveFIFO = receiveFIFO.SelectedItem.ToString();
+            CHIPMODEL.sendTarget = sendTarget.SelectedItem.ToString();
+
+            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedIndex;
+            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedIndex;
+            CHIPMODEL.receiveCache = receiveCache.SelectedIndex;
+
+            int error = CDll.ChipSet(CHIPMODEL);
+            if (error>=0)
+            {
+                setLabel.Text = "设置成功...";
+            }
+        }
+
+        private void chipReset_Click(object sender, EventArgs e)
+        {
+            var chip =(byte) chipSelect.SelectedIndex;
+            var path = (byte)pathSelect.SelectedIndex;
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XBB };
+            cmdByte[1] = chip;
+            cmdByte[2] = path;
+
+            int  error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                MessageBox.Show("芯片复位失败");
+                return;
+            }
+
+        }
+
+        private void baseSend1_Click(object sender, EventArgs e)
+        {                      
+            CDll.BaseTestSendData(1, basePath1.Text, Convert.ToInt32(sendData1.Text));
+        }
+
+        private void baseRead1_Click(object sender, EventArgs e)
+        {
+          byte[] readByte =  CDll.BaseTestReadData(1, basePath1.Text, "BASE");
+            baseRead1.Text = ((int)readByte[4]).ToString();
+        }
+
+        private void baseSend2_Click(object sender, EventArgs e)
+        {
+            CDll.BaseTestSendData(2, basePath2.Text, Convert.ToInt32(sendData1.Text));
+        }
+
+        private void baseRead2_Click(object sender, EventArgs e)
+        {
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "BASE");
+            baseRead2.Text = ((int)readByte[4]).ToString();
+        }
+
+        private void btnLSRRead1_Click(object sender, EventArgs e)
+        {
+            this.lsrList1.GridLines = true; //显示表格线
+            this.lsrList1.View = View.Details;//显示表格细节
+            this.lsrList1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.lsrList1.Scrollable = true;//有滚动条
+            this.lsrList1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.lsrList1.FullRowSelect = true;//是否可以选择行           
+
+            lsrList1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "LSR");
+
+            this.lsrList1.Columns.Add("FIFOERR", 41);
+            this.lsrList1.Columns.Add("TEMT", 41);
+            this.lsrList1.Columns.Add("THRE", 41);
+            this.lsrList1.Columns.Add("BI", 41);
+            this.lsrList1.Columns.Add("FE", 41);
+            this.lsrList1.Columns.Add("PE", 41);
+            this.lsrList1.Columns.Add("OE", 41);
+            this.lsrList1.Columns.Add("DR", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.lsrList1.Items.AddRange(p);
+        }
+
+        private void btnIIRRead1_Click(object sender, EventArgs e)
+        {
+            this.iirList1.GridLines = true; //显示表格线
+            this.iirList1.View = View.Details;//显示表格细节
+            this.iirList1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.iirList1.Scrollable = true;//有滚动条
+            this.iirList1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.iirList1.FullRowSelect = true;//是否可以选择行           
+
+            iirList1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "IIR");
+
+            this.iirList1.Columns.Add("FIFOE", 41);
+            this.iirList1.Columns.Add("FIFOE", 41);
+            this.iirList1.Columns.Add("ID4", 41);
+            this.iirList1.Columns.Add("ID3", 41);
+            this.iirList1.Columns.Add("ID2", 41);
+            this.iirList1.Columns.Add("ID1", 41);
+            this.iirList1.Columns.Add("ID0", 41);
+            this.iirList1.Columns.Add("NINT", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.iirList1.Items.AddRange(p);
+        }
+
+        private void btnRead1_Click(object sender, EventArgs e)
+        {
+            this.list1.GridLines = true; //显示表格线
+            this.list1.View = View.Details;//显示表格细节
+            this.list1.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.list1.Scrollable = true;//有滚动条
+            this.list1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.list1.FullRowSelect = true;//是否可以选择行           
+
+            list1.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "ARM");
+
+            this.list1.Columns.Add("TXRDY", 41);
+            this.list1.Columns.Add("RXRDY", 41);
+            this.list1.Columns.Add("IRQ", 41);
+        
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[3] { "", "", "" };
+
+            //添加
+            for (int i = 0; i < 3; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.list1.Items.AddRange(p);
+        }
+
+        private void btnLSRRead2_Click(object sender, EventArgs e)
+        {
+            this.lsrList2.GridLines = true; //显示表格线
+            this.lsrList2.View = View.Details;//显示表格细节
+            this.lsrList2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.lsrList2.Scrollable = true;//有滚动条
+            this.lsrList2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.lsrList2.FullRowSelect = true;//是否可以选择行           
+
+            lsrList2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "LSR");
+
+            this.lsrList2.Columns.Add("FIFOERR", 41);
+            this.lsrList2.Columns.Add("TEMT", 41);
+            this.lsrList2.Columns.Add("THRE", 41);
+            this.lsrList2.Columns.Add("BI", 41);
+            this.lsrList2.Columns.Add("FE", 41);
+            this.lsrList2.Columns.Add("PE", 41);
+            this.lsrList2.Columns.Add("OE", 41);
+            this.lsrList2.Columns.Add("DR", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.lsrList2.Items.AddRange(p);
+        }
+
+        private void btnIIRRead2_Click(object sender, EventArgs e)
+        {
+            this.iirList2.GridLines = true; //显示表格线
+            this.iirList2.View = View.Details;//显示表格细节
+            this.iirList2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.iirList2.Scrollable = true;//有滚动条
+            this.iirList2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.iirList2.FullRowSelect = true;//是否可以选择行           
+
+            iirList2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "IIR");
+
+            this.iirList2.Columns.Add("FIFOE", 41);
+            this.iirList2.Columns.Add("FIFOE", 41);
+            this.iirList2.Columns.Add("ID4", 41);
+            this.iirList2.Columns.Add("ID3", 41);
+            this.iirList2.Columns.Add("ID2", 41);
+            this.iirList2.Columns.Add("ID1", 41);
+            this.iirList2.Columns.Add("ID0", 41);
+            this.iirList2.Columns.Add("NINT", 41);
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
+
+            //添加
+            for (int i = 0; i < readByte.Length; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.iirList2.Items.AddRange(p);
+        }
+
+        private void btnRead2_Click(object sender, EventArgs e)
+        {
+            this.list2.GridLines = true; //显示表格线
+            this.list2.View = View.Details;//显示表格细节
+            this.list2.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
+            this.list2.Scrollable = true;//有滚动条
+            this.list2.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
+            this.list2.FullRowSelect = true;//是否可以选择行           
+
+            list2.Columns.Clear();
+
+            //读取数据
+            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "ARM");
+
+            this.list2.Columns.Add("TXRDY", 41);
+            this.list2.Columns.Add("RXRDY", 41);
+            this.list2.Columns.Add("IRQ", 41);
+
+
+            ListViewItem[] p = new ListViewItem[1];
+            string[] ass = new string[3] { "", "", "" };
+
+            //添加
+            for (int i = 0; i < 3; i++)
+            {
+                ass[i] = readByte.ToString();
+            }
+            p[0] = new ListViewItem(ass);
+            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
+            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
+
+            this.list2.Items.AddRange(p);
         }
     }
 }

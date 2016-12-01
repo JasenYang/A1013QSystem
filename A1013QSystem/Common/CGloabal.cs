@@ -1,4 +1,5 @@
-﻿using System;
+﻿using A1013QSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO.Ports;
