@@ -30,14 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnOff = new System.Windows.Forms.Button();
+            this.btnSet = new System.Windows.Forms.Button();
+            this.eleNum4 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.volNum4 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.eleNum3 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.volNum3 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.eleNum2 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.volNum2 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.eleNum1 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.volNum1 = new CCWin.SkinControl.SkinNumericUpDown();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label61 = new System.Windows.Forms.Label();
             this.cmbEvenBit = new System.Windows.Forms.ComboBox();
@@ -74,6 +93,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTest = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ele2 = new CCWin.SkinControl.SkinLabel();
+            this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
+            this.vol2 = new CCWin.SkinControl.SkinLabel();
+            this.skinLabel12 = new CCWin.SkinControl.SkinLabel();
             this.ele1 = new CCWin.SkinControl.SkinLabel();
             this.skinLabel7 = new CCWin.SkinControl.SkinLabel();
             this.vol1 = new CCWin.SkinControl.SkinLabel();
@@ -174,35 +197,21 @@
             this.label48 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dataView = new CCWin.SkinControl.SkinDataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ele2 = new CCWin.SkinControl.SkinLabel();
-            this.skinLabel8 = new CCWin.SkinControl.SkinLabel();
-            this.vol2 = new CCWin.SkinControl.SkinLabel();
-            this.skinLabel12 = new CCWin.SkinControl.SkinLabel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.volNum1 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.eleNum1 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.volNum2 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.eleNum2 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.volNum3 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.eleNum3 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.volNum4 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.eleNum4 = new CCWin.SkinControl.SkinNumericUpDown();
-            this.btnSet = new System.Windows.Forms.Button();
-            this.btnOff = new System.Windows.Forms.Button();
-            this.dataView = new CCWin.SkinControl.SkinDataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.port2)).BeginInit();
@@ -224,17 +233,8 @@
             this.tabPage4.SuspendLayout();
             this.skinGroupBox1.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -266,6 +266,268 @@
             this.tabPage1.Size = new System.Drawing.Size(1285, 632);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "系统设置";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnOff);
+            this.groupBox6.Controls.Add(this.btnSet);
+            this.groupBox6.Controls.Add(this.eleNum4);
+            this.groupBox6.Controls.Add(this.volNum4);
+            this.groupBox6.Controls.Add(this.eleNum3);
+            this.groupBox6.Controls.Add(this.volNum3);
+            this.groupBox6.Controls.Add(this.eleNum2);
+            this.groupBox6.Controls.Add(this.volNum2);
+            this.groupBox6.Controls.Add(this.eleNum1);
+            this.groupBox6.Controls.Add(this.volNum1);
+            this.groupBox6.Controls.Add(this.label81);
+            this.groupBox6.Controls.Add(this.label80);
+            this.groupBox6.Controls.Add(this.label79);
+            this.groupBox6.Controls.Add(this.label78);
+            this.groupBox6.Controls.Add(this.label77);
+            this.groupBox6.Controls.Add(this.label76);
+            this.groupBox6.Controls.Add(this.label75);
+            this.groupBox6.Controls.Add(this.label74);
+            this.groupBox6.Location = new System.Drawing.Point(1052, 37);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(225, 529);
+            this.groupBox6.TabIndex = 15;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "电源设置";
+            // 
+            // btnOff
+            // 
+            this.btnOff.Location = new System.Drawing.Point(127, 449);
+            this.btnOff.Name = "btnOff";
+            this.btnOff.Size = new System.Drawing.Size(75, 31);
+            this.btnOff.TabIndex = 16;
+            this.btnOff.Text = "关闭";
+            this.btnOff.UseVisualStyleBackColor = true;
+            this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
+            // 
+            // btnSet
+            // 
+            this.btnSet.Location = new System.Drawing.Point(26, 450);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(75, 31);
+            this.btnSet.TabIndex = 6;
+            this.btnSet.Text = "打开";
+            this.btnSet.UseVisualStyleBackColor = true;
+            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
+            // 
+            // eleNum4
+            // 
+            this.eleNum4.ArrowColor = System.Drawing.Color.Gray;
+            this.eleNum4.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.eleNum4.BorderColor = System.Drawing.Color.Black;
+            this.eleNum4.DecimalPlaces = 2;
+            this.eleNum4.Location = new System.Drawing.Point(84, 392);
+            this.eleNum4.Name = "eleNum4";
+            this.eleNum4.ReadOnly = true;
+            this.eleNum4.Size = new System.Drawing.Size(92, 30);
+            this.eleNum4.TabIndex = 15;
+            this.eleNum4.UseWaitCursor = true;
+            this.eleNum4.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // volNum4
+            // 
+            this.volNum4.ArrowColor = System.Drawing.Color.Gray;
+            this.volNum4.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.volNum4.BorderColor = System.Drawing.Color.Black;
+            this.volNum4.DecimalPlaces = 2;
+            this.volNum4.Location = new System.Drawing.Point(84, 348);
+            this.volNum4.Name = "volNum4";
+            this.volNum4.ReadOnly = true;
+            this.volNum4.Size = new System.Drawing.Size(92, 30);
+            this.volNum4.TabIndex = 14;
+            this.volNum4.UseWaitCursor = true;
+            this.volNum4.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            65536});
+            // 
+            // eleNum3
+            // 
+            this.eleNum3.ArrowColor = System.Drawing.Color.Gray;
+            this.eleNum3.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.eleNum3.BorderColor = System.Drawing.Color.Black;
+            this.eleNum3.DecimalPlaces = 2;
+            this.eleNum3.Location = new System.Drawing.Point(84, 293);
+            this.eleNum3.Name = "eleNum3";
+            this.eleNum3.ReadOnly = true;
+            this.eleNum3.Size = new System.Drawing.Size(92, 30);
+            this.eleNum3.TabIndex = 13;
+            this.eleNum3.UseWaitCursor = true;
+            this.eleNum3.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // volNum3
+            // 
+            this.volNum3.ArrowColor = System.Drawing.Color.Gray;
+            this.volNum3.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.volNum3.BorderColor = System.Drawing.Color.Black;
+            this.volNum3.DecimalPlaces = 2;
+            this.volNum3.Location = new System.Drawing.Point(84, 249);
+            this.volNum3.Name = "volNum3";
+            this.volNum3.ReadOnly = true;
+            this.volNum3.Size = new System.Drawing.Size(92, 30);
+            this.volNum3.TabIndex = 12;
+            this.volNum3.UseWaitCursor = true;
+            this.volNum3.Value = new decimal(new int[] {
+            33,
+            0,
+            0,
+            65536});
+            // 
+            // eleNum2
+            // 
+            this.eleNum2.ArrowColor = System.Drawing.Color.Gray;
+            this.eleNum2.BorderColor = System.Drawing.Color.Black;
+            this.eleNum2.DecimalPlaces = 2;
+            this.eleNum2.Location = new System.Drawing.Point(84, 200);
+            this.eleNum2.Name = "eleNum2";
+            this.eleNum2.ReadOnly = true;
+            this.eleNum2.Size = new System.Drawing.Size(92, 30);
+            this.eleNum2.TabIndex = 11;
+            this.eleNum2.UseWaitCursor = true;
+            this.eleNum2.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            // 
+            // volNum2
+            // 
+            this.volNum2.ArrowColor = System.Drawing.Color.Gray;
+            this.volNum2.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.volNum2.BorderColor = System.Drawing.Color.Black;
+            this.volNum2.DecimalPlaces = 2;
+            this.volNum2.Location = new System.Drawing.Point(84, 159);
+            this.volNum2.Name = "volNum2";
+            this.volNum2.ReadOnly = true;
+            this.volNum2.Size = new System.Drawing.Size(92, 30);
+            this.volNum2.TabIndex = 10;
+            this.volNum2.UseWaitCursor = true;
+            this.volNum2.Value = new decimal(new int[] {
+            33,
+            0,
+            0,
+            65536});
+            // 
+            // eleNum1
+            // 
+            this.eleNum1.ArrowColor = System.Drawing.Color.WhiteSmoke;
+            this.eleNum1.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.eleNum1.BorderColor = System.Drawing.Color.Black;
+            this.eleNum1.DecimalPlaces = 2;
+            this.eleNum1.Location = new System.Drawing.Point(84, 100);
+            this.eleNum1.Name = "eleNum1";
+            this.eleNum1.ReadOnly = true;
+            this.eleNum1.Size = new System.Drawing.Size(92, 30);
+            this.eleNum1.TabIndex = 9;
+            this.eleNum1.UseWaitCursor = true;
+            this.eleNum1.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            65536});
+            // 
+            // volNum1
+            // 
+            this.volNum1.ArrowColor = System.Drawing.Color.WhiteSmoke;
+            this.volNum1.BaseColor = System.Drawing.Color.WhiteSmoke;
+            this.volNum1.BorderColor = System.Drawing.Color.Black;
+            this.volNum1.DecimalPlaces = 2;
+            this.volNum1.Location = new System.Drawing.Point(84, 57);
+            this.volNum1.Name = "volNum1";
+            this.volNum1.ReadOnly = true;
+            this.volNum1.Size = new System.Drawing.Size(92, 30);
+            this.volNum1.TabIndex = 8;
+            this.volNum1.UseWaitCursor = true;
+            this.volNum1.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(-1, 397);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(83, 20);
+            this.label81.TabIndex = 7;
+            this.label81.Text = "电流4：";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(-1, 355);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(83, 20);
+            this.label80.TabIndex = 6;
+            this.label80.Text = "电压4：";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(-1, 298);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(83, 20);
+            this.label79.TabIndex = 5;
+            this.label79.Text = "电流3：";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(0, 255);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(83, 20);
+            this.label78.TabIndex = 4;
+            this.label78.Text = "电压3：";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(-1, 204);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(83, 20);
+            this.label77.TabIndex = 3;
+            this.label77.Text = "电流2：";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(-1, 163);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(83, 20);
+            this.label76.TabIndex = 2;
+            this.label76.Text = "电压2：";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(-1, 106);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(83, 20);
+            this.label75.TabIndex = 1;
+            this.label75.Text = "电流1：";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(0, 62);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(83, 20);
+            this.label74.TabIndex = 0;
+            this.label74.Text = "电压1：";
             // 
             // groupBox5
             // 
@@ -706,6 +968,54 @@
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             // 
+            // ele2
+            // 
+            this.ele2.AutoSize = true;
+            this.ele2.BackColor = System.Drawing.Color.Transparent;
+            this.ele2.BorderColor = System.Drawing.Color.White;
+            this.ele2.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.ele2.Location = new System.Drawing.Point(79, 169);
+            this.ele2.Name = "ele2";
+            this.ele2.Size = new System.Drawing.Size(36, 24);
+            this.ele2.TabIndex = 15;
+            this.ele2.Text = "0.6";
+            // 
+            // skinLabel8
+            // 
+            this.skinLabel8.AutoSize = true;
+            this.skinLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel8.BorderColor = System.Drawing.Color.White;
+            this.skinLabel8.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.skinLabel8.Location = new System.Drawing.Point(14, 169);
+            this.skinLabel8.Name = "skinLabel8";
+            this.skinLabel8.Size = new System.Drawing.Size(75, 24);
+            this.skinLabel8.TabIndex = 14;
+            this.skinLabel8.Text = "电流2：";
+            // 
+            // vol2
+            // 
+            this.vol2.AutoSize = true;
+            this.vol2.BackColor = System.Drawing.Color.Transparent;
+            this.vol2.BorderColor = System.Drawing.Color.White;
+            this.vol2.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.vol2.Location = new System.Drawing.Point(79, 122);
+            this.vol2.Name = "vol2";
+            this.vol2.Size = new System.Drawing.Size(36, 24);
+            this.vol2.TabIndex = 13;
+            this.vol2.Text = "3.3";
+            // 
+            // skinLabel12
+            // 
+            this.skinLabel12.AutoSize = true;
+            this.skinLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.skinLabel12.BorderColor = System.Drawing.Color.White;
+            this.skinLabel12.Font = new System.Drawing.Font("微软雅黑", 13F);
+            this.skinLabel12.Location = new System.Drawing.Point(14, 122);
+            this.skinLabel12.Name = "skinLabel12";
+            this.skinLabel12.Size = new System.Drawing.Size(75, 24);
+            this.skinLabel12.TabIndex = 12;
+            this.skinLabel12.Text = "电压2：";
+            // 
             // ele1
             // 
             this.ele1.AutoSize = true;
@@ -913,7 +1223,7 @@
             this.skinTabPage2.Font = new System.Drawing.Font("宋体", 13F, System.Drawing.FontStyle.Bold);
             this.skinTabPage2.Location = new System.Drawing.Point(0, 36);
             this.skinTabPage2.Name = "skinTabPage2";
-            this.skinTabPage2.Size = new System.Drawing.Size(269, 203);
+            this.skinTabPage2.Size = new System.Drawing.Size(269, 135);
             this.skinTabPage2.TabIndex = 1;
             this.skinTabPage2.TabItemImage = null;
             this.skinTabPage2.Text = "芯片2";
@@ -1921,13 +2231,13 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "基本功能测试";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "寄存器测试";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "基本功能测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6});
+            treeNode1,
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -1941,6 +2251,60 @@
             this.tabPage5.Size = new System.Drawing.Size(1285, 632);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "结果查看";
+            // 
+            // dataView
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
+            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataView.ColumnFont = null;
+            this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.ColumnSelectBackColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataView.EnableHeadersVisualStyles = false;
+            this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dataView.HeadFont = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataView.HeadSelectBackColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.HeadSelectForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.Location = new System.Drawing.Point(0, 0);
+            this.dataView.MouseCellBackColor = System.Drawing.Color.LightSkyBlue;
+            this.dataView.MultiSelect = false;
+            this.dataView.Name = "dataView";
+            this.dataView.ReadOnly = true;
+            this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataView.RowTemplate.Height = 23;
+            this.dataView.Size = new System.Drawing.Size(1285, 632);
+            this.dataView.TabIndex = 0;
+            this.dataView.TitleBack = null;
+            this.dataView.TitleBackColorBegin = System.Drawing.Color.White;
+            this.dataView.TitleBackColorEnd = System.Drawing.Color.WhiteSmoke;
             // 
             // statusStrip1
             // 
@@ -1966,370 +2330,6 @@
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
             // 
-            // ele2
-            // 
-            this.ele2.AutoSize = true;
-            this.ele2.BackColor = System.Drawing.Color.Transparent;
-            this.ele2.BorderColor = System.Drawing.Color.White;
-            this.ele2.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.ele2.Location = new System.Drawing.Point(79, 169);
-            this.ele2.Name = "ele2";
-            this.ele2.Size = new System.Drawing.Size(36, 24);
-            this.ele2.TabIndex = 15;
-            this.ele2.Text = "0.6";
-            // 
-            // skinLabel8
-            // 
-            this.skinLabel8.AutoSize = true;
-            this.skinLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel8.BorderColor = System.Drawing.Color.White;
-            this.skinLabel8.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.skinLabel8.Location = new System.Drawing.Point(14, 169);
-            this.skinLabel8.Name = "skinLabel8";
-            this.skinLabel8.Size = new System.Drawing.Size(75, 24);
-            this.skinLabel8.TabIndex = 14;
-            this.skinLabel8.Text = "电流2：";
-            // 
-            // vol2
-            // 
-            this.vol2.AutoSize = true;
-            this.vol2.BackColor = System.Drawing.Color.Transparent;
-            this.vol2.BorderColor = System.Drawing.Color.White;
-            this.vol2.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.vol2.Location = new System.Drawing.Point(79, 122);
-            this.vol2.Name = "vol2";
-            this.vol2.Size = new System.Drawing.Size(36, 24);
-            this.vol2.TabIndex = 13;
-            this.vol2.Text = "3.3";
-            // 
-            // skinLabel12
-            // 
-            this.skinLabel12.AutoSize = true;
-            this.skinLabel12.BackColor = System.Drawing.Color.Transparent;
-            this.skinLabel12.BorderColor = System.Drawing.Color.White;
-            this.skinLabel12.Font = new System.Drawing.Font("微软雅黑", 13F);
-            this.skinLabel12.Location = new System.Drawing.Point(14, 122);
-            this.skinLabel12.Name = "skinLabel12";
-            this.skinLabel12.Size = new System.Drawing.Size(75, 24);
-            this.skinLabel12.TabIndex = 12;
-            this.skinLabel12.Text = "电压2：";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.btnOff);
-            this.groupBox6.Controls.Add(this.btnSet);
-            this.groupBox6.Controls.Add(this.eleNum4);
-            this.groupBox6.Controls.Add(this.volNum4);
-            this.groupBox6.Controls.Add(this.eleNum3);
-            this.groupBox6.Controls.Add(this.volNum3);
-            this.groupBox6.Controls.Add(this.eleNum2);
-            this.groupBox6.Controls.Add(this.volNum2);
-            this.groupBox6.Controls.Add(this.eleNum1);
-            this.groupBox6.Controls.Add(this.volNum1);
-            this.groupBox6.Controls.Add(this.label81);
-            this.groupBox6.Controls.Add(this.label80);
-            this.groupBox6.Controls.Add(this.label79);
-            this.groupBox6.Controls.Add(this.label78);
-            this.groupBox6.Controls.Add(this.label77);
-            this.groupBox6.Controls.Add(this.label76);
-            this.groupBox6.Controls.Add(this.label75);
-            this.groupBox6.Controls.Add(this.label74);
-            this.groupBox6.Location = new System.Drawing.Point(1052, 37);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(225, 529);
-            this.groupBox6.TabIndex = 15;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "电源设置";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(0, 62);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(83, 20);
-            this.label74.TabIndex = 0;
-            this.label74.Text = "电压1：";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(-1, 106);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(83, 20);
-            this.label75.TabIndex = 1;
-            this.label75.Text = "电流1：";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(-1, 163);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(83, 20);
-            this.label76.TabIndex = 2;
-            this.label76.Text = "电压2：";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(-1, 204);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(83, 20);
-            this.label77.TabIndex = 3;
-            this.label77.Text = "电流2：";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(0, 255);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(83, 20);
-            this.label78.TabIndex = 4;
-            this.label78.Text = "电压3：";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(-1, 298);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(83, 20);
-            this.label79.TabIndex = 5;
-            this.label79.Text = "电流3：";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(-1, 355);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(83, 20);
-            this.label80.TabIndex = 6;
-            this.label80.Text = "电压4：";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(-1, 397);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(83, 20);
-            this.label81.TabIndex = 7;
-            this.label81.Text = "电流4：";
-            // 
-            // volNum1
-            // 
-            this.volNum1.ArrowColor = System.Drawing.Color.WhiteSmoke;
-            this.volNum1.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.volNum1.BorderColor = System.Drawing.Color.Black;
-            this.volNum1.DecimalPlaces = 2;
-            this.volNum1.Location = new System.Drawing.Point(84, 57);
-            this.volNum1.Name = "volNum1";
-            this.volNum1.ReadOnly = true;
-            this.volNum1.Size = new System.Drawing.Size(92, 30);
-            this.volNum1.TabIndex = 8;
-            this.volNum1.UseWaitCursor = true;
-            this.volNum1.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            // 
-            // eleNum1
-            // 
-            this.eleNum1.ArrowColor = System.Drawing.Color.WhiteSmoke;
-            this.eleNum1.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.eleNum1.BorderColor = System.Drawing.Color.Black;
-            this.eleNum1.DecimalPlaces = 2;
-            this.eleNum1.Location = new System.Drawing.Point(84, 100);
-            this.eleNum1.Name = "eleNum1";
-            this.eleNum1.ReadOnly = true;
-            this.eleNum1.Size = new System.Drawing.Size(92, 30);
-            this.eleNum1.TabIndex = 9;
-            this.eleNum1.UseWaitCursor = true;
-            this.eleNum1.Value = new decimal(new int[] {
-            7,
-            0,
-            0,
-            65536});
-            // 
-            // volNum2
-            // 
-            this.volNum2.ArrowColor = System.Drawing.Color.Gray;
-            this.volNum2.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.volNum2.BorderColor = System.Drawing.Color.Black;
-            this.volNum2.DecimalPlaces = 2;
-            this.volNum2.Location = new System.Drawing.Point(84, 159);
-            this.volNum2.Name = "volNum2";
-            this.volNum2.ReadOnly = true;
-            this.volNum2.Size = new System.Drawing.Size(92, 30);
-            this.volNum2.TabIndex = 10;
-            this.volNum2.UseWaitCursor = true;
-            this.volNum2.Value = new decimal(new int[] {
-            33,
-            0,
-            0,
-            65536});
-            // 
-            // eleNum2
-            // 
-            this.eleNum2.ArrowColor = System.Drawing.Color.Gray;
-            this.eleNum2.BorderColor = System.Drawing.Color.Black;
-            this.eleNum2.DecimalPlaces = 2;
-            this.eleNum2.Location = new System.Drawing.Point(84, 200);
-            this.eleNum2.Name = "eleNum2";
-            this.eleNum2.ReadOnly = true;
-            this.eleNum2.Size = new System.Drawing.Size(92, 30);
-            this.eleNum2.TabIndex = 11;
-            this.eleNum2.UseWaitCursor = true;
-            this.eleNum2.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            // 
-            // volNum3
-            // 
-            this.volNum3.ArrowColor = System.Drawing.Color.Gray;
-            this.volNum3.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.volNum3.BorderColor = System.Drawing.Color.Black;
-            this.volNum3.DecimalPlaces = 2;
-            this.volNum3.Location = new System.Drawing.Point(84, 249);
-            this.volNum3.Name = "volNum3";
-            this.volNum3.ReadOnly = true;
-            this.volNum3.Size = new System.Drawing.Size(92, 30);
-            this.volNum3.TabIndex = 12;
-            this.volNum3.UseWaitCursor = true;
-            this.volNum3.Value = new decimal(new int[] {
-            33,
-            0,
-            0,
-            65536});
-            // 
-            // eleNum3
-            // 
-            this.eleNum3.ArrowColor = System.Drawing.Color.Gray;
-            this.eleNum3.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.eleNum3.BorderColor = System.Drawing.Color.Black;
-            this.eleNum3.DecimalPlaces = 2;
-            this.eleNum3.Location = new System.Drawing.Point(84, 293);
-            this.eleNum3.Name = "eleNum3";
-            this.eleNum3.ReadOnly = true;
-            this.eleNum3.Size = new System.Drawing.Size(92, 30);
-            this.eleNum3.TabIndex = 13;
-            this.eleNum3.UseWaitCursor = true;
-            this.eleNum3.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            // 
-            // volNum4
-            // 
-            this.volNum4.ArrowColor = System.Drawing.Color.Gray;
-            this.volNum4.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.volNum4.BorderColor = System.Drawing.Color.Black;
-            this.volNum4.DecimalPlaces = 2;
-            this.volNum4.Location = new System.Drawing.Point(84, 348);
-            this.volNum4.Name = "volNum4";
-            this.volNum4.ReadOnly = true;
-            this.volNum4.Size = new System.Drawing.Size(92, 30);
-            this.volNum4.TabIndex = 14;
-            this.volNum4.UseWaitCursor = true;
-            this.volNum4.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            65536});
-            // 
-            // eleNum4
-            // 
-            this.eleNum4.ArrowColor = System.Drawing.Color.Gray;
-            this.eleNum4.BaseColor = System.Drawing.Color.WhiteSmoke;
-            this.eleNum4.BorderColor = System.Drawing.Color.Black;
-            this.eleNum4.DecimalPlaces = 2;
-            this.eleNum4.Location = new System.Drawing.Point(84, 392);
-            this.eleNum4.Name = "eleNum4";
-            this.eleNum4.ReadOnly = true;
-            this.eleNum4.Size = new System.Drawing.Size(92, 30);
-            this.eleNum4.TabIndex = 15;
-            this.eleNum4.UseWaitCursor = true;
-            this.eleNum4.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            // 
-            // btnSet
-            // 
-            this.btnSet.Location = new System.Drawing.Point(26, 450);
-            this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(75, 31);
-            this.btnSet.TabIndex = 6;
-            this.btnSet.Text = "打开";
-            this.btnSet.UseVisualStyleBackColor = true;
-            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
-            // 
-            // btnOff
-            // 
-            this.btnOff.Location = new System.Drawing.Point(127, 449);
-            this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(75, 31);
-            this.btnOff.TabIndex = 16;
-            this.btnOff.Text = "关闭";
-            this.btnOff.UseVisualStyleBackColor = true;
-            this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
-            // 
-            // dataView
-            // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(246)))), ((int)(((byte)(253)))));
-            this.dataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataView.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataView.ColumnFont = null;
-            this.dataView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(246)))), ((int)(((byte)(239)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.ColumnSelectBackColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.ColumnSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(188)))), ((int)(((byte)(240)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataView.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataView.EnableHeadersVisualStyles = false;
-            this.dataView.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dataView.HeadFont = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
-            this.dataView.HeadSelectBackColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.HeadSelectForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.Location = new System.Drawing.Point(0, 0);
-            this.dataView.MouseCellBackColor = System.Drawing.Color.LightSkyBlue;
-            this.dataView.MultiSelect = false;
-            this.dataView.Name = "dataView";
-            this.dataView.ReadOnly = true;
-            this.dataView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            this.dataView.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dataView.RowTemplate.Height = 23;
-            this.dataView.Size = new System.Drawing.Size(1285, 632);
-            this.dataView.TabIndex = 0;
-            this.dataView.TitleBack = null;
-            this.dataView.TitleBackColorBegin = System.Drawing.Color.White;
-            this.dataView.TitleBackColorEnd = System.Drawing.Color.WhiteSmoke;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2343,6 +2343,16 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eleNum1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.volNum1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -2372,19 +2382,9 @@
             this.skinGroupBox1.ResumeLayout(false);
             this.skinGroupBox1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.volNum4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eleNum4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
