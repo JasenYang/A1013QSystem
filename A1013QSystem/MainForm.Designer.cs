@@ -204,6 +204,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chipReset = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.setLabel = new System.Windows.Forms.Label();
             this.receiveCache = new System.Windows.Forms.ComboBox();
             this.sendInterrupt = new System.Windows.Forms.ComboBox();
             this.receiveInterrupt = new System.Windows.Forms.ComboBox();
@@ -272,7 +273,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.setLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -2445,6 +2445,14 @@
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             // 
+            // setLabel
+            // 
+            this.setLabel.AutoSize = true;
+            this.setLabel.Location = new System.Drawing.Point(532, 488);
+            this.setLabel.Name = "setLabel";
+            this.setLabel.Size = new System.Drawing.Size(0, 21);
+            this.setLabel.TabIndex = 38;
+            // 
             // receiveCache
             // 
             this.receiveCache.FormattingEnabled = true;
@@ -3164,14 +3172,6 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
-            // 
-            // setLabel
-            // 
-            this.setLabel.AutoSize = true;
-            this.setLabel.Location = new System.Drawing.Point(532, 488);
-            this.setLabel.Name = "setLabel";
-            this.setLabel.Size = new System.Drawing.Size(0, 21);
-            this.setLabel.TabIndex = 38;
             // 
             // MainForm
             // 

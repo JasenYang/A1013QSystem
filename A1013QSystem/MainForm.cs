@@ -21,6 +21,7 @@ namespace A1013QSystem
 
         public System.IntPtr nHandle = (System.IntPtr)0;
         DataTable dt = new DataTable();
+        DataTable dtData = new DataTable();
         public MainForm()
         {
             InitializeComponent();
@@ -93,11 +94,7 @@ namespace A1013QSystem
             CGloabal.CurSerialPortFlag = false; //告诉系统当前的串口配置为板卡的串口配置  
 
           
-            dt.Columns.Add("时间"); dt.Columns.Add("电压1"); dt.Columns.Add("电流1"); dt.Columns.Add("电压2"); dt.Columns.Add("电流2"); dt.Columns.Add("速率");
-            dt.Columns.Add("芯片1通道1发"); dt.Columns.Add("芯片1通道1收"); dt.Columns.Add("芯片1通道1错误"); dt.Columns.Add("芯片2通道1发"); dt.Columns.Add("芯片2通道1收"); dt.Columns.Add("芯片2通道1错误");
-            dt.Columns.Add("芯片1通道2发"); dt.Columns.Add("芯片1通道2收"); dt.Columns.Add("芯片1通道2错误"); dt.Columns.Add("芯片2通道2发"); dt.Columns.Add("芯片2通道2收"); dt.Columns.Add("芯片2通道2错误");
-            dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
-            dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
+         
 
             //tabControl1.TabPages.Clear();
             //tabControl1.TabPages.Add(tabPage1);
@@ -115,8 +112,16 @@ namespace A1013QSystem
             tEleChange.Interval =  1200000;
             tEleChange.Tick += Fn_CircleEle;
             tEleChange.Enabled = true;
+
+            //加载数据
+            dataView.ScrollBars = ScrollBars.Both;
+
+            Timer tis = new Timer();
+            tis.Interval = 1000;
+            tis.Tick += Fn_AddData;
+            tis.Enabled = true;
         }
-        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             //居中显示
@@ -134,6 +139,26 @@ namespace A1013QSystem
             port2.Value= CGloabal.g_InstrScopeModule.port;
 
             multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
+
+            dt.Columns.Add("时间"); dt.Columns.Add("电压1"); dt.Columns.Add("电流1"); dt.Columns.Add("电压2"); dt.Columns.Add("电流2"); dt.Columns.Add("速率");
+            dt.Columns.Add("芯片1通道1发"); dt.Columns.Add("芯片1通道1收"); dt.Columns.Add("芯片1通道1错误"); dt.Columns.Add("芯片2通道1发"); dt.Columns.Add("芯片2通道1收"); dt.Columns.Add("芯片2通道1错误");
+            dt.Columns.Add("芯片1通道2发"); dt.Columns.Add("芯片1通道2收"); dt.Columns.Add("芯片1通道2错误"); dt.Columns.Add("芯片2通道2发"); dt.Columns.Add("芯片2通道2收"); dt.Columns.Add("芯片2通道2错误");
+            dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
+            dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
+
+            //模拟数据
+
+            dtData.Columns.Add("时间");
+            dtData.Columns.Add("电压1");
+            dtData.Columns.Add("电流1");
+            dtData.Columns.Add("电压2");
+            dtData.Columns.Add("电流2");
+            dtData.Columns.Add("速率");
+            dtData.Columns.Add("11"); dtData.Columns.Add("12电流2电流2"); dtData.Columns.Add("13"); dtData.Columns.Add("14");
+            dtData.Columns.Add("21"); dtData.Columns.Add("22电流2电流2"); dtData.Columns.Add("23"); dtData.Columns.Add("24");
+            dtData.Columns.Add("31"); dtData.Columns.Add("32电流2电流2"); dtData.Columns.Add("33"); dtData.Columns.Add("34");
+            dtData.Columns.Add("41"); dtData.Columns.Add("42电流2电流2"); dtData.Columns.Add("43"); dtData.Columns.Add("44");
+            dtData.Columns.Add("51"); dtData.Columns.Add("52电流2电流2"); dtData.Columns.Add("53"); dtData.Columns.Add("54");
         }
         int cireVolNum = 4;
         public void Fn_CircleVol(object sender, EventArgs e)
@@ -348,19 +373,16 @@ namespace A1013QSystem
 
             dt.Rows.Add(dr);
             // dt.Select("1=1", " 时间 desc");
-            if (dt.Rows.Count == 22)
-            {
-                dt.Rows[0].Delete();
-            }
-            //dataView.DataSource = dt;
-            ////dataView.Sort(dataView.Columns[0], ListSortDirection.Descending);
+            //if (dt.Rows.Count == 22)
+            //{
+            //    dt.Rows[0].Delete();
+            //}
+           
+            //dataView.AllowUserToAddRows = false;    
+            //dataView.ScrollBars = ScrollBars.Both;
 
-            //dataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataView.AllowUserToAddRows = false;    
-            dataView.ScrollBars = ScrollBars.Both;
-
-            dataView.DataSource = dt;// CGloabal.LModel;     
-            dataView.Columns[0].Width = 160;
+            //dataView.DataSource = dt;// CGloabal.LModel;     
+            //dataView.Columns[0].Width = 160;
 
             //数据保存到Excel中
             int kk = CDll.DataSaveExcel(CGloabal.LModel);
@@ -647,47 +669,50 @@ namespace A1013QSystem
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage3);                
             }
-            if (tabSelect.Text == "结果查看") {
-                DataTable dt = new DataTable();              
+            if (tabSelect.Text == "结果查看") {             
+               
+                //dataView.ScrollBars = ScrollBars.Both;
 
-            //    dt.Columns.Add("时间");
-            //    dt.Columns.Add("电压1");
-            //    dt.Columns.Add("电流1");
-            //    dt.Columns.Add("电压2");
-            //    dt.Columns.Add("电流2");
-            //    dt.Columns.Add("速率");
-            //    dt.Columns.Add("11"); dt.Columns.Add("12电流2电流2"); dt.Columns.Add("13"); dt.Columns.Add("14");
-            //    dt.Columns.Add("21"); dt.Columns.Add("22电流2电流2"); dt.Columns.Add("23"); dt.Columns.Add("24");
-            //    dt.Columns.Add("31"); dt.Columns.Add("32电流2电流2"); dt.Columns.Add("33"); dt.Columns.Add("34");
-            //    dt.Columns.Add("41"); dt.Columns.Add("42电流2电流2"); dt.Columns.Add("43"); dt.Columns.Add("44");
-            //    dt.Columns.Add("51"); dt.Columns.Add("52电流2电流2"); dt.Columns.Add("53"); dt.Columns.Add("54");
+                //Timer tis = new Timer();
+                //tis.Interval = 1000;
+                //tis.Tick += Fn_AddData;
+                //tis.Enabled = true;
 
-            //    for (int i=0;i<10;i++)
-            //    {
-            //        DataRow dr = dt.NewRow();
-            //        dr["时间"] = "2016/11/22 12:00:"+i;
-            //        dr["电压1"] = "3233";
-            //        dr["电流1"] = "AX"+i;
-            //        dr["电压2"] = "AX";
-            //        dr["电流2"] = "AX";
-            //        dr["速率"] = "AX";
-            //        dr["11"] = "34000"; dr["12电流2电流2"] = "34000"; dr["13"] = "34000"; dr["14"] = "34000";
-            //        dr["21"] = "34000"; dr["22电流2电流2"] = "34000"; dr["23"] = "34000"; dr["24"] = "34000";
-            //        dr["31"] = "34000"; dr["32电流2电流2"] = "34000"; dr["33"] = "34000"; dr["34"] = "34000";
-            //        dr["41"] = "34000"; dr["42电流2电流2"] = "34000"; dr["43"] = "34000"; dr["44"] = "34000";
-            //        dr["51"] = "34000"; dr["52电流2电流2"] = "34000"; dr["53"] = "34000"; dr["54"] = "34000";
+            }            
+        }
 
-            //        dt.Rows.Add(dr);
-            //    }
-            
-            //    dataView.AllowUserToAddRows = false;
-            //    dataView.DataSource = dt;// CGloabal.LModel;             
-            //    dataView.Columns[0].Width = 160;
-            //    dataView.ScrollBars = ScrollBars.Both;    
+        //DataTable dt = new DataTable();
 
+         
+
+        public void Fn_AddData(object sender, EventArgs e)
+        {
+            if (dt.Rows.Count==0)
+            {
+                return;//无数据时候无需加载
             }
+            if (dt.Rows.Count == 22)
+            {
+                dt.Rows[0].Delete();
+            }
+            //  for (int i = 0; i < 10; i++)
+            //   {
+            DataRow dr = dt.NewRow();
+                dr["时间"] = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");// "2016/11/22 12:00:";// + i;
+                dr["电压1"] = "3233";  dr["电流1"] = "AX";// + i;
+                dr["电压2"] = "AX"; dr["电流2"] = "AX"; dr["速率"] = "AX";
+                dr["11"] = "34000"; dr["12电流2电流2"] = "34000"; dr["13"] = "34000"; dr["14"] = "34000";
+                dr["21"] = "34000"; dr["22电流2电流2"] = "34000"; dr["23"] = "34000"; dr["24"] = "34000";
+                dr["31"] = "34000"; dr["32电流2电流2"] = "34000"; dr["33"] = "34000"; dr["34"] = "34000";
+                dr["41"] = "34000"; dr["42电流2电流2"] = "34000"; dr["43"] = "34000"; dr["44"] = "34000";
+                dr["51"] = "34000"; dr["52电流2电流2"] = "34000"; dr["53"] = "34000"; dr["54"] = "34000";
 
-            
+                dt.Rows.Add(dr);
+          //  }
+
+            dataView.AllowUserToAddRows = false;
+            dataView.DataSource = dt;// CGloabal.LModel;             
+           dataView.Columns[0].Width = 160;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
