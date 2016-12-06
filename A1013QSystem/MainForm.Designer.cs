@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -273,6 +273,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.bgWork = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -3113,19 +3114,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "稳定性测试";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "寄存器测试";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "芯片设置";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "基本功能测试";
+            treeNode9.Name = "节点0";
+            treeNode9.Text = "稳定性测试";
+            treeNode10.Name = "节点1";
+            treeNode10.Text = "寄存器测试";
+            treeNode11.Name = "节点0";
+            treeNode11.Text = "芯片设置";
+            treeNode12.Name = "节点1";
+            treeNode12.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -3172,6 +3173,10 @@
             this.dateStatusLabel.Name = "dateStatusLabel";
             this.dateStatusLabel.Size = new System.Drawing.Size(131, 17);
             this.dateStatusLabel.Text = "toolStripStatusLabel2";
+            // 
+            // bgWork
+            // 
+            this.bgWork.WorkerReportsProgress = true;
             // 
             // MainForm
             // 
@@ -3483,6 +3488,7 @@
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label setLabel;
+        private System.ComponentModel.BackgroundWorker bgWork;
     }
 }
 

@@ -113,13 +113,7 @@ namespace A1013QSystem
             tEleChange.Tick += Fn_CircleEle;
             tEleChange.Enabled = true;
 
-            //加载数据
-            dataView.ScrollBars = ScrollBars.Both;
-
-            Timer tis = new Timer();
-            tis.Interval = 1000;
-            tis.Tick += Fn_AddData;
-            tis.Enabled = true;
+                 
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -140,26 +134,18 @@ namespace A1013QSystem
 
             multiNum.Value = CGloabal.g_InstrMultimeterModule.port;
 
+            //dt.Columns.Add("序号");
             dt.Columns.Add("时间"); dt.Columns.Add("电压1"); dt.Columns.Add("电流1"); dt.Columns.Add("电压2"); dt.Columns.Add("电流2"); dt.Columns.Add("速率");
             dt.Columns.Add("芯片1通道1发"); dt.Columns.Add("芯片1通道1收"); dt.Columns.Add("芯片1通道1错误"); dt.Columns.Add("芯片2通道1发"); dt.Columns.Add("芯片2通道1收"); dt.Columns.Add("芯片2通道1错误");
             dt.Columns.Add("芯片1通道2发"); dt.Columns.Add("芯片1通道2收"); dt.Columns.Add("芯片1通道2错误"); dt.Columns.Add("芯片2通道2发"); dt.Columns.Add("芯片2通道2收"); dt.Columns.Add("芯片2通道2错误");
             dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
             dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
 
-            //模拟数据
-
-            dtData.Columns.Add("时间");
-            dtData.Columns.Add("电压1");
-            dtData.Columns.Add("电流1");
-            dtData.Columns.Add("电压2");
-            dtData.Columns.Add("电流2");
-            dtData.Columns.Add("速率");
-            dtData.Columns.Add("11"); dtData.Columns.Add("12电流2电流2"); dtData.Columns.Add("13"); dtData.Columns.Add("14");
-            dtData.Columns.Add("21"); dtData.Columns.Add("22电流2电流2"); dtData.Columns.Add("23"); dtData.Columns.Add("24");
-            dtData.Columns.Add("31"); dtData.Columns.Add("32电流2电流2"); dtData.Columns.Add("33"); dtData.Columns.Add("34");
-            dtData.Columns.Add("41"); dtData.Columns.Add("42电流2电流2"); dtData.Columns.Add("43"); dtData.Columns.Add("44");
-            dtData.Columns.Add("51"); dtData.Columns.Add("52电流2电流2"); dtData.Columns.Add("53"); dtData.Columns.Add("54");
+            bgWork.DoWork += Fn_RunBack;
+            bgWork.ProgressChanged += Fn_ProgressChanged;
         }
+
+       
         int cireVolNum = 4;
         public void Fn_CircleVol(object sender, EventArgs e)
         {
@@ -257,7 +243,7 @@ namespace A1013QSystem
         int tupError11 = 0; int tupError12 = 0; int tupError13 = 0; int tupError14 = 0;       
         int tupError21 = 0; int tupError22 = 0; int tupError23 = 0; int tupError24 = 0;
 
-      
+        int kkNum = 0;
 
         private int  CmdsAnalysis(byte[] CmdBuf, ref int nCmdID)
         {
@@ -353,42 +339,43 @@ namespace A1013QSystem
             RModel.errorVal24 = CmdBuf[21];
 
             CGloabal.LModel.Add(RModel);
-                      
-            DataRow dr = dt.NewRow();            
-            foreach (var item in CGloabal.LModel)
+
+            try
             {
-                dr["时间"] = item.curDate;dr["电压1"] = item.volVal1; dr["电流1"] = item.eleVal1;dr["电压2"] = item.volVal2;  dr["电流2"] = item.eleVal2; dr["速率"] = item.rate;
-                dr["芯片1通道1发"] = item.sendVal11; dr["芯片1通道1收"] = item.receivVal11; dr["芯片1通道1错误"] = item.errorVal11;
-                dr["芯片2通道1发"] = item.sendVal21; dr["芯片2通道1收"] = item.receivVal21; dr["芯片2通道1错误"] = item.errorVal21;
+                DataRow dr = dt.NewRow();
+                foreach (var item in CGloabal.LModel)
+                {
+                    //dr["序号"] = kkNum;
+                    dr["时间"] = System.DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");//item.curDate;
+                    dr["电压1"] = item.volVal1; dr["电流1"] = item.eleVal1; dr["电压2"] = item.volVal2; dr["电流2"] = item.eleVal2; dr["速率"] = item.rate;
+                    dr["芯片1通道1发"] = item.sendVal11; dr["芯片1通道1收"] = item.receivVal11; dr["芯片1通道1错误"] = item.errorVal11;
+                    dr["芯片2通道1发"] = item.sendVal21; dr["芯片2通道1收"] = item.receivVal21; dr["芯片2通道1错误"] = item.errorVal21;
 
-                dr["芯片1通道2发"] = item.sendVal12; dr["芯片1通道2收"] = item.receivVal12; dr["芯片1通道2错误"] = item.errorVal12;
-                dr["芯片2通道2发"] = item.sendVal22; dr["芯片2通道2收"] = item.receivVal22; dr["芯片2通道2错误"] = item.errorVal22;
+                    dr["芯片1通道2发"] = item.sendVal12; dr["芯片1通道2收"] = item.receivVal12; dr["芯片1通道2错误"] = item.errorVal12;
+                    dr["芯片2通道2发"] = item.sendVal22; dr["芯片2通道2收"] = item.receivVal22; dr["芯片2通道2错误"] = item.errorVal22;
 
-                dr["芯片1通道3发"] = item.sendVal13; dr["芯片1通道3收"] = item.receivVal13; dr["芯片1通道3错误"] = item.errorVal13;
-                dr["芯片2通道3发"] = item.sendVal23; dr["芯片2通道3收"] = item.receivVal23; dr["芯片2通道3错误"] = item.errorVal23;
+                    dr["芯片1通道3发"] = item.sendVal13; dr["芯片1通道3收"] = item.receivVal13; dr["芯片1通道3错误"] = item.errorVal13;
+                    dr["芯片2通道3发"] = item.sendVal23; dr["芯片2通道3收"] = item.receivVal23; dr["芯片2通道3错误"] = item.errorVal23;
 
-                dr["芯片1通道4发"] = item.sendVal14; dr["芯片1通道4收"] = item.receivVal14; dr["芯片1通道4错误"] = item.errorVal14;
-                dr["芯片2通道4发"] = item.sendVal24; dr["芯片2通道4收"] = item.receivVal24; dr["芯片2通道4错误"] = item.errorVal24;
+                    dr["芯片1通道4发"] = item.sendVal14; dr["芯片1通道4收"] = item.receivVal14; dr["芯片1通道4错误"] = item.errorVal14;
+                    dr["芯片2通道4发"] = item.sendVal24; dr["芯片2通道4收"] = item.receivVal24; dr["芯片2通道4错误"] = item.errorVal24;
+                }
+
+                dt.Rows.Add(dr);   
+                bgWork.ReportProgress(10);
+
+                //数据保存到Excel中
+                int kk = CDll.DataSaveExcel(CGloabal.LModel);
+                if (kk > 0)
+                {
+                    CGloabal.LModel.Clear();
+                }
             }
-
-            dt.Rows.Add(dr);
-            // dt.Select("1=1", " 时间 desc");
-            //if (dt.Rows.Count == 22)
-            //{
-            //    dt.Rows[0].Delete();
-            //}
-           
-            //dataView.AllowUserToAddRows = false;    
-            //dataView.ScrollBars = ScrollBars.Both;
-
-            //dataView.DataSource = dt;// CGloabal.LModel;     
-            //dataView.Columns[0].Width = 160;
-
-            //数据保存到Excel中
-            int kk = CDll.DataSaveExcel(CGloabal.LModel);
-            if (kk > 0) {
-                CGloabal.LModel.Clear();
+            catch (Exception ex)
+            {
+                return 0;
             }
+            
             return 0;
         }
 
@@ -683,36 +670,31 @@ namespace A1013QSystem
 
         //DataTable dt = new DataTable();
 
-         
-
-        public void Fn_AddData(object sender, EventArgs e)
+        private void Fn_RunBack(object sender, DoWorkEventArgs e)
         {
-            if (dt.Rows.Count==0)
+
+        }
+
+        private void Fn_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (dt.Rows.Count == 0)
             {
                 return;//无数据时候无需加载
             }
-            if (dt.Rows.Count == 22)
+            if (dt.Rows.Count > 22)
             {
-                dt.Rows[0].Delete();
+                for (int i = 0; i < dt.Rows.Count - 22; i++)
+                {
+                    dt.Rows[i].Delete();
+                }
             }
-            //  for (int i = 0; i < 10; i++)
-            //   {
-            DataRow dr = dt.NewRow();
-                dr["时间"] = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");// "2016/11/22 12:00:";// + i;
-                dr["电压1"] = "3233";  dr["电流1"] = "AX";// + i;
-                dr["电压2"] = "AX"; dr["电流2"] = "AX"; dr["速率"] = "AX";
-                dr["11"] = "34000"; dr["12电流2电流2"] = "34000"; dr["13"] = "34000"; dr["14"] = "34000";
-                dr["21"] = "34000"; dr["22电流2电流2"] = "34000"; dr["23"] = "34000"; dr["24"] = "34000";
-                dr["31"] = "34000"; dr["32电流2电流2"] = "34000"; dr["33"] = "34000"; dr["34"] = "34000";
-                dr["41"] = "34000"; dr["42电流2电流2"] = "34000"; dr["43"] = "34000"; dr["44"] = "34000";
-                dr["51"] = "34000"; dr["52电流2电流2"] = "34000"; dr["53"] = "34000"; dr["54"] = "34000";
+           
 
-                dt.Rows.Add(dr);
-          //  }
 
+            dataView.ScrollBars = ScrollBars.Both;
             dataView.AllowUserToAddRows = false;
             dataView.DataSource = dt;// CGloabal.LModel;             
-           dataView.Columns[0].Width = 160;
+            dataView.Columns[0].Width = 220;
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
