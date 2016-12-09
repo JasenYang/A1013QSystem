@@ -85,7 +85,6 @@ namespace DigitalCircuitSystem.DriverDAL
 
         }
 
-
         //复位
         public static int Reset(int nInstrumentHandle, int nSimulateFlag, string strErrMsg)
         {
