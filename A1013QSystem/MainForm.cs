@@ -922,9 +922,9 @@ namespace A1013QSystem
         {
             var chip =(byte) chipSelect.SelectedIndex;
             var path = (byte)pathSelect.SelectedIndex;
-            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XBB };
-            cmdByte[1] = chip;
-            cmdByte[2] = path;
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X02, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XBB };
+            cmdByte[2] = chip;
+            cmdByte[3] = path;
 
             int  error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
             if (error < 0)
@@ -937,24 +937,24 @@ namespace A1013QSystem
 
         private void baseSend1_Click(object sender, EventArgs e)
         {                      
-            CDll.BaseTestSendData(1, basePath1.Text, Convert.ToInt32(sendData1.Text));
+            CDll.BaseTestSendData(0, basePath1.Text, Convert.ToInt32(sendData1.Text));
         }
 
         private void baseRead1_Click(object sender, EventArgs e)
         {
-          byte[] readByte =  CDll.BaseTestReadData(1, basePath1.Text, "BASE");
-            baseRead1.Text = ((int)readByte[4]).ToString();
+          byte[] readByte =  CDll.BaseTestReadData(0, basePath1.Text, "BASE");
+            receiveData1.Text = ((int)readByte[4]).ToString();
         }
 
         private void baseSend2_Click(object sender, EventArgs e)
         {
-            CDll.BaseTestSendData(2, basePath2.Text, Convert.ToInt32(sendData1.Text));
+            CDll.BaseTestSendData(1, basePath2.Text, Convert.ToInt32(sendData2.Text));
         }
 
         private void baseRead2_Click(object sender, EventArgs e)
         {
-            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "BASE");
-            baseRead2.Text = ((int)readByte[4]).ToString();
+            byte[] readByte = CDll.BaseTestReadData(1, basePath2.Text, "BASE");
+            receiveData2.Text = ((int)readByte[4]).ToString();
         }
 
         private void btnLSRRead1_Click(object sender, EventArgs e)
@@ -984,9 +984,17 @@ namespace A1013QSystem
             string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
 
             //添加
-            for (int i = 0; i < readByte.Length; i++)
+
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[5] &0x01)).ToString();
+                ass[1] = ((readByte[5] & 0x02)>>1 ).ToString();
+                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
@@ -1022,9 +1030,16 @@ namespace A1013QSystem
             string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
 
             //添加
-            for (int i = 0; i < readByte.Length; i++)
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[5] & 0x01)).ToString();
+                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
@@ -1056,9 +1071,11 @@ namespace A1013QSystem
             string[] ass = new string[3] { "", "", "" };
 
             //添加
-            for (int i = 0; i < 3; i++)
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[4] & 0x01)).ToString();
+                ass[1] = ((readByte[4] & 0x02) >> 1).ToString();
+                ass[2] = ((readByte[4] & 0x04) >> 2).ToString();
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
@@ -1094,9 +1111,16 @@ namespace A1013QSystem
             string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
 
             //添加
-            for (int i = 0; i < readByte.Length; i++)
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[5] & 0x01)).ToString();
+                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
@@ -1132,9 +1156,16 @@ namespace A1013QSystem
             string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
 
             //添加
-            for (int i = 0; i < readByte.Length; i++)
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[5] & 0x01)).ToString();
+                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
@@ -1166,15 +1197,23 @@ namespace A1013QSystem
             string[] ass = new string[3] { "", "", "" };
 
             //添加
-            for (int i = 0; i < 3; i++)
             {
-                ass[i] = readByte.ToString();
+                ass[0] = ((readByte[4] & 0x01)).ToString();
+                ass[1] = ((readByte[4] & 0x02) >> 1).ToString();
+                ass[2] = ((readByte[4] & 0x04) >> 2).ToString();
+
+
             }
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
             //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
 
             this.list2.Items.AddRange(p);
+        }
+
+        private void label102_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

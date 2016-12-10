@@ -556,25 +556,25 @@ namespace A1013QSystem.Common
         /// <param name="typeName">类型</param>
         public static void BaseTestSendData(int chipNum, string basePath, int sendNum)
         {
-            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
-            cmdByte[1] = (byte)5;
+            byte[] cmdByte = new byte[10] { 0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)4;
             cmdByte[2] = (byte)chipNum;
-            
+            cmdByte[4] = (byte)sendNum;
             if (basePath == "通道1")
             {
-                cmdByte[3] = (byte)1;
+                cmdByte[3] = (byte)0;
             }
             else if (basePath == "通道2")
             {
-                cmdByte[3] = (byte)2;
+                cmdByte[3] = (byte)1;
             }
             else if (basePath == "通道3")
             {
-                cmdByte[3] = (byte)3;
+                cmdByte[3] = (byte)2;
             }
             else if (basePath == "通道4")
             {
-                cmdByte[3] = (byte)4;
+                cmdByte[3] = (byte)3;
             }
 
             int error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
@@ -593,40 +593,44 @@ namespace A1013QSystem.Common
         /// <param name="typeName">类型</param>
         public static byte[] BaseTestReadData(int chipNum, string basePath, string typeName)
         {
-            byte[] cmdByte = new byte[8] { 0xAA, 0, 0, 0, 0, 0, 0, 0xBB };
+            byte[] cmdByte = new byte[10] { 0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0xBB };
             cmdByte[1] = (byte)6;
             cmdByte[2] = (byte)chipNum;
 
             if (basePath == "通道1")
             {
-                cmdByte[3] = (byte)1;
+                cmdByte[3] = (byte)0;
             }
             else if (basePath == "通道2")
             {
-                cmdByte[3] = (byte)2;
+                cmdByte[3] = (byte)1;
             }
             else if (basePath == "通道3")
             {
-                cmdByte[3] = (byte)3;
+                cmdByte[3] = (byte)2;
             }
             else if (basePath == "通道4")
             {
-                cmdByte[3] = (byte)4;
+                cmdByte[3] = (byte)3;
             }
 
             int error = 0;
             switch (typeName)
             {
                 case "BASE":
-                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    cmdByte[1] = (byte)5;
+                    error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
                     break;
-                case "ISR":
-                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                case "LSR":
+                    cmdByte[4] = (byte)5;
+                    error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
                     break;
                 case "IIR":
-                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
+                    cmdByte[4] = (byte)2;
+                    error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                   
                     break;
                 case "ARM":
+                    cmdByte[1] = (byte)7;
                     error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);                  
                     break;
             }
@@ -635,7 +639,7 @@ namespace A1013QSystem.Common
                 MessageBox.Show("芯片" + chipNum + "" + basePath + "读取失败");
             }
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
            
             List<byte> buffer = new List<byte>(4096);
             int length;
@@ -643,12 +647,12 @@ namespace A1013QSystem.Common
 
             CGloabal.g_bIsComRecvedDataFlag = true;  //串口是否收到数据
             length = CGloabal.g_serialPorForUUT.BytesToRead;
-            byte[] Receivebuf = new byte[8];
-            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 8);
+            byte[] Receivebuf = new byte[24];
+            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 24);
             //1、缓存数据
             buffer.AddRange(Receivebuf);
             //2、完整性判断
-            while (buffer.Count >= 8)
+            while (buffer.Count >= 24)
             {
                 if (buffer[0] == 0xAA)
                 {
@@ -676,30 +680,39 @@ namespace A1013QSystem.Common
         {
             int error = 0;
             Byte[] cmdByte = new Byte[10] { 0XAA, 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0X00 , 0XBB };
-            cmdByte[1] = 0x08;
+    
             cmdByte[2] = (byte)CHIPMODEL.chipSelect;
             cmdByte[3] = (byte)CHIPMODEL.pathSelect;
-          
-            //设置DUT波特率
 
-            //设置奇偶校验，停止位，字长
-          
-            cmdByte[3] = 0x00;
-            cmdByte[3] += ValueReturn(CHIPMODEL.parityCheck, "奇偶校验");
-            cmdByte[3] += ValueReturn(CHIPMODEL.stopBit, "停止位");
-            cmdByte[3] += ValueReturn(CHIPMODEL.byteLength, "字长");
+            //设置DUT波特率
+            cmdByte[1] = 0x03;
+            cmdByte[4] = 96;
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            Thread.Sleep(100);
+
+
+            cmdByte[1] = 0x08;
+            //发送中断、接收中断、接收缓存中断
+            cmdByte[4] = 01;
+            cmdByte[5] = 0x00;
+            cmdByte[5] += ValueReturn(CHIPMODEL.FIFOSelect, "接收中断");
+            cmdByte[5] += ValueReturn(CHIPMODEL.DMAPattern, "发送中断");
+            cmdByte[5] += ValueReturn(CHIPMODEL.receiveFIFO, "接收缓存中断");
 
             error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
-            if (error < 0) {
-                return -1;
+            if (error < 0)
+            {
+                return -3;
             }
+            Thread.Sleep(100);
 
+            cmdByte[4] = 02;
             //FIFO使能，DMA模式，接收FIFO触发器，发送触发器
-            cmdByte[3] = 0x00;
-            cmdByte[3] += ValueReturn(CHIPMODEL.FIFOSelect, "FIFO使能");
-            cmdByte[3] += ValueReturn(CHIPMODEL.DMAPattern, "DMA模式");
-            cmdByte[3] += ValueReturn(CHIPMODEL.receiveFIFO, "接收触发器");
-            cmdByte[3] += ValueReturn(CHIPMODEL.sendTarget, "发送触发器");
+            cmdByte[5] = 0x00;
+            cmdByte[5] += ValueReturn(CHIPMODEL.FIFOSelect, "FIFO使能");
+            cmdByte[5] += ValueReturn(CHIPMODEL.DMAPattern, "DMA模式");
+            cmdByte[5] += ValueReturn(CHIPMODEL.receiveFIFO, "接收触发器");
+            cmdByte[5] += ValueReturn(CHIPMODEL.sendTarget, "发送触发器");
 
             error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
             if (error < 0)
@@ -707,17 +720,24 @@ namespace A1013QSystem.Common
                 return -2;
             }
 
-            //发送中断、接收中断、接收缓存中断
-            cmdByte[3] = 0x00;
-            cmdByte[3] += ValueReturn(CHIPMODEL.FIFOSelect, "接收中断");
-            cmdByte[3] += ValueReturn(CHIPMODEL.DMAPattern, "发送中断");
-            cmdByte[3] += ValueReturn(CHIPMODEL.receiveFIFO, "接收缓存中断");
-
+            //设置奇偶校验，停止位，字长
+            cmdByte[4]  = 3;         
+            cmdByte[5] = 0x00;
+            cmdByte[5] += ValueReturn(CHIPMODEL.parityCheck, "奇偶校验");
+            cmdByte[5] += ValueReturn(CHIPMODEL.stopBit, "停止位");
+            cmdByte[5] += ValueReturn(CHIPMODEL.byteLength, "字长");
             error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
-            if (error < 0)
-            {
-                return -3;
+            if (error < 0) {
+                return -1;
             }
+            Thread.Sleep(100);
+
+
+
+            Thread.Sleep(100);
+
+
+
             return error;
         }
 

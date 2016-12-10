@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -2464,6 +2464,7 @@
             this.receiveCache.Name = "receiveCache";
             this.receiveCache.Size = new System.Drawing.Size(148, 29);
             this.receiveCache.TabIndex = 37;
+            this.receiveCache.Text = "不使能";
             // 
             // sendInterrupt
             // 
@@ -2475,6 +2476,7 @@
             this.sendInterrupt.Name = "sendInterrupt";
             this.sendInterrupt.Size = new System.Drawing.Size(148, 29);
             this.sendInterrupt.TabIndex = 36;
+            this.sendInterrupt.Text = "不使能";
             // 
             // receiveInterrupt
             // 
@@ -2486,6 +2488,7 @@
             this.receiveInterrupt.Name = "receiveInterrupt";
             this.receiveInterrupt.Size = new System.Drawing.Size(148, 29);
             this.receiveInterrupt.TabIndex = 35;
+            this.receiveInterrupt.Text = "不使能";
             // 
             // sendTarget
             // 
@@ -2499,6 +2502,7 @@
             this.sendTarget.Name = "sendTarget";
             this.sendTarget.Size = new System.Drawing.Size(148, 29);
             this.sendTarget.TabIndex = 34;
+            this.sendTarget.Text = "1";
             // 
             // receiveFIFO
             // 
@@ -2512,6 +2516,7 @@
             this.receiveFIFO.Name = "receiveFIFO";
             this.receiveFIFO.Size = new System.Drawing.Size(148, 29);
             this.receiveFIFO.TabIndex = 33;
+            this.receiveFIFO.Text = "1";
             // 
             // DMAPattern
             // 
@@ -2523,6 +2528,7 @@
             this.DMAPattern.Name = "DMAPattern";
             this.DMAPattern.Size = new System.Drawing.Size(148, 29);
             this.DMAPattern.TabIndex = 32;
+            this.DMAPattern.Text = "0";
             // 
             // FIFOSelect
             // 
@@ -2534,6 +2540,7 @@
             this.FIFOSelect.Name = "FIFOSelect";
             this.FIFOSelect.Size = new System.Drawing.Size(148, 29);
             this.FIFOSelect.TabIndex = 31;
+            this.FIFOSelect.Text = "不使能";
             // 
             // byteLength
             // 
@@ -2547,6 +2554,7 @@
             this.byteLength.Name = "byteLength";
             this.byteLength.Size = new System.Drawing.Size(148, 29);
             this.byteLength.TabIndex = 30;
+            this.byteLength.Text = "8";
             // 
             // stopBit
             // 
@@ -2558,6 +2566,7 @@
             this.stopBit.Name = "stopBit";
             this.stopBit.Size = new System.Drawing.Size(148, 29);
             this.stopBit.TabIndex = 29;
+            this.stopBit.Text = "1";
             // 
             // parityCheck
             // 
@@ -2570,6 +2579,7 @@
             this.parityCheck.Name = "parityCheck";
             this.parityCheck.Size = new System.Drawing.Size(148, 29);
             this.parityCheck.TabIndex = 28;
+            this.parityCheck.Text = "无";
             // 
             // btnChipSet
             // 
@@ -2700,6 +2710,7 @@
             this.pathSelect.Name = "pathSelect";
             this.pathSelect.Size = new System.Drawing.Size(121, 29);
             this.pathSelect.TabIndex = 3;
+            this.pathSelect.Text = "通道1";
             // 
             // chipSelect
             // 
@@ -2711,6 +2722,7 @@
             this.chipSelect.Name = "chipSelect";
             this.chipSelect.Size = new System.Drawing.Size(121, 29);
             this.chipSelect.TabIndex = 2;
+            this.chipSelect.Text = "芯片1";
             // 
             // label83
             // 
@@ -2841,6 +2853,7 @@
             this.sendData2.Name = "sendData2";
             this.sendData2.Size = new System.Drawing.Size(176, 31);
             this.sendData2.TabIndex = 11;
+            this.sendData2.Text = "02";
             // 
             // iirList2
             // 
@@ -2906,6 +2919,7 @@
             this.basePath2.Name = "basePath2";
             this.basePath2.Size = new System.Drawing.Size(121, 29);
             this.basePath2.TabIndex = 8;
+            this.basePath2.Text = "通道1";
             // 
             // label104
             // 
@@ -2964,10 +2978,10 @@
             // 
             this.list1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.list1.GridLines = true;
-            this.list1.Location = new System.Drawing.Point(574, 176);
+            this.list1.Location = new System.Drawing.Point(524, 176);
             this.list1.MultiSelect = false;
             this.list1.Name = "list1";
-            this.list1.Size = new System.Drawing.Size(335, 62);
+            this.list1.Size = new System.Drawing.Size(385, 62);
             this.list1.TabIndex = 14;
             this.list1.UseCompatibleStateImageBehavior = false;
             this.list1.View = System.Windows.Forms.View.Details;
@@ -2985,20 +2999,21 @@
             // label102
             // 
             this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(508, 118);
+            this.label102.Location = new System.Drawing.Point(460, 125);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(58, 21);
             this.label102.TabIndex = 12;
             this.label102.Text = "IIR:";
+            this.label102.Click += new System.EventHandler(this.label102_Click);
             // 
             // iirList1
             // 
             this.iirList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.iirList1.GridLines = true;
-            this.iirList1.Location = new System.Drawing.Point(574, 103);
+            this.iirList1.Location = new System.Drawing.Point(524, 103);
             this.iirList1.MultiSelect = false;
             this.iirList1.Name = "iirList1";
-            this.iirList1.Size = new System.Drawing.Size(335, 62);
+            this.iirList1.Size = new System.Drawing.Size(385, 62);
             this.iirList1.TabIndex = 11;
             this.iirList1.UseCompatibleStateImageBehavior = false;
             this.iirList1.View = System.Windows.Forms.View.Details;
@@ -3027,10 +3042,10 @@
             // 
             this.lsrList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.lsrList1.GridLines = true;
-            this.lsrList1.Location = new System.Drawing.Point(573, 30);
+            this.lsrList1.Location = new System.Drawing.Point(524, 30);
             this.lsrList1.MultiSelect = false;
             this.lsrList1.Name = "lsrList1";
-            this.lsrList1.Size = new System.Drawing.Size(335, 62);
+            this.lsrList1.Size = new System.Drawing.Size(384, 62);
             this.lsrList1.TabIndex = 1;
             this.lsrList1.UseCompatibleStateImageBehavior = false;
             this.lsrList1.View = System.Windows.Forms.View.Details;
@@ -3038,7 +3053,7 @@
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(508, 49);
+            this.label101.Location = new System.Drawing.Point(460, 49);
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(58, 21);
             this.label101.TabIndex = 7;
@@ -3068,6 +3083,7 @@
             this.sendData1.Name = "sendData1";
             this.sendData1.Size = new System.Drawing.Size(176, 31);
             this.sendData1.TabIndex = 4;
+            this.sendData1.Text = "01";
             // 
             // label97
             // 
@@ -3099,6 +3115,7 @@
             this.basePath1.Name = "basePath1";
             this.basePath1.Size = new System.Drawing.Size(121, 29);
             this.basePath1.TabIndex = 1;
+            this.basePath1.Text = "通道1";
             // 
             // label92
             // 
@@ -3114,19 +3131,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode9.Name = "节点0";
-            treeNode9.Text = "稳定性测试";
-            treeNode10.Name = "节点1";
-            treeNode10.Text = "寄存器测试";
-            treeNode11.Name = "节点0";
-            treeNode11.Text = "芯片设置";
-            treeNode12.Name = "节点1";
-            treeNode12.Text = "基本功能测试";
+            treeNode13.Name = "节点0";
+            treeNode13.Text = "稳定性测试";
+            treeNode14.Name = "节点1";
+            treeNode14.Text = "寄存器测试";
+            treeNode15.Name = "节点0";
+            treeNode15.Text = "芯片设置";
+            treeNode16.Name = "节点1";
+            treeNode16.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
