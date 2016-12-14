@@ -92,28 +92,7 @@ namespace A1013QSystem
             cmbEvenBit.SelectedIndex = 0;
 
             CGloabal.CurSerialPortFlag = false; //告诉系统当前的串口配置为板卡的串口配置  
-
-          
-         
-
-            //tabControl1.TabPages.Clear();
-            //tabControl1.TabPages.Add(tabPage1);
-            //tabControl1.TabPages.Add(tabPage2);
-
-
-            //变化电压3
-            Timer tVolChange = new Timer();
-            tVolChange.Interval = 300000;
-            tVolChange.Tick += Fn_CircleVol;
-            tVolChange.Enabled = true;
-
-            //变化电压4
-            Timer tEleChange = new Timer();
-            tEleChange.Interval =  1200000;
-            tEleChange.Tick += Fn_CircleEle;
-            tEleChange.Enabled = true;
-
-                 
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -170,32 +149,7 @@ namespace A1013QSystem
             }
             int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 3, (double)volNum3.Value, "");
         }
-
-        int cireEleNum = 4;
-        public void Fn_CircleEle(object sender, EventArgs e)
-        {
-            switch (cireEleNum)
-            {
-                case 4:
-                    volNum4.Value = (decimal)1.2;
-                    cireEleNum--;
-                    break;
-                case 3:
-                    volNum4.Value = (decimal)1.08;
-                    cireEleNum--;
-                    break;
-                case 2:
-                    volNum4.Value = (decimal)1.2;
-                    cireEleNum--;
-                    break;
-                case 1:
-                    volNum4.Value = (decimal)1.32;
-                    cireEleNum = 4;
-                    break;
-            }
-            int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, (double)volNum4.Value, "");
-        }
-
+      
         //UUT的串口收到数据回调函数
         private List<byte> buffer = new List<byte>(4096);     
         private void g_serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
@@ -886,7 +840,45 @@ namespace A1013QSystem
         {
             CGloabal.g_serialPorForUUT.ReceivedBytesThreshold = CGloabal.nCOM_RECV_NUMS;
             CGloabal.g_serialPorForUUT.DataReceived += new SerialDataReceivedEventHandler(g_serialPort_DataReceived); //打开串口后开始接收数据
-        }      
+
+            //变化电压3
+            Timer tVolChange = new Timer();
+            tVolChange.Interval = 300000;
+            tVolChange.Tick += Fn_CircleVol;
+            tVolChange.Enabled = true;
+
+            //变化电压4
+            Timer tEleChange = new Timer();
+            tEleChange.Interval = 1200000;
+            tEleChange.Tick += Fn_CircleEle;
+            tEleChange.Enabled = true;
+        }
+
+        int cireEleNum = 4;
+        public void Fn_CircleEle(object sender, EventArgs e)
+        {
+            switch (cireEleNum)
+            {
+                case 4:
+                    volNum4.Value = (decimal)1.2;
+                    cireEleNum--;
+                    break;
+                case 3:
+                    volNum4.Value = (decimal)1.08;
+                    cireEleNum--;
+                    break;
+                case 2:
+                    volNum4.Value = (decimal)1.2;
+                    cireEleNum--;
+                    break;
+                case 1:
+                    volNum4.Value = (decimal)1.32;
+                    cireEleNum = 4;
+                    break;
+            }
+            int error = Power_Driver.SetOutputVoltage(CGloabal.g_InstrPowerModule.nHandle, 4, (double)volNum4.Value, "");
+        }
+
 
         private void btnChipSet_Click(object sender, EventArgs e)
         {
