@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
@@ -2873,9 +2871,6 @@
             // 
             this.iirList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.iirList2.GridLines = true;
-            this.iirList2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.iirList2.Location = new System.Drawing.Point(522, 96);
             this.iirList2.MultiSelect = false;
             this.iirList2.Name = "iirList2";
