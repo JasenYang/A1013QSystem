@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -234,6 +236,7 @@
             this.label82 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.label105 = new System.Windows.Forms.Label();
             this.btnRead2 = new System.Windows.Forms.Button();
             this.baseRead2 = new System.Windows.Forms.Button();
             this.list2 = new System.Windows.Forms.ListView();
@@ -251,6 +254,7 @@
             this.label104 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.label106 = new System.Windows.Forms.Label();
             this.btnRead1 = new System.Windows.Forms.Button();
             this.list1 = new System.Windows.Forms.ListView();
             this.btnIIRRead1 = new System.Windows.Forms.Button();
@@ -2755,6 +2759,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.label105);
             this.groupBox11.Controls.Add(this.btnRead2);
             this.groupBox11.Controls.Add(this.baseRead2);
             this.groupBox11.Controls.Add(this.list2);
@@ -2777,6 +2782,15 @@
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "OUT2";
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Location = new System.Drawing.Point(458, 191);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(58, 21);
+            this.label105.TabIndex = 24;
+            this.label105.Text = "PIN:";
             // 
             // btnRead2
             // 
@@ -2802,10 +2816,10 @@
             // 
             this.list2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.list2.GridLines = true;
-            this.list2.Location = new System.Drawing.Point(572, 169);
+            this.list2.Location = new System.Drawing.Point(522, 169);
             this.list2.MultiSelect = false;
             this.list2.Name = "list2";
-            this.list2.Size = new System.Drawing.Size(335, 62);
+            this.list2.Size = new System.Drawing.Size(385, 62);
             this.list2.TabIndex = 22;
             this.list2.UseCompatibleStateImageBehavior = false;
             this.list2.View = System.Windows.Forms.View.Details;
@@ -2841,7 +2855,7 @@
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(506, 111);
+            this.label103.Location = new System.Drawing.Point(458, 111);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(58, 21);
             this.label103.TabIndex = 20;
@@ -2859,10 +2873,13 @@
             // 
             this.iirList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.iirList2.GridLines = true;
-            this.iirList2.Location = new System.Drawing.Point(572, 96);
+            this.iirList2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.iirList2.Location = new System.Drawing.Point(522, 96);
             this.iirList2.MultiSelect = false;
             this.iirList2.Name = "iirList2";
-            this.iirList2.Size = new System.Drawing.Size(335, 62);
+            this.iirList2.Size = new System.Drawing.Size(385, 62);
             this.iirList2.TabIndex = 19;
             this.iirList2.UseCompatibleStateImageBehavior = false;
             this.iirList2.View = System.Windows.Forms.View.Details;
@@ -2899,10 +2916,10 @@
             // 
             this.lsrList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.lsrList2.GridLines = true;
-            this.lsrList2.Location = new System.Drawing.Point(571, 23);
+            this.lsrList2.Location = new System.Drawing.Point(522, 23);
             this.lsrList2.MultiSelect = false;
             this.lsrList2.Name = "lsrList2";
-            this.lsrList2.Size = new System.Drawing.Size(335, 62);
+            this.lsrList2.Size = new System.Drawing.Size(384, 62);
             this.lsrList2.TabIndex = 16;
             this.lsrList2.UseCompatibleStateImageBehavior = false;
             this.lsrList2.View = System.Windows.Forms.View.Details;
@@ -2924,7 +2941,7 @@
             // label104
             // 
             this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(506, 42);
+            this.label104.Location = new System.Drawing.Point(458, 46);
             this.label104.Name = "label104";
             this.label104.Size = new System.Drawing.Size(58, 21);
             this.label104.TabIndex = 17;
@@ -2941,6 +2958,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.label106);
             this.groupBox10.Controls.Add(this.btnRead1);
             this.groupBox10.Controls.Add(this.list1);
             this.groupBox10.Controls.Add(this.btnIIRRead1);
@@ -2963,6 +2981,15 @@
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "OUT1";
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Location = new System.Drawing.Point(460, 198);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(58, 21);
+            this.label106.TabIndex = 25;
+            this.label106.Text = "PIN:";
             // 
             // btnRead1
             // 
@@ -3131,19 +3158,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode13.Name = "节点0";
-            treeNode13.Text = "稳定性测试";
-            treeNode14.Name = "节点1";
-            treeNode14.Text = "寄存器测试";
-            treeNode15.Name = "节点0";
-            treeNode15.Text = "芯片设置";
-            treeNode16.Name = "节点1";
-            treeNode16.Text = "基本功能测试";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "稳定性测试";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "寄存器测试";
+            treeNode7.Name = "节点0";
+            treeNode7.Text = "芯片设置";
+            treeNode8.Name = "节点1";
+            treeNode8.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -3506,6 +3533,8 @@
         private System.Windows.Forms.Label label91;
         private System.Windows.Forms.Label setLabel;
         private System.ComponentModel.BackgroundWorker bgWork;
+        private System.Windows.Forms.Label label105;
+        private System.Windows.Forms.Label label106;
     }
 }
 

@@ -969,7 +969,7 @@ namespace A1013QSystem
             lsrList1.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "LSR");
+            byte[] readByte = CDll.BaseTestReadData(0, basePath1.Text, "LSR");
 
             this.lsrList1.Columns.Add("FIFOERR", 41);
             this.lsrList1.Columns.Add("TEMT", 41);
@@ -986,14 +986,14 @@ namespace A1013QSystem
             //添加
 
             {
-                ass[0] = ((readByte[5] &0x01)).ToString();
-                ass[1] = ((readByte[5] & 0x02)>>1 ).ToString();
-                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
-                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
-                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
-                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
-                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
-                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+                ass[7] = ((readByte[5] &0x01)).ToString();
+                ass[6] = ((readByte[5] & 0x02)>>1 ).ToString();
+                ass[5] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[4] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[3] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[2] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[1] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[0] = ((readByte[5] & 0x80) >> 7).ToString();
 
             }
             p[0] = new ListViewItem(ass);
@@ -1015,7 +1015,7 @@ namespace A1013QSystem
             iirList1.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "IIR");
+            byte[] readByte = CDll.BaseTestReadData(0, basePath1.Text, "IIR");
 
             this.iirList1.Columns.Add("FIFOE", 41);
             this.iirList1.Columns.Add("FIFOE", 41);
@@ -1031,14 +1031,14 @@ namespace A1013QSystem
 
             //添加
             {
-                ass[0] = ((readByte[5] & 0x01)).ToString();
-                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
-                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
-                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
-                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
-                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
-                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
-                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+                ass[7] = ((readByte[5] & 0x01)).ToString();
+                ass[6] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[5] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[4] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[3] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[2] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[1] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[0] = ((readByte[5] & 0x80) >> 7).ToString();
 
             }
             p[0] = new ListViewItem(ass);
@@ -1060,7 +1060,7 @@ namespace A1013QSystem
             list1.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "ARM");
+            byte[] readByte = CDll.BaseTestReadData(0, basePath1.Text, "ARM");
 
             this.list1.Columns.Add("TXRDY", 41);
             this.list1.Columns.Add("RXRDY", 41);
@@ -1072,9 +1072,9 @@ namespace A1013QSystem
 
             //添加
             {
-                ass[0] = ((readByte[4] & 0x01)).ToString();
+                ass[2] = ((readByte[4] & 0x01)).ToString();
                 ass[1] = ((readByte[4] & 0x02) >> 1).ToString();
-                ass[2] = ((readByte[4] & 0x04) >> 2).ToString();
+                ass[0] = ((readByte[4] & 0x04) >> 2).ToString();
 
             }
             p[0] = new ListViewItem(ass);
@@ -1096,7 +1096,7 @@ namespace A1013QSystem
             lsrList2.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "LSR");
+            byte[] readByte = CDll.BaseTestReadData(1, basePath2.Text, "LSR");
 
             this.lsrList2.Columns.Add("FIFOERR", 41);
             this.lsrList2.Columns.Add("TEMT", 41);
@@ -1112,14 +1112,14 @@ namespace A1013QSystem
 
             //添加
             {
-                ass[0] = ((readByte[5] & 0x01)).ToString();
-                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
-                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
-                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
-                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
-                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
-                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
-                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+                ass[7] = ((readByte[5] & 0x01)).ToString();
+                ass[6] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[5] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[4] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[3] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[2] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[1] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[0] = ((readByte[5] & 0x80) >> 7).ToString();
 
             }
             p[0] = new ListViewItem(ass);
@@ -1141,36 +1141,37 @@ namespace A1013QSystem
             iirList2.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "IIR");
+            byte[] readByte = CDll.BaseTestReadData(1, basePath2.Text, "IIR");
 
-            this.iirList2.Columns.Add("FIFOE", 41);
-            this.iirList2.Columns.Add("FIFOE", 41);
-            this.iirList2.Columns.Add("ID4", 41);
-            this.iirList2.Columns.Add("ID3", 41);
-            this.iirList2.Columns.Add("ID2", 41);
-            this.iirList2.Columns.Add("ID1", 41);
-            this.iirList2.Columns.Add("ID0", 41);
-            this.iirList2.Columns.Add("NINT", 41);
+
+            this.iirList2.Columns.Add("FIFOE", 60);
+            this.iirList2.Columns.Add("FIFOE", 60);
+            this.iirList2.Columns.Add("ID4", 40);
+            this.iirList2.Columns.Add("ID3", 40);
+            this.iirList2.Columns.Add("ID2", 40);
+            this.iirList2.Columns.Add("ID1", 40);
+            this.iirList2.Columns.Add("ID0", 40);
+            this.iirList2.Columns.Add("NINT", 45);
 
             ListViewItem[] p = new ListViewItem[1];
             string[] ass = new string[8] { "", "", "", "", "", "", "", "" };
 
             //添加
             {
-                ass[0] = ((readByte[5] & 0x01)).ToString();
-                ass[1] = ((readByte[5] & 0x02) >> 1).ToString();
-                ass[2] = ((readByte[5] & 0x04) >> 2).ToString();
-                ass[3] = ((readByte[5] & 0x08) >> 3).ToString();
-                ass[4] = ((readByte[5] & 0x10) >> 4).ToString();
-                ass[5] = ((readByte[5] & 0x20) >> 5).ToString();
-                ass[6] = ((readByte[5] & 0x40) >> 6).ToString();
-                ass[7] = ((readByte[5] & 0x80) >> 7).ToString();
+                ass[7] = ((readByte[5] & 0x01)).ToString();
+                ass[6] = ((readByte[5] & 0x02) >> 1).ToString();
+                ass[5] = ((readByte[5] & 0x04) >> 2).ToString();
+                ass[4] = ((readByte[5] & 0x08) >> 3).ToString();
+                ass[3] = ((readByte[5] & 0x10) >> 4).ToString();
+                ass[2] = ((readByte[5] & 0x20) >> 5).ToString();
+                ass[1] = ((readByte[5] & 0x40) >> 6).ToString();
+                ass[0] = ((readByte[5] & 0x80) >> 7).ToString();
 
             }
+
             p[0] = new ListViewItem(ass);
             // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
             //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
             this.iirList2.Items.AddRange(p);
         }
 
@@ -1186,7 +1187,7 @@ namespace A1013QSystem
             list2.Columns.Clear();
 
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "ARM");
+            byte[] readByte = CDll.BaseTestReadData(1, basePath2.Text, "ARM");
 
             this.list2.Columns.Add("TXRDY", 41);
             this.list2.Columns.Add("RXRDY", 41);
@@ -1198,9 +1199,9 @@ namespace A1013QSystem
 
             //添加
             {
-                ass[0] = ((readByte[4] & 0x01)).ToString();
+                ass[2] = ((readByte[4] & 0x01)).ToString();
                 ass[1] = ((readByte[4] & 0x02) >> 1).ToString();
-                ass[2] = ((readByte[4] & 0x04) >> 2).ToString();
+                ass[0] = ((readByte[4] & 0x04) >> 2).ToString();
 
 
             }
