@@ -966,14 +966,13 @@ namespace A1013QSystem
             this.lsrList1.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
             this.lsrList1.FullRowSelect = true;//是否可以选择行           
 
-            lsrList1.Columns.Clear();
-
+            this.lsrList1.Columns.Clear();
             //读取数据
-            byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "LSR");
+              byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "LSR");
 
-            this.lsrList1.Columns.Add("FIFOERR", 41);
-            this.lsrList1.Columns.Add("TEMT", 41);
-            this.lsrList1.Columns.Add("THRE", 41);
+            this.lsrList1.Columns.Add("FIFOERR", 55);
+            this.lsrList1.Columns.Add("TEMT", 50);
+            this.lsrList1.Columns.Add("THRE", 50);
             this.lsrList1.Columns.Add("BI", 41);
             this.lsrList1.Columns.Add("FE", 41);
             this.lsrList1.Columns.Add("PE", 41);
@@ -989,9 +988,11 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (lsrList1.Items.Count>0)
+            {
+                this.lsrList1.Items.Remove(this.lsrList1.Items[0]);
+            }
+           
             this.lsrList1.Items.AddRange(p);
         }
 
@@ -1009,8 +1010,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "IIR");
 
-            this.iirList1.Columns.Add("FIFOE", 41);
-            this.iirList1.Columns.Add("FIFOE", 41);
+            this.iirList1.Columns.Add("FIFOE", 55);
+            this.iirList1.Columns.Add("FIFOE", 55);
             this.iirList1.Columns.Add("ID4", 41);
             this.iirList1.Columns.Add("ID3", 41);
             this.iirList1.Columns.Add("ID2", 41);
@@ -1027,9 +1028,10 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (iirList1.Items.Count > 0)
+            {
+                this.iirList1.Items.Remove(this.iirList1.Items[0]);
+            }
             this.iirList1.Items.AddRange(p);
         }
 
@@ -1047,8 +1049,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(1, basePath1.Text, "ARM");
 
-            this.list1.Columns.Add("TXRDY", 41);
-            this.list1.Columns.Add("RXRDY", 41);
+            this.list1.Columns.Add("TXRDY", 60);
+            this.list1.Columns.Add("RXRDY", 60);
             this.list1.Columns.Add("IRQ", 41);
         
 
@@ -1061,9 +1063,10 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (list1.Items.Count > 0)
+            {
+                this.list1.Items.Remove(this.list1.Items[0]);
+            }
             this.list1.Items.AddRange(p);
         }
 
@@ -1081,9 +1084,9 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "LSR");
 
-            this.lsrList2.Columns.Add("FIFOERR", 41);
-            this.lsrList2.Columns.Add("TEMT", 41);
-            this.lsrList2.Columns.Add("THRE", 41);
+            this.lsrList2.Columns.Add("FIFOERR", 60);
+            this.lsrList2.Columns.Add("TEMT", 55);
+            this.lsrList2.Columns.Add("THRE", 55);
             this.lsrList2.Columns.Add("BI", 41);
             this.lsrList2.Columns.Add("FE", 41);
             this.lsrList2.Columns.Add("PE", 41);
@@ -1099,9 +1102,10 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (lsrList2.Items.Count > 0)
+            {
+                this.lsrList2.Items.Remove(this.lsrList2.Items[0]);
+            }
             this.lsrList2.Items.AddRange(p);
         }
 
@@ -1119,8 +1123,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "IIR");
 
-            this.iirList2.Columns.Add("FIFOE", 41);
-            this.iirList2.Columns.Add("FIFOE", 41);
+            this.iirList2.Columns.Add("FIFOE", 55);
+            this.iirList2.Columns.Add("FIFOE", 55);
             this.iirList2.Columns.Add("ID4", 41);
             this.iirList2.Columns.Add("ID3", 41);
             this.iirList2.Columns.Add("ID2", 41);
@@ -1137,9 +1141,10 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (iirList2.Items.Count > 0)
+            {
+                this.iirList2.Items.Remove(this.iirList2.Items[0]);
+            }
             this.iirList2.Items.AddRange(p);
         }
 
@@ -1157,8 +1162,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(2, basePath2.Text, "ARM");
 
-            this.list2.Columns.Add("TXRDY", 41);
-            this.list2.Columns.Add("RXRDY", 41);
+            this.list2.Columns.Add("TXRDY", 60);
+            this.list2.Columns.Add("RXRDY", 60);
             this.list2.Columns.Add("IRQ", 41);
 
 
@@ -1171,9 +1176,10 @@ namespace A1013QSystem
                 ass[i] = readByte.ToString();
             }
             p[0] = new ListViewItem(ass);
-            // p[1] = new ListViewItem(new string[] { "", "cc", "ggg" });
-            //p[0].SubItems[0].BackColor = Color.Red; //用于设置某行的背景颜色
-
+            if (list2.Items.Count > 0)
+            {
+                this.list2.Items.Remove(this.list2.Items[0]);
+            }
             this.list2.Items.AddRange(p);
         }
     }

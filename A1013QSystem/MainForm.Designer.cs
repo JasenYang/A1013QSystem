@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -2790,10 +2790,10 @@
             // 
             this.list2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.list2.GridLines = true;
-            this.list2.Location = new System.Drawing.Point(572, 169);
+            this.list2.Location = new System.Drawing.Point(535, 167);
             this.list2.MultiSelect = false;
             this.list2.Name = "list2";
-            this.list2.Size = new System.Drawing.Size(335, 62);
+            this.list2.Size = new System.Drawing.Size(371, 62);
             this.list2.TabIndex = 22;
             this.list2.UseCompatibleStateImageBehavior = false;
             this.list2.View = System.Windows.Forms.View.Details;
@@ -2829,7 +2829,7 @@
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(506, 111);
+            this.label103.Location = new System.Drawing.Point(469, 109);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(58, 21);
             this.label103.TabIndex = 20;
@@ -2846,10 +2846,10 @@
             // 
             this.iirList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.iirList2.GridLines = true;
-            this.iirList2.Location = new System.Drawing.Point(572, 96);
+            this.iirList2.Location = new System.Drawing.Point(535, 94);
             this.iirList2.MultiSelect = false;
             this.iirList2.Name = "iirList2";
-            this.iirList2.Size = new System.Drawing.Size(335, 62);
+            this.iirList2.Size = new System.Drawing.Size(371, 62);
             this.iirList2.TabIndex = 19;
             this.iirList2.UseCompatibleStateImageBehavior = false;
             this.iirList2.View = System.Windows.Forms.View.Details;
@@ -2886,10 +2886,10 @@
             // 
             this.lsrList2.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.lsrList2.GridLines = true;
-            this.lsrList2.Location = new System.Drawing.Point(571, 23);
+            this.lsrList2.Location = new System.Drawing.Point(534, 21);
             this.lsrList2.MultiSelect = false;
             this.lsrList2.Name = "lsrList2";
-            this.lsrList2.Size = new System.Drawing.Size(335, 62);
+            this.lsrList2.Size = new System.Drawing.Size(372, 62);
             this.lsrList2.TabIndex = 16;
             this.lsrList2.UseCompatibleStateImageBehavior = false;
             this.lsrList2.View = System.Windows.Forms.View.Details;
@@ -2910,7 +2910,7 @@
             // label104
             // 
             this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(506, 42);
+            this.label104.Location = new System.Drawing.Point(469, 40);
             this.label104.Name = "label104";
             this.label104.Size = new System.Drawing.Size(58, 21);
             this.label104.TabIndex = 17;
@@ -2964,10 +2964,10 @@
             // 
             this.list1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.list1.GridLines = true;
-            this.list1.Location = new System.Drawing.Point(574, 176);
+            this.list1.Location = new System.Drawing.Point(536, 176);
             this.list1.MultiSelect = false;
             this.list1.Name = "list1";
-            this.list1.Size = new System.Drawing.Size(335, 62);
+            this.list1.Size = new System.Drawing.Size(372, 62);
             this.list1.TabIndex = 14;
             this.list1.UseCompatibleStateImageBehavior = false;
             this.list1.View = System.Windows.Forms.View.Details;
@@ -2985,7 +2985,7 @@
             // label102
             // 
             this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(508, 118);
+            this.label102.Location = new System.Drawing.Point(470, 118);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(58, 21);
             this.label102.TabIndex = 12;
@@ -2995,10 +2995,10 @@
             // 
             this.iirList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.iirList1.GridLines = true;
-            this.iirList1.Location = new System.Drawing.Point(574, 103);
+            this.iirList1.Location = new System.Drawing.Point(536, 103);
             this.iirList1.MultiSelect = false;
             this.iirList1.Name = "iirList1";
-            this.iirList1.Size = new System.Drawing.Size(335, 62);
+            this.iirList1.Size = new System.Drawing.Size(372, 62);
             this.iirList1.TabIndex = 11;
             this.iirList1.UseCompatibleStateImageBehavior = false;
             this.iirList1.View = System.Windows.Forms.View.Details;
@@ -3027,10 +3027,10 @@
             // 
             this.lsrList1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold);
             this.lsrList1.GridLines = true;
-            this.lsrList1.Location = new System.Drawing.Point(573, 30);
+            this.lsrList1.Location = new System.Drawing.Point(535, 30);
             this.lsrList1.MultiSelect = false;
             this.lsrList1.Name = "lsrList1";
-            this.lsrList1.Size = new System.Drawing.Size(335, 62);
+            this.lsrList1.Size = new System.Drawing.Size(373, 62);
             this.lsrList1.TabIndex = 1;
             this.lsrList1.UseCompatibleStateImageBehavior = false;
             this.lsrList1.View = System.Windows.Forms.View.Details;
@@ -3038,7 +3038,7 @@
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(508, 49);
+            this.label101.Location = new System.Drawing.Point(470, 49);
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(58, 21);
             this.label101.TabIndex = 7;
@@ -3114,19 +3114,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "稳定性测试";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "寄存器测试";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "芯片设置";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "基本功能测试";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "稳定性测试";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "寄存器测试";
+            treeNode7.Name = "节点0";
+            treeNode7.Text = "芯片设置";
+            treeNode8.Name = "节点1";
+            treeNode8.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
