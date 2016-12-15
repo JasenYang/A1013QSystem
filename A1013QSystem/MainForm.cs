@@ -899,9 +899,9 @@ namespace A1013QSystem
             CHIPMODEL.receiveFIFO = receiveFIFO.SelectedItem.ToString();
             CHIPMODEL.sendTarget = sendTarget.SelectedItem.ToString();
 
-            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedIndex;
-            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedIndex;
-            CHIPMODEL.receiveCache = receiveCache.SelectedIndex;
+            CHIPMODEL.receiveInterrupt = receiveInterrupt.SelectedItem.ToString();
+            CHIPMODEL.sendInterrupt = sendInterrupt.SelectedItem.ToString();
+            CHIPMODEL.receiveCache = receiveCache.SelectedItem.ToString();
 
             int error = CDll.ChipSet(CHIPMODEL);
             if (error>=0)

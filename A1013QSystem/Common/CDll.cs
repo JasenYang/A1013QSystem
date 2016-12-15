@@ -695,9 +695,10 @@ namespace A1013QSystem.Common
             //发送中断、接收中断、接收缓存中断
             cmdByte[4] = 01;
             cmdByte[5] = 0x00;
-            cmdByte[5] += ValueReturn(CHIPMODEL.FIFOSelect, "接收中断");
-            cmdByte[5] += ValueReturn(CHIPMODEL.DMAPattern, "发送中断");
-            cmdByte[5] += ValueReturn(CHIPMODEL.receiveFIFO, "接收缓存中断");
+
+            cmdByte[5] += ValueReturn(CHIPMODEL.receiveInterrupt, "接收中断");
+            cmdByte[5] += ValueReturn(CHIPMODEL.sendInterrupt, "发送中断");
+            cmdByte[5] += ValueReturn(CHIPMODEL.receiveCache, "接收缓存中断");
 
             error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
             if (error < 0)
@@ -837,41 +838,41 @@ namespace A1013QSystem.Common
                     }
                     break;
                 case "FIFO使能":
-                    if (data == "0")
+                    if (data == "不使能")
                     {
                         byVal = 0x00;
                     }
-                    else if (data == "1")
+                    else if (data == "使能")
                     {
                         byVal = 0x01;
                     }
                     break;
                 case "接收中断":
-                    if (data == "0")
+                    if (data == "不使能")
                     {
                         byVal = 0x00;
                     }
-                    else if (data == "1")
+                    else if (data == "使能")
                     {
                         byVal = 0x04;
                     }
                     break;
                 case "发送中断":
-                    if (data == "0")
+                    if (data == "不使能")
                     {
                         byVal = 0x00;
                     }
-                    else if (data == "1")
+                    else if (data == "使能")
                     {
                         byVal = 0x02;
                     }
                     break;
                 case "接收缓存中断":
-                    if (data == "0")
+                    if (data == "不使能")
                     {
                         byVal = 0x00;
                     }
-                    else if (data == "1")
+                    else if (data == "使能")
                     {
                         byVal = 0x01;
                     }

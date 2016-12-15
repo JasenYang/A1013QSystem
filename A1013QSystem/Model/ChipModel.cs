@@ -18,8 +18,8 @@ namespace A1013QSystem.Model
         public string DMAPattern { set; get; }
         public string receiveFIFO { set; get; }
         public string sendTarget { set; get; }
-        public int receiveInterrupt { set; get; }
-        public int sendInterrupt{ set; get; }
-        public int receiveCache { set; get; }
+        public string receiveInterrupt { set; get; }
+        public string sendInterrupt { set; get; }
+        public string receiveCache { set; get; }
     }
 }
