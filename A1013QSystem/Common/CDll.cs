@@ -547,6 +547,79 @@ namespace A1013QSystem.Common
 
         }
 
+        /// <summary>
+        /// 基本功能测试发送数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="channel">通道</param>
+        /// <param name="typeName">类型</param>
+        public static void RegWriteData(int chipNum, int channel,int addr, int sendNum)
+        {
+            int error = 0;
+            Byte[] cmdByte = new Byte[10] { 0XAA, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0X00, 0XBB };
+
+            cmdByte[1] = 0x08;              //命令字
+            cmdByte[4] = (byte)addr;        //address
+            cmdByte[5] = (byte)sendNum;     //data
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+
+            Thread.Sleep(800);
+
+        }
+
+        /// <summary>
+        /// 寄存器测试读取数据
+        /// </summary>
+        /// <param name="chipNum">芯片</param>
+        /// <param name="pathNum">通道</param>
+        /// <param name="typeName">类型</param>
+        public static byte[] regReadData(int chipNum, int channel, int addr)
+        {
+            byte[] cmdByte = new byte[10] { 0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0xBB };
+            cmdByte[1] = (byte)6;
+            cmdByte[2] = (byte)chipNum;
+            cmdByte[4] = (byte)addr;
+
+
+            int error = 0;
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+
+            if (error < 0)
+            {
+                MessageBox.Show("芯片" + chipNum + ""  + "读取失败");
+            }
+
+            Thread.Sleep(300);
+
+            List<byte> buffer = new List<byte>(4096);
+            int length;
+            byte[] ReceiveBytes = new byte[24];
+
+            CGloabal.g_bIsComRecvedDataFlag = true;  //串口是否收到数据
+            length = CGloabal.g_serialPorForUUT.BytesToRead;
+            byte[] Receivebuf = new byte[24];
+            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 24);
+            //1、缓存数据
+            buffer.AddRange(Receivebuf);
+            //2、完整性判断
+            while (buffer.Count >= 24)
+            {
+                if (buffer[0] == 0xAA)
+                {
+                    //得到完整的数据，复制到ReceiveBytes中进行校验
+                    buffer.CopyTo(0, ReceiveBytes, 0, 24);
+                    buffer.RemoveRange(0, 24);
+                    return ReceiveBytes;
+                }
+                else //帧头不正确时，记得清除
+                {
+                    buffer.RemoveAt(0);
+                }
+            }
+
+            return ReceiveBytes;
+        }
+
 
         /// <summary>
         /// 基本功能测试发送数据

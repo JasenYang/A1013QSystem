@@ -61,7 +61,7 @@ namespace A1013QSystem
             time.Enabled = true;
 
             //读取电压、电流
-            Timer tSave = new Timer();
+           Timer tSave = new Timer();
             tSave.Interval = 2000;
             tSave.Tick += Fn_ReadVolAndEle;
             tSave.Enabled = true;
@@ -681,42 +681,8 @@ namespace A1013QSystem
             }  
         }
 
-        private void bunTuple1_Click(object sender, EventArgs e)
-        {
-            CGloabal.g_curTupple = "通道1";
-            bunTuple1.BaseColor = Color.CornflowerBlue;
-            bunTuple2.BaseColor = Color.LightGray;
-            bunTuple3.BaseColor = Color.LightGray;
-            bunTuple4.BaseColor = Color.LightGray;
+ 
 
-        }
-
-        private void bunTuple2_Click(object sender, EventArgs e)
-        {
-            CGloabal.g_curTupple = "通道2";
-            bunTuple1.BaseColor = Color.LightGray;
-            bunTuple2.BaseColor = Color.CornflowerBlue;
-            bunTuple3.BaseColor = Color.LightGray;
-            bunTuple4.BaseColor = Color.LightGray;
-        }
-
-        private void bunTuple3_Click(object sender, EventArgs e)
-        {
-            CGloabal.g_curTupple = "通道3";
-            bunTuple1.BaseColor = Color.LightGray;
-            bunTuple2.BaseColor = Color.LightGray;
-            bunTuple3.BaseColor = Color.CornflowerBlue;
-            bunTuple4.BaseColor = Color.LightGray;
-        }
-
-        private void bunTuple4_Click(object sender, EventArgs e)
-        {
-            CGloabal.g_curTupple = "通道4";
-            bunTuple1.BaseColor = Color.LightGray;
-            bunTuple2.BaseColor = Color.LightGray;
-            bunTuple3.BaseColor = Color.LightGray;
-            bunTuple4.BaseColor = Color.CornflowerBlue;
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -852,6 +818,10 @@ namespace A1013QSystem
             tEleChange.Interval = 1200000;
             tEleChange.Tick += Fn_CircleEle;
             tEleChange.Enabled = true;
+
+            byte[] cmdByte = new byte[10] { 0xAA, 1, 0, 0, 1, 0, 0, 0, 0, 0xBB };
+            CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+
         }
 
         int cireEleNum = 4;
@@ -1221,6 +1191,108 @@ namespace A1013QSystem
         private void label102_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void reg_read_Click(object sender, EventArgs e)
+        {
+            int chipsel;
+            int channel;
+            if (reg_chipsel.ToString() == "芯片2")
+                chipsel = 0x01;
+            else
+                chipsel = 0x00;
+
+            if (reg_channelSel.ToString() == "通道2")
+                channel = 1;
+            else if (reg_channelSel.ToString() == "通道3")
+                channel = 2;
+            else if (reg_channelSel.ToString() == "通道4")
+                channel = 3;
+            else
+                channel = 0;
+            label109.Text = "读取进行中";
+            this.Refresh();
+            // label109.f
+            byte[] readByte = CDll.regReadData(chipsel, channel, 0);       //RBR 
+            RBR_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 1);
+            IER_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 2);
+            IIR_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 3);
+            LCR_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 5);
+           LSR_R.Text = readByte[5].ToString();
+           readByte = CDll.regReadData(chipsel, channel, 7);       //SCR
+            SCR_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 8);       //DLL
+            DLL_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 9);       //DLM
+            DLM_R.Text = readByte[5].ToString();
+            readByte = CDll.regReadData(chipsel, channel, 10);      //EFR
+            EFR_R.Text = readByte[5].ToString();
+            label109.Text = "读取完毕";
+            this.Refresh();
+
+        }
+
+        private void reg_write_Click(object sender, EventArgs e)
+        {
+            int chipsel;
+            int channel;
+            if (reg_chipsel.ToString() == "芯片2")
+                chipsel = 0x01;
+            else
+                chipsel = 0x00;
+
+            if (reg_channelSel.ToString() == "通道2")
+                channel = 1;
+            else if (reg_channelSel.ToString() == "通道3")
+                channel = 2;
+            else if (reg_channelSel.ToString() == "通道4")
+                channel = 3;
+            else
+                channel = 0;
+
+            //THR 
+            //IER 中断使能寄存器
+            //FCR FIFO 控制寄存器
+            //LCR 线控寄存器
+            //SCR 备用寄存器
+            //DLL 分频器波特率
+            //DLM 分频器波特率
+            //EFR 增强特性寄存器
+            label109.Text = "写入进行中";
+            this.Refresh();
+
+            CDll.RegWriteData(chipsel, channel, 08, Convert.ToInt32(DLL_W.Text));
+            CDll.RegWriteData(chipsel, channel, 09, Convert.ToInt32(DLM_W.Text));
+            CDll.RegWriteData(chipsel, channel, 10, Convert.ToInt32(EFR_W.Text)); 
+            CDll.RegWriteData(chipsel, channel, 03, Convert.ToInt32(LCR_W.Text));
+            CDll.RegWriteData(chipsel, channel, 0, Convert.ToInt32(THR_W.Text));
+            CDll.RegWriteData(chipsel, channel, 01, Convert.ToInt32(IER_W.Text));
+            CDll.RegWriteData(chipsel, channel, 02, Convert.ToInt32(FCR_W.Text));
+            CDll.RegWriteData(chipsel, channel, 07, Convert.ToInt32(SCR_W.Text));
+
+            label109.Text = "写入完毕";
+            this.Refresh();
+        }
+
+        private void label109_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+
+            byte[] cmdByte = new byte[10] { 0xAA, 1, 0, 0, 0, 0, 0, 0, 0, 0xBB };
+            CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
         }
     }
 }

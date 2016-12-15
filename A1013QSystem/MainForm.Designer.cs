@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -174,32 +174,41 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.bunTuple4 = new CCWin.SkinControl.SkinButton();
-            this.bunTuple3 = new CCWin.SkinControl.SkinButton();
-            this.bunTuple2 = new CCWin.SkinControl.SkinButton();
-            this.bunTuple1 = new CCWin.SkinControl.SkinButton();
             this.skinGroupBox1 = new CCWin.SkinControl.SkinGroupBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label109 = new System.Windows.Forms.Label();
+            this.reg_channelSel = new System.Windows.Forms.ComboBox();
+            this.reg_write = new CCWin.SkinControl.SkinButton();
+            this.reg_chipsel = new System.Windows.Forms.ComboBox();
+            this.label107 = new System.Windows.Forms.Label();
+            this.reg_read = new CCWin.SkinControl.SkinButton();
+            this.label108 = new System.Windows.Forms.Label();
+            this.EFR_W = new System.Windows.Forms.TextBox();
+            this.DLM_W = new System.Windows.Forms.TextBox();
+            this.DLL_W = new System.Windows.Forms.TextBox();
+            this.SCR_W = new System.Windows.Forms.TextBox();
+            this.LCR_W = new System.Windows.Forms.TextBox();
+            this.IER_W = new System.Windows.Forms.TextBox();
+            this.EFR_R = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.DLM_R = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.DLL_R = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.SCR_R = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.LSR_R = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.LCR_R = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FCR_W = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.IIR_R = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.IER_R = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.THR_W = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RBR_R = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chipReset = new System.Windows.Forms.Button();
@@ -276,6 +285,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.bgWork = new System.ComponentModel.BackgroundWorker();
+            this.StopButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -1098,6 +1108,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.StopButton);
             this.panel1.Controls.Add(this.btnTest);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.skinTabControl1);
@@ -1109,11 +1120,11 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(160, 486);
+            this.btnTest.Location = new System.Drawing.Point(9, 486);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(112, 47);
             this.btnTest.TabIndex = 5;
-            this.btnTest.Text = "执行测试";
+            this.btnTest.Text = "开始测试";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
@@ -2075,10 +2086,6 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage4.Controls.Add(this.bunTuple4);
-            this.tabPage4.Controls.Add(this.bunTuple3);
-            this.tabPage4.Controls.Add(this.bunTuple2);
-            this.tabPage4.Controls.Add(this.bunTuple1);
             this.tabPage4.Controls.Add(this.skinGroupBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 31);
             this.tabPage4.Name = "tabPage4";
@@ -2087,116 +2094,52 @@
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "寄存器测试";
             // 
-            // bunTuple4
-            // 
-            this.bunTuple4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunTuple4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunTuple4.BorderColor = System.Drawing.Color.Black;
-            this.bunTuple4.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.bunTuple4.DownBack = null;
-            this.bunTuple4.DownBaseColor = System.Drawing.Color.Gray;
-            this.bunTuple4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bunTuple4.Location = new System.Drawing.Point(11, 191);
-            this.bunTuple4.MouseBack = null;
-            this.bunTuple4.Name = "bunTuple4";
-            this.bunTuple4.NormlBack = null;
-            this.bunTuple4.Size = new System.Drawing.Size(116, 34);
-            this.bunTuple4.TabIndex = 4;
-            this.bunTuple4.Text = "通道4";
-            this.bunTuple4.UseVisualStyleBackColor = false;
-            this.bunTuple4.Click += new System.EventHandler(this.bunTuple4_Click);
-            // 
-            // bunTuple3
-            // 
-            this.bunTuple3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunTuple3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunTuple3.BorderColor = System.Drawing.Color.Black;
-            this.bunTuple3.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.bunTuple3.DownBack = null;
-            this.bunTuple3.DownBaseColor = System.Drawing.Color.Gray;
-            this.bunTuple3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bunTuple3.Location = new System.Drawing.Point(11, 133);
-            this.bunTuple3.MouseBack = null;
-            this.bunTuple3.Name = "bunTuple3";
-            this.bunTuple3.NormlBack = null;
-            this.bunTuple3.Size = new System.Drawing.Size(116, 34);
-            this.bunTuple3.TabIndex = 3;
-            this.bunTuple3.Text = "通道3";
-            this.bunTuple3.UseVisualStyleBackColor = false;
-            this.bunTuple3.Click += new System.EventHandler(this.bunTuple3_Click);
-            // 
-            // bunTuple2
-            // 
-            this.bunTuple2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunTuple2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunTuple2.BorderColor = System.Drawing.Color.Black;
-            this.bunTuple2.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.bunTuple2.DownBack = null;
-            this.bunTuple2.DownBaseColor = System.Drawing.Color.Gray;
-            this.bunTuple2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bunTuple2.Location = new System.Drawing.Point(11, 75);
-            this.bunTuple2.MouseBack = null;
-            this.bunTuple2.Name = "bunTuple2";
-            this.bunTuple2.NormlBack = null;
-            this.bunTuple2.Size = new System.Drawing.Size(116, 34);
-            this.bunTuple2.TabIndex = 2;
-            this.bunTuple2.Text = "通道2";
-            this.bunTuple2.UseVisualStyleBackColor = false;
-            this.bunTuple2.Click += new System.EventHandler(this.bunTuple2_Click);
-            // 
-            // bunTuple1
-            // 
-            this.bunTuple1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunTuple1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunTuple1.BorderColor = System.Drawing.Color.Black;
-            this.bunTuple1.ControlState = CCWin.SkinClass.ControlState.Normal;
-            this.bunTuple1.DownBack = null;
-            this.bunTuple1.DownBaseColor = System.Drawing.Color.Gray;
-            this.bunTuple1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bunTuple1.Location = new System.Drawing.Point(11, 17);
-            this.bunTuple1.MouseBack = null;
-            this.bunTuple1.MouseBaseColor = System.Drawing.Color.CornflowerBlue;
-            this.bunTuple1.Name = "bunTuple1";
-            this.bunTuple1.NormlBack = null;
-            this.bunTuple1.Size = new System.Drawing.Size(116, 34);
-            this.bunTuple1.TabIndex = 1;
-            this.bunTuple1.Text = "通道1";
-            this.bunTuple1.UseVisualStyleBackColor = false;
-            this.bunTuple1.Click += new System.EventHandler(this.bunTuple1_Click);
-            // 
             // skinGroupBox1
             // 
             this.skinGroupBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.skinGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Controls.Add(this.textBox11);
+            this.skinGroupBox1.Controls.Add(this.label109);
+            this.skinGroupBox1.Controls.Add(this.reg_channelSel);
+            this.skinGroupBox1.Controls.Add(this.reg_write);
+            this.skinGroupBox1.Controls.Add(this.reg_chipsel);
+            this.skinGroupBox1.Controls.Add(this.label107);
+            this.skinGroupBox1.Controls.Add(this.reg_read);
+            this.skinGroupBox1.Controls.Add(this.label108);
+            this.skinGroupBox1.Controls.Add(this.EFR_W);
+            this.skinGroupBox1.Controls.Add(this.DLM_W);
+            this.skinGroupBox1.Controls.Add(this.DLL_W);
+            this.skinGroupBox1.Controls.Add(this.SCR_W);
+            this.skinGroupBox1.Controls.Add(this.LCR_W);
+            this.skinGroupBox1.Controls.Add(this.IER_W);
+            this.skinGroupBox1.Controls.Add(this.EFR_R);
             this.skinGroupBox1.Controls.Add(this.label58);
-            this.skinGroupBox1.Controls.Add(this.textBox10);
+            this.skinGroupBox1.Controls.Add(this.DLM_R);
             this.skinGroupBox1.Controls.Add(this.label57);
-            this.skinGroupBox1.Controls.Add(this.textBox9);
+            this.skinGroupBox1.Controls.Add(this.DLL_R);
             this.skinGroupBox1.Controls.Add(this.label56);
-            this.skinGroupBox1.Controls.Add(this.textBox8);
+            this.skinGroupBox1.Controls.Add(this.SCR_R);
             this.skinGroupBox1.Controls.Add(this.label55);
-            this.skinGroupBox1.Controls.Add(this.textBox7);
+            this.skinGroupBox1.Controls.Add(this.LSR_R);
             this.skinGroupBox1.Controls.Add(this.label54);
-            this.skinGroupBox1.Controls.Add(this.textBox6);
+            this.skinGroupBox1.Controls.Add(this.LCR_R);
             this.skinGroupBox1.Controls.Add(this.label53);
-            this.skinGroupBox1.Controls.Add(this.textBox5);
+            this.skinGroupBox1.Controls.Add(this.FCR_W);
             this.skinGroupBox1.Controls.Add(this.label52);
-            this.skinGroupBox1.Controls.Add(this.textBox4);
+            this.skinGroupBox1.Controls.Add(this.IIR_R);
             this.skinGroupBox1.Controls.Add(this.label51);
-            this.skinGroupBox1.Controls.Add(this.textBox3);
+            this.skinGroupBox1.Controls.Add(this.IER_R);
             this.skinGroupBox1.Controls.Add(this.label50);
-            this.skinGroupBox1.Controls.Add(this.textBox2);
+            this.skinGroupBox1.Controls.Add(this.THR_W);
             this.skinGroupBox1.Controls.Add(this.label49);
-            this.skinGroupBox1.Controls.Add(this.textBox1);
+            this.skinGroupBox1.Controls.Add(this.RBR_R);
             this.skinGroupBox1.Controls.Add(this.label48);
             this.skinGroupBox1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.skinGroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.skinGroupBox1.Location = new System.Drawing.Point(138, 0);
+            this.skinGroupBox1.Location = new System.Drawing.Point(21, 0);
             this.skinGroupBox1.Name = "skinGroupBox1";
             this.skinGroupBox1.RectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.RoundStyle = CCWin.SkinClass.RoundStyle.All;
-            this.skinGroupBox1.Size = new System.Drawing.Size(904, 555);
+            this.skinGroupBox1.Size = new System.Drawing.Size(1021, 555);
             this.skinGroupBox1.TabIndex = 0;
             this.skinGroupBox1.TabStop = false;
             this.skinGroupBox1.Text = "寄存器地址分配";
@@ -2204,188 +2147,341 @@
             this.skinGroupBox1.TitleRectBackColor = System.Drawing.Color.White;
             this.skinGroupBox1.TitleRoundStyle = CCWin.SkinClass.RoundStyle.All;
             // 
-            // textBox11
+            // label109
             // 
-            this.textBox11.Location = new System.Drawing.Point(374, 500);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(106, 31);
-            this.textBox11.TabIndex = 21;
+            this.label109.AutoSize = true;
+            this.label109.Font = new System.Drawing.Font("宋体", 12F);
+            this.label109.Location = new System.Drawing.Point(895, 533);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(0, 16);
+            this.label109.TabIndex = 29;
+            this.label109.Click += new System.EventHandler(this.label109_Click);
+            // 
+            // reg_channelSel
+            // 
+            this.reg_channelSel.FormattingEnabled = true;
+            this.reg_channelSel.Items.AddRange(new object[] {
+            "通道1",
+            "通道2",
+            "通道3",
+            "通道4"});
+            this.reg_channelSel.Location = new System.Drawing.Point(30, 222);
+            this.reg_channelSel.Name = "reg_channelSel";
+            this.reg_channelSel.Size = new System.Drawing.Size(121, 29);
+            this.reg_channelSel.TabIndex = 8;
+            this.reg_channelSel.Text = "通道1";
+            // 
+            // reg_write
+            // 
+            this.reg_write.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.reg_write.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.reg_write.BorderColor = System.Drawing.Color.Black;
+            this.reg_write.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.reg_write.DownBack = null;
+            this.reg_write.DownBaseColor = System.Drawing.Color.Gray;
+            this.reg_write.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.reg_write.Location = new System.Drawing.Point(905, 472);
+            this.reg_write.MouseBack = null;
+            this.reg_write.MouseBaseColor = System.Drawing.Color.CornflowerBlue;
+            this.reg_write.Name = "reg_write";
+            this.reg_write.NormlBack = null;
+            this.reg_write.Size = new System.Drawing.Size(66, 32);
+            this.reg_write.TabIndex = 28;
+            this.reg_write.Text = "写入";
+            this.reg_write.UseVisualStyleBackColor = false;
+            this.reg_write.Click += new System.EventHandler(this.reg_write_Click);
+            // 
+            // reg_chipsel
+            // 
+            this.reg_chipsel.FormattingEnabled = true;
+            this.reg_chipsel.Items.AddRange(new object[] {
+            "芯片1",
+            "芯片2"});
+            this.reg_chipsel.Location = new System.Drawing.Point(30, 70);
+            this.reg_chipsel.Name = "reg_chipsel";
+            this.reg_chipsel.Size = new System.Drawing.Size(121, 29);
+            this.reg_chipsel.TabIndex = 7;
+            this.reg_chipsel.Text = "芯片1";
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Location = new System.Drawing.Point(26, 179);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(115, 21);
+            this.label107.TabIndex = 6;
+            this.label107.Text = "通道选择：";
+            // 
+            // reg_read
+            // 
+            this.reg_read.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.reg_read.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.reg_read.BorderColor = System.Drawing.Color.Black;
+            this.reg_read.ControlState = CCWin.SkinClass.ControlState.Normal;
+            this.reg_read.DownBack = null;
+            this.reg_read.DownBaseColor = System.Drawing.Color.Gray;
+            this.reg_read.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.reg_read.Location = new System.Drawing.Point(636, 472);
+            this.reg_read.MouseBack = null;
+            this.reg_read.MouseBaseColor = System.Drawing.Color.CornflowerBlue;
+            this.reg_read.Name = "reg_read";
+            this.reg_read.NormlBack = null;
+            this.reg_read.Size = new System.Drawing.Size(66, 32);
+            this.reg_read.TabIndex = 5;
+            this.reg_read.Text = "读取";
+            this.reg_read.UseVisualStyleBackColor = false;
+            this.reg_read.Click += new System.EventHandler(this.reg_read_Click);
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Location = new System.Drawing.Point(26, 38);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(115, 21);
+            this.label108.TabIndex = 5;
+            this.label108.Text = "芯片选择：";
+            // 
+            // EFR_W
+            // 
+            this.EFR_W.Location = new System.Drawing.Point(757, 498);
+            this.EFR_W.Name = "EFR_W";
+            this.EFR_W.Size = new System.Drawing.Size(106, 31);
+            this.EFR_W.TabIndex = 27;
+            this.EFR_W.Text = "0";
+            // 
+            // DLM_W
+            // 
+            this.DLM_W.Location = new System.Drawing.Point(757, 457);
+            this.DLM_W.Name = "DLM_W";
+            this.DLM_W.Size = new System.Drawing.Size(106, 31);
+            this.DLM_W.TabIndex = 26;
+            this.DLM_W.Text = "0";
+            // 
+            // DLL_W
+            // 
+            this.DLL_W.Location = new System.Drawing.Point(757, 406);
+            this.DLL_W.Name = "DLL_W";
+            this.DLL_W.Size = new System.Drawing.Size(106, 31);
+            this.DLL_W.TabIndex = 25;
+            this.DLL_W.Text = "0";
+            // 
+            // SCR_W
+            // 
+            this.SCR_W.Location = new System.Drawing.Point(757, 359);
+            this.SCR_W.Name = "SCR_W";
+            this.SCR_W.Size = new System.Drawing.Size(106, 31);
+            this.SCR_W.TabIndex = 24;
+            this.SCR_W.Text = "0";
+            // 
+            // LCR_W
+            // 
+            this.LCR_W.Location = new System.Drawing.Point(757, 258);
+            this.LCR_W.Name = "LCR_W";
+            this.LCR_W.Size = new System.Drawing.Size(106, 31);
+            this.LCR_W.TabIndex = 23;
+            this.LCR_W.Text = "0";
+            // 
+            // IER_W
+            // 
+            this.IER_W.Location = new System.Drawing.Point(757, 123);
+            this.IER_W.Name = "IER_W";
+            this.IER_W.Size = new System.Drawing.Size(106, 31);
+            this.IER_W.TabIndex = 22;
+            this.IER_W.Text = "0";
+            // 
+            // EFR_R
+            // 
+            this.EFR_R.Location = new System.Drawing.Point(502, 493);
+            this.EFR_R.Name = "EFR_R";
+            this.EFR_R.ReadOnly = true;
+            this.EFR_R.Size = new System.Drawing.Size(106, 31);
+            this.EFR_R.TabIndex = 21;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("宋体", 12F);
-            this.label58.Location = new System.Drawing.Point(64, 510);
+            this.label58.Location = new System.Drawing.Point(169, 505);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(304, 16);
             this.label58.TabIndex = 20;
             this.label58.Text = "EFR 增强特性寄存器(LCR =BFh 时使能)：";
             // 
-            // textBox10
+            // DLM_R
             // 
-            this.textBox10.Location = new System.Drawing.Point(374, 453);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(106, 31);
-            this.textBox10.TabIndex = 19;
+            this.DLM_R.Location = new System.Drawing.Point(502, 446);
+            this.DLM_R.Name = "DLM_R";
+            this.DLM_R.ReadOnly = true;
+            this.DLM_R.Size = new System.Drawing.Size(106, 31);
+            this.DLM_R.TabIndex = 19;
             // 
             // label57
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("宋体", 12F);
-            this.label57.Location = new System.Drawing.Point(160, 464);
+            this.label57.Location = new System.Drawing.Point(265, 459);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(208, 16);
             this.label57.TabIndex = 18;
             this.label57.Text = "DLM 分频器波特率高 8bit：";
             // 
-            // textBox9
+            // DLL_R
             // 
-            this.textBox9.Location = new System.Drawing.Point(374, 406);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(106, 31);
-            this.textBox9.TabIndex = 17;
+            this.DLL_R.Location = new System.Drawing.Point(502, 399);
+            this.DLL_R.Name = "DLL_R";
+            this.DLL_R.ReadOnly = true;
+            this.DLL_R.Size = new System.Drawing.Size(106, 31);
+            this.DLL_R.TabIndex = 17;
             // 
             // label56
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("宋体", 12F);
-            this.label56.Location = new System.Drawing.Point(160, 419);
+            this.label56.Location = new System.Drawing.Point(265, 414);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(208, 16);
             this.label56.TabIndex = 16;
             this.label56.Text = "DLL 分频器波特率低 8bit：";
             // 
-            // textBox8
+            // SCR_R
             // 
-            this.textBox8.Location = new System.Drawing.Point(374, 359);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(106, 31);
-            this.textBox8.TabIndex = 15;
+            this.SCR_R.Location = new System.Drawing.Point(502, 352);
+            this.SCR_R.Name = "SCR_R";
+            this.SCR_R.ReadOnly = true;
+            this.SCR_R.Size = new System.Drawing.Size(106, 31);
+            this.SCR_R.TabIndex = 15;
             // 
             // label55
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("宋体", 12F);
-            this.label55.Location = new System.Drawing.Point(232, 368);
+            this.label55.Location = new System.Drawing.Point(337, 363);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(136, 16);
             this.label55.TabIndex = 14;
             this.label55.Text = "SCR 备用寄存器：";
             // 
-            // textBox7
+            // LSR_R
             // 
-            this.textBox7.Location = new System.Drawing.Point(374, 312);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(106, 31);
-            this.textBox7.TabIndex = 13;
+            this.LSR_R.Location = new System.Drawing.Point(502, 305);
+            this.LSR_R.Name = "LSR_R";
+            this.LSR_R.ReadOnly = true;
+            this.LSR_R.Size = new System.Drawing.Size(106, 31);
+            this.LSR_R.TabIndex = 13;
             // 
             // label54
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("宋体", 12F);
-            this.label54.Location = new System.Drawing.Point(216, 322);
+            this.label54.Location = new System.Drawing.Point(321, 317);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(152, 16);
             this.label54.TabIndex = 12;
             this.label54.Text = "LSR 线状态寄存器：";
             // 
-            // textBox6
+            // LCR_R
             // 
-            this.textBox6.Location = new System.Drawing.Point(374, 265);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(106, 31);
-            this.textBox6.TabIndex = 11;
+            this.LCR_R.Location = new System.Drawing.Point(502, 258);
+            this.LCR_R.Name = "LCR_R";
+            this.LCR_R.ReadOnly = true;
+            this.LCR_R.Size = new System.Drawing.Size(106, 31);
+            this.LCR_R.TabIndex = 11;
             // 
             // label53
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("宋体", 12F);
-            this.label53.Location = new System.Drawing.Point(232, 275);
+            this.label53.Location = new System.Drawing.Point(337, 270);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(136, 16);
             this.label53.TabIndex = 10;
             this.label53.Text = "LCR 线控寄存器：";
             // 
-            // textBox5
+            // FCR_W
             // 
-            this.textBox5.Location = new System.Drawing.Point(374, 218);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(106, 31);
-            this.textBox5.TabIndex = 9;
+            this.FCR_W.Location = new System.Drawing.Point(757, 207);
+            this.FCR_W.Name = "FCR_W";
+            this.FCR_W.Size = new System.Drawing.Size(106, 31);
+            this.FCR_W.TabIndex = 9;
+            this.FCR_W.Text = "0";
             // 
             // label52
             // 
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("宋体", 12F);
-            this.label52.Location = new System.Drawing.Point(192, 227);
+            this.label52.Location = new System.Drawing.Point(297, 222);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(176, 16);
             this.label52.TabIndex = 8;
             this.label52.Text = "FCR FIFO 控制寄存器：";
             // 
-            // textBox4
+            // IIR_R
             // 
-            this.textBox4.Location = new System.Drawing.Point(374, 171);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(106, 31);
-            this.textBox4.TabIndex = 7;
+            this.IIR_R.Location = new System.Drawing.Point(502, 164);
+            this.IIR_R.Name = "IIR_R";
+            this.IIR_R.ReadOnly = true;
+            this.IIR_R.Size = new System.Drawing.Size(106, 31);
+            this.IIR_R.TabIndex = 7;
             // 
             // label51
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("宋体", 12F);
-            this.label51.Location = new System.Drawing.Point(200, 180);
+            this.label51.Location = new System.Drawing.Point(305, 175);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(168, 16);
             this.label51.TabIndex = 6;
             this.label51.Text = "IIR 中断识别寄存器：";
             // 
-            // textBox3
+            // IER_R
             // 
-            this.textBox3.Location = new System.Drawing.Point(374, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(106, 31);
-            this.textBox3.TabIndex = 5;
+            this.IER_R.Location = new System.Drawing.Point(502, 117);
+            this.IER_R.Name = "IER_R";
+            this.IER_R.ReadOnly = true;
+            this.IER_R.Size = new System.Drawing.Size(106, 31);
+            this.IER_R.TabIndex = 5;
             // 
             // label50
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("宋体", 12F);
-            this.label50.Location = new System.Drawing.Point(200, 132);
+            this.label50.Location = new System.Drawing.Point(305, 127);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(168, 16);
             this.label50.TabIndex = 4;
             this.label50.Text = "IER 中断使能寄存器：";
             // 
-            // textBox2
+            // THR_W
             // 
-            this.textBox2.Location = new System.Drawing.Point(374, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 31);
-            this.textBox2.TabIndex = 3;
+            this.THR_W.Location = new System.Drawing.Point(757, 76);
+            this.THR_W.Name = "THR_W";
+            this.THR_W.Size = new System.Drawing.Size(106, 31);
+            this.THR_W.TabIndex = 3;
+            this.THR_W.Text = "0";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("宋体", 12F);
-            this.label49.Location = new System.Drawing.Point(200, 83);
+            this.label49.Location = new System.Drawing.Point(316, 83);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(168, 16);
             this.label49.TabIndex = 2;
             this.label49.Text = "THR 发送保持寄存器：";
             // 
-            // textBox1
+            // RBR_R
             // 
-            this.textBox1.Location = new System.Drawing.Point(374, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 31);
-            this.textBox1.TabIndex = 1;
+            this.RBR_R.Location = new System.Drawing.Point(502, 28);
+            this.RBR_R.Name = "RBR_R";
+            this.RBR_R.ReadOnly = true;
+            this.RBR_R.Size = new System.Drawing.Size(106, 31);
+            this.RBR_R.TabIndex = 1;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("宋体", 12F);
-            this.label48.Location = new System.Drawing.Point(200, 35);
+            this.label48.Location = new System.Drawing.Point(316, 35);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(168, 16);
             this.label48.TabIndex = 0;
@@ -3153,19 +3249,19 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "稳定性测试";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "寄存器测试";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "芯片设置";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "基本功能测试";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "稳定性测试";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "寄存器测试";
+            treeNode7.Name = "节点0";
+            treeNode7.Text = "芯片设置";
+            treeNode8.Name = "节点1";
+            treeNode8.Text = "基本功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4});
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -3216,6 +3312,16 @@
             // bgWork
             // 
             this.bgWork.WorkerReportsProgress = true;
+            // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(144, 486);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(112, 47);
+            this.StopButton.TabIndex = 6;
+            this.StopButton.Text = "停止测试";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // MainForm
             // 
@@ -3380,31 +3486,27 @@
         private System.Windows.Forms.NumericUpDown multiNum;
         private System.Windows.Forms.TabPage tabPage5;
         private CCWin.SkinControl.SkinGroupBox skinGroupBox1;
-        private CCWin.SkinControl.SkinButton bunTuple1;
-        private CCWin.SkinControl.SkinButton bunTuple4;
-        private CCWin.SkinControl.SkinButton bunTuple3;
-        private CCWin.SkinControl.SkinButton bunTuple2;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox EFR_R;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox DLM_R;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox DLL_R;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox SCR_R;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox LSR_R;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox LCR_R;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FCR_W;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox IIR_R;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox IER_R;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox THR_W;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox RBR_R;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label label60;
@@ -3530,6 +3632,20 @@
         private System.ComponentModel.BackgroundWorker bgWork;
         private System.Windows.Forms.Label label105;
         private System.Windows.Forms.Label label106;
+        private CCWin.SkinControl.SkinButton reg_read;
+        private System.Windows.Forms.TextBox EFR_W;
+        private System.Windows.Forms.TextBox DLM_W;
+        private System.Windows.Forms.TextBox DLL_W;
+        private System.Windows.Forms.TextBox SCR_W;
+        private System.Windows.Forms.TextBox LCR_W;
+        private System.Windows.Forms.TextBox IER_W;
+        private CCWin.SkinControl.SkinButton reg_write;
+        private System.Windows.Forms.ComboBox reg_channelSel;
+        private System.Windows.Forms.ComboBox reg_chipsel;
+        private System.Windows.Forms.Label label107;
+        private System.Windows.Forms.Label label108;
+        private System.Windows.Forms.Label label109;
+        private System.Windows.Forms.Button StopButton;
     }
 }
 
