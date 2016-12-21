@@ -215,6 +215,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.chipReset = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.baudRate = new System.Windows.Forms.ComboBox();
             this.setLabel = new System.Windows.Forms.Label();
             this.receiveCache = new System.Windows.Forms.ComboBox();
             this.sendInterrupt = new System.Windows.Forms.ComboBox();
@@ -279,6 +280,13 @@
             this.label96 = new System.Windows.Forms.Label();
             this.basePath1 = new System.Windows.Forms.ComboBox();
             this.label92 = new System.Windows.Forms.Label();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.FIFOResult = new System.Windows.Forms.TextBox();
+            this.FIFOTest = new System.Windows.Forms.Button();
+            this.DMATest = new System.Windows.Forms.Button();
+            this.DMAResult = new System.Windows.Forms.TextBox();
+            this.label111 = new System.Windows.Forms.Label();
+            this.label110 = new System.Windows.Forms.Label();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.dataView = new System.Windows.Forms.DataGridView();
@@ -286,14 +294,6 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.bgWork = new System.ComponentModel.BackgroundWorker();
-            this.baudRate = new System.Windows.Forms.ComboBox();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label110 = new System.Windows.Forms.Label();
-            this.label111 = new System.Windows.Forms.Label();
-            this.DMAResult = new System.Windows.Forms.TextBox();
-            this.DMATest = new System.Windows.Forms.Button();
-            this.FIFOTest = new System.Windows.Forms.Button();
-            this.FIFOResult = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -330,10 +330,10 @@
             this.tabPage7.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -2591,6 +2591,22 @@
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             // 
+            // baudRate
+            // 
+            this.baudRate.FormattingEnabled = true;
+            this.baudRate.Items.AddRange(new object[] {
+            "9600",
+            "500K",
+            "200K",
+            "100K",
+            "19200",
+            "38400"});
+            this.baudRate.Location = new System.Drawing.Point(202, 38);
+            this.baudRate.Name = "baudRate";
+            this.baudRate.Size = new System.Drawing.Size(148, 29);
+            this.baudRate.TabIndex = 39;
+            this.baudRate.Text = "9600";
+            // 
             // setLabel
             // 
             this.setLabel.AutoSize = true;
@@ -3283,6 +3299,74 @@
             this.label92.TabIndex = 0;
             this.label92.Text = "通道选择:";
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.FIFOResult);
+            this.tabPage8.Controls.Add(this.FIFOTest);
+            this.tabPage8.Controls.Add(this.DMATest);
+            this.tabPage8.Controls.Add(this.DMAResult);
+            this.tabPage8.Controls.Add(this.label111);
+            this.tabPage8.Controls.Add(this.label110);
+            this.tabPage8.Location = new System.Drawing.Point(4, 31);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1044, 555);
+            this.tabPage8.TabIndex = 4;
+            this.tabPage8.Text = "其他功能测试";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // FIFOResult
+            // 
+            this.FIFOResult.Location = new System.Drawing.Point(577, 173);
+            this.FIFOResult.Name = "FIFOResult";
+            this.FIFOResult.ReadOnly = true;
+            this.FIFOResult.Size = new System.Drawing.Size(106, 31);
+            this.FIFOResult.TabIndex = 11;
+            // 
+            // FIFOTest
+            // 
+            this.FIFOTest.Location = new System.Drawing.Point(413, 169);
+            this.FIFOTest.Name = "FIFOTest";
+            this.FIFOTest.Size = new System.Drawing.Size(89, 34);
+            this.FIFOTest.TabIndex = 10;
+            this.FIFOTest.Text = "测试";
+            this.FIFOTest.UseVisualStyleBackColor = true;
+            // 
+            // DMATest
+            // 
+            this.DMATest.Location = new System.Drawing.Point(413, 111);
+            this.DMATest.Name = "DMATest";
+            this.DMATest.Size = new System.Drawing.Size(89, 34);
+            this.DMATest.TabIndex = 9;
+            this.DMATest.Text = "测试";
+            this.DMATest.UseVisualStyleBackColor = true;
+            this.DMATest.Click += new System.EventHandler(this.DMATest_Click);
+            // 
+            // DMAResult
+            // 
+            this.DMAResult.Location = new System.Drawing.Point(577, 114);
+            this.DMAResult.Name = "DMAResult";
+            this.DMAResult.ReadOnly = true;
+            this.DMAResult.Size = new System.Drawing.Size(106, 31);
+            this.DMAResult.TabIndex = 8;
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(183, 169);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(168, 21);
+            this.label111.TabIndex = 7;
+            this.label111.Text = "FIFO正确性测试";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(252, 117);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(90, 21);
+            this.label110.TabIndex = 6;
+            this.label110.Text = "DMA测试";
+            // 
             // treeView1
             // 
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -3356,90 +3440,6 @@
             // 
             this.bgWork.WorkerReportsProgress = true;
             // 
-            // baudRate
-            // 
-            this.baudRate.FormattingEnabled = true;
-            this.baudRate.Items.AddRange(new object[] {
-            "9600",
-            "500K",
-            "200K",
-            "100K",
-            "19200",
-            "38400"});
-            this.baudRate.Location = new System.Drawing.Point(202, 38);
-            this.baudRate.Name = "baudRate";
-            this.baudRate.Size = new System.Drawing.Size(148, 29);
-            this.baudRate.TabIndex = 39;
-            this.baudRate.Text = "9600";
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.FIFOResult);
-            this.tabPage8.Controls.Add(this.FIFOTest);
-            this.tabPage8.Controls.Add(this.DMATest);
-            this.tabPage8.Controls.Add(this.DMAResult);
-            this.tabPage8.Controls.Add(this.label111);
-            this.tabPage8.Controls.Add(this.label110);
-            this.tabPage8.Location = new System.Drawing.Point(4, 31);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(1044, 555);
-            this.tabPage8.TabIndex = 4;
-            this.tabPage8.Text = "其他功能测试";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // label110
-            // 
-            this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(252, 117);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(90, 21);
-            this.label110.TabIndex = 6;
-            this.label110.Text = "DMA测试";
-            // 
-            // label111
-            // 
-            this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(183, 169);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(168, 21);
-            this.label111.TabIndex = 7;
-            this.label111.Text = "FIFO正确性测试";
-            // 
-            // DMAResult
-            // 
-            this.DMAResult.Location = new System.Drawing.Point(577, 114);
-            this.DMAResult.Name = "DMAResult";
-            this.DMAResult.ReadOnly = true;
-            this.DMAResult.Size = new System.Drawing.Size(106, 31);
-            this.DMAResult.TabIndex = 8;
-            // 
-            // DMATest
-            // 
-            this.DMATest.Location = new System.Drawing.Point(413, 111);
-            this.DMATest.Name = "DMATest";
-            this.DMATest.Size = new System.Drawing.Size(89, 34);
-            this.DMATest.TabIndex = 9;
-            this.DMATest.Text = "测试";
-            this.DMATest.UseVisualStyleBackColor = true;
-            this.DMATest.Click += new System.EventHandler(this.DMATest_Click);
-            // 
-            // FIFOTest
-            // 
-            this.FIFOTest.Location = new System.Drawing.Point(413, 169);
-            this.FIFOTest.Name = "FIFOTest";
-            this.FIFOTest.Size = new System.Drawing.Size(89, 34);
-            this.FIFOTest.TabIndex = 10;
-            this.FIFOTest.Text = "测试";
-            this.FIFOTest.UseVisualStyleBackColor = true;
-            // 
-            // FIFOResult
-            // 
-            this.FIFOResult.Location = new System.Drawing.Point(577, 173);
-            this.FIFOResult.Name = "FIFOResult";
-            this.FIFOResult.ReadOnly = true;
-            this.FIFOResult.Size = new System.Drawing.Size(106, 31);
-            this.FIFOResult.TabIndex = 11;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -3500,12 +3500,12 @@
             this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
