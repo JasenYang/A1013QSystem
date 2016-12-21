@@ -678,7 +678,12 @@ namespace A1013QSystem
             {
                 tabControl2.TabPages.Clear();
                 tabControl2.TabPages.Add(tabPage7);
-            }  
+            }
+            else if (SelectNode.Text == "其他功能测试")
+            {
+                tabControl2.TabPages.Clear();
+                tabControl2.TabPages.Add(tabPage8);
+            }
         }
 
  
@@ -858,7 +863,7 @@ namespace A1013QSystem
             CHIPMODEL.chipSelect = chipSelect.SelectedIndex;
             CHIPMODEL.pathSelect = pathSelect.SelectedIndex;
 
-            CHIPMODEL.baudRate = baudRate.Text;
+            CHIPMODEL.baudRate = baudRate.SelectedItem.ToString();
             CHIPMODEL.parityCheck = parityCheck.SelectedItem.ToString();
             CHIPMODEL.stopBit = stopBit.SelectedItem.ToString();
             CHIPMODEL.byteLength = byteLength.SelectedItem.ToString();
@@ -1030,8 +1035,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(0, basePath1.Text, "ARM");
 
-            this.list1.Columns.Add("TXRDY", 125);
             this.list1.Columns.Add("RXRDY", 125);
+            this.list1.Columns.Add("TXRDY", 125);
             this.list1.Columns.Add("IRQ", 125);
         
 
@@ -1164,8 +1169,8 @@ namespace A1013QSystem
             //读取数据
             byte[] readByte = CDll.BaseTestReadData(1, basePath2.Text, "ARM");
 
-            this.list2.Columns.Add("TXRDY", 125);
             this.list2.Columns.Add("RXRDY", 125);
+            this.list2.Columns.Add("TXRDY", 125);
             this.list2.Columns.Add("IRQ", 125);
 
 
@@ -1293,6 +1298,11 @@ namespace A1013QSystem
 
             byte[] cmdByte = new byte[10] { 0xAA, 1, 0, 0, 0, 0, 0, 0, 0, 0xBB };
             CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+        }
+
+        private void DMATest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

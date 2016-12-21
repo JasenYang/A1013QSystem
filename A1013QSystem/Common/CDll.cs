@@ -759,7 +759,7 @@ namespace A1013QSystem.Common
 
             //设置DUT波特率
             cmdByte[1] = 0x03;
-            cmdByte[4] = 96;
+            cmdByte[4] = ValueReturn(CHIPMODEL.baudRate, "波特率");
             error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
             Thread.Sleep(100);
 
@@ -821,6 +821,32 @@ namespace A1013QSystem.Common
             byte byVal=0x00;
 
             switch (typeName) {
+                case "波特率":
+                    if(data == "500K")
+                    {
+                        byVal = 1;
+                    }
+                    else if (data == "200K")
+                    {
+                        byVal = 2;
+                    }
+                    else if (data == "100K")
+                    {
+                        byVal = 3;
+                    }
+                    else if (data == "9600")
+                    {
+                        byVal = 4;
+                    }
+                    else if (data == "38400")
+                    {
+                        byVal = 6;
+                    }
+                    else if (data == "19200")
+                    {
+                        byVal = 5;
+                    }
+                    break;
                 case "奇偶校验":
                     if (data == "无")
                     {

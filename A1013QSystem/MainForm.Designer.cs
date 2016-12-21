@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("其他功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -97,6 +98,7 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.StopButton = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ele2 = new CCWin.SkinControl.SkinLabel();
@@ -232,7 +234,6 @@
             this.label89 = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
-            this.baudRate = new System.Windows.Forms.TextBox();
             this.label87 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label85 = new System.Windows.Forms.Label();
@@ -285,7 +286,14 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.bgWork = new System.ComponentModel.BackgroundWorker();
-            this.StopButton = new System.Windows.Forms.Button();
+            this.baudRate = new System.Windows.Forms.ComboBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label110 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.DMAResult = new System.Windows.Forms.TextBox();
+            this.DMATest = new System.Windows.Forms.Button();
+            this.FIFOTest = new System.Windows.Forms.Button();
+            this.FIFOResult = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -325,6 +333,7 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -511,8 +520,17 @@
             this.volNum4.BorderColor = System.Drawing.Color.Black;
             this.volNum4.DecimalPlaces = 2;
             this.volNum4.Location = new System.Drawing.Point(84, 348);
+            this.volNum4.Maximum = new decimal(new int[] {
+            132,
+            0,
+            0,
+            131072});
+            this.volNum4.Minimum = new decimal(new int[] {
+            108,
+            0,
+            0,
+            131072});
             this.volNum4.Name = "volNum4";
-            this.volNum4.ReadOnly = true;
             this.volNum4.Size = new System.Drawing.Size(92, 30);
             this.volNum4.TabIndex = 14;
             this.volNum4.UseWaitCursor = true;
@@ -547,8 +565,17 @@
             this.volNum3.BorderColor = System.Drawing.Color.Black;
             this.volNum3.DecimalPlaces = 2;
             this.volNum3.Location = new System.Drawing.Point(84, 249);
+            this.volNum3.Maximum = new decimal(new int[] {
+            36,
+            0,
+            0,
+            65536});
+            this.volNum3.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            65536});
             this.volNum3.Name = "volNum3";
-            this.volNum3.ReadOnly = true;
             this.volNum3.Size = new System.Drawing.Size(92, 30);
             this.volNum3.TabIndex = 12;
             this.volNum3.UseWaitCursor = true;
@@ -583,8 +610,17 @@
             this.volNum2.BorderColor = System.Drawing.Color.Black;
             this.volNum2.DecimalPlaces = 2;
             this.volNum2.Location = new System.Drawing.Point(84, 159);
+            this.volNum2.Maximum = new decimal(new int[] {
+            36,
+            0,
+            0,
+            65536});
+            this.volNum2.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            65536});
             this.volNum2.Name = "volNum2";
-            this.volNum2.ReadOnly = true;
             this.volNum2.Size = new System.Drawing.Size(92, 30);
             this.volNum2.TabIndex = 10;
             this.volNum2.UseWaitCursor = true;
@@ -1088,6 +1124,7 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Location = new System.Drawing.Point(221, 7);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1117,6 +1154,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1023, 543);
             this.panel1.TabIndex = 5;
+            // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(144, 486);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(112, 47);
+            this.StopButton.TabIndex = 6;
+            this.StopButton.Text = "停止测试";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
             // btnTest
             // 
@@ -2514,6 +2561,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.baudRate);
             this.groupBox7.Controls.Add(this.setLabel);
             this.groupBox7.Controls.Add(this.receiveCache);
             this.groupBox7.Controls.Add(this.sendInterrupt);
@@ -2533,7 +2581,6 @@
             this.groupBox7.Controls.Add(this.label89);
             this.groupBox7.Controls.Add(this.label90);
             this.groupBox7.Controls.Add(this.label91);
-            this.groupBox7.Controls.Add(this.baudRate);
             this.groupBox7.Controls.Add(this.label87);
             this.groupBox7.Controls.Add(this.label86);
             this.groupBox7.Controls.Add(this.label85);
@@ -2751,14 +2798,6 @@
             this.label91.Size = new System.Drawing.Size(124, 21);
             this.label91.TabIndex = 13;
             this.label91.Text = "FIFO使能：";
-            // 
-            // baudRate
-            // 
-            this.baudRate.Location = new System.Drawing.Point(199, 35);
-            this.baudRate.Name = "baudRate";
-            this.baudRate.Size = new System.Drawing.Size(148, 31);
-            this.baudRate.TabIndex = 9;
-            this.baudRate.Text = "9600";
             // 
             // label87
             // 
@@ -3249,25 +3288,29 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "稳定性测试";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "寄存器测试";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "芯片设置";
+            treeNode4.Name = "节点1";
+            treeNode4.Text = "基本功能测试";
             treeNode5.Name = "节点0";
-            treeNode5.Text = "稳定性测试";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "寄存器测试";
-            treeNode7.Name = "节点0";
-            treeNode7.Text = "芯片设置";
-            treeNode8.Name = "节点1";
-            treeNode8.Text = "基本功能测试";
+            treeNode5.Text = "其他功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // tabPage5
             // 
+            this.tabPage5.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.tabPage5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage5.Controls.Add(this.dataView);
             this.tabPage5.Location = new System.Drawing.Point(4, 44);
@@ -3313,15 +3356,89 @@
             // 
             this.bgWork.WorkerReportsProgress = true;
             // 
-            // StopButton
+            // baudRate
             // 
-            this.StopButton.Location = new System.Drawing.Point(144, 486);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(112, 47);
-            this.StopButton.TabIndex = 6;
-            this.StopButton.Text = "停止测试";
-            this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            this.baudRate.FormattingEnabled = true;
+            this.baudRate.Items.AddRange(new object[] {
+            "9600",
+            "500K",
+            "200K",
+            "100K",
+            "19200",
+            "38400"});
+            this.baudRate.Location = new System.Drawing.Point(202, 38);
+            this.baudRate.Name = "baudRate";
+            this.baudRate.Size = new System.Drawing.Size(148, 29);
+            this.baudRate.TabIndex = 39;
+            this.baudRate.Text = "9600";
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.FIFOResult);
+            this.tabPage8.Controls.Add(this.FIFOTest);
+            this.tabPage8.Controls.Add(this.DMATest);
+            this.tabPage8.Controls.Add(this.DMAResult);
+            this.tabPage8.Controls.Add(this.label111);
+            this.tabPage8.Controls.Add(this.label110);
+            this.tabPage8.Location = new System.Drawing.Point(4, 31);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(1044, 555);
+            this.tabPage8.TabIndex = 4;
+            this.tabPage8.Text = "其他功能测试";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(252, 117);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(90, 21);
+            this.label110.TabIndex = 6;
+            this.label110.Text = "DMA测试";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(183, 169);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(168, 21);
+            this.label111.TabIndex = 7;
+            this.label111.Text = "FIFO正确性测试";
+            // 
+            // DMAResult
+            // 
+            this.DMAResult.Location = new System.Drawing.Point(577, 114);
+            this.DMAResult.Name = "DMAResult";
+            this.DMAResult.ReadOnly = true;
+            this.DMAResult.Size = new System.Drawing.Size(106, 31);
+            this.DMAResult.TabIndex = 8;
+            // 
+            // DMATest
+            // 
+            this.DMATest.Location = new System.Drawing.Point(413, 111);
+            this.DMATest.Name = "DMATest";
+            this.DMATest.Size = new System.Drawing.Size(89, 34);
+            this.DMATest.TabIndex = 9;
+            this.DMATest.Text = "测试";
+            this.DMATest.UseVisualStyleBackColor = true;
+            this.DMATest.Click += new System.EventHandler(this.DMATest_Click);
+            // 
+            // FIFOTest
+            // 
+            this.FIFOTest.Location = new System.Drawing.Point(413, 169);
+            this.FIFOTest.Name = "FIFOTest";
+            this.FIFOTest.Size = new System.Drawing.Size(89, 34);
+            this.FIFOTest.TabIndex = 10;
+            this.FIFOTest.Text = "测试";
+            this.FIFOTest.UseVisualStyleBackColor = true;
+            // 
+            // FIFOResult
+            // 
+            this.FIFOResult.Location = new System.Drawing.Point(577, 173);
+            this.FIFOResult.Name = "FIFOResult";
+            this.FIFOResult.ReadOnly = true;
+            this.FIFOResult.Size = new System.Drawing.Size(106, 31);
+            this.FIFOResult.TabIndex = 11;
             // 
             // MainForm
             // 
@@ -3387,6 +3504,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3567,7 +3686,6 @@
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.Button chipReset;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox baudRate;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label85;
@@ -3646,6 +3764,14 @@
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label109;
         private System.Windows.Forms.Button StopButton;
+        private System.Windows.Forms.ComboBox baudRate;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TextBox FIFOResult;
+        private System.Windows.Forms.Button FIFOTest;
+        private System.Windows.Forms.Button DMATest;
+        private System.Windows.Forms.TextBox DMAResult;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.Label label110;
     }
 }
 
