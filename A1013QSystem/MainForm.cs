@@ -92,7 +92,13 @@ namespace A1013QSystem
             cmbEvenBit.SelectedIndex = 0;
 
             CGloabal.CurSerialPortFlag = false; //告诉系统当前的串口配置为板卡的串口配置  
-            
+
+            //tabControl1.TabPages.Clear();
+            //tabControl1.TabPages.Add(tabPage1);
+            //tabControl1.TabPages.Add(tabPage2);
+
+         
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -120,8 +126,12 @@ namespace A1013QSystem
             dt.Columns.Add("芯片1通道3发"); dt.Columns.Add("芯片1通道3收"); dt.Columns.Add("芯片1通道3错误"); dt.Columns.Add("芯片2通道3发"); dt.Columns.Add("芯片2通道3收"); dt.Columns.Add("芯片2通道3错误");
             dt.Columns.Add("芯片1通道4发"); dt.Columns.Add("芯片1通道4收"); dt.Columns.Add("芯片1通道4错误"); dt.Columns.Add("芯片2通道4发"); dt.Columns.Add("芯片2通道4收"); dt.Columns.Add("芯片2通道4错误");
 
-            bgWork.DoWork += Fn_RunBack;
-            bgWork.ProgressChanged += Fn_ProgressChanged;
+
+
+            //暂时隐藏数据加载                
+            tabPage5.Parent = null;   
+            //bgWork.DoWork += Fn_RunBack;
+            //bgWork.ProgressChanged += Fn_ProgressChanged;
         }
 
        
@@ -1295,14 +1305,20 @@ namespace A1013QSystem
 
         private void StopButton_Click(object sender, EventArgs e)
         {
-
             byte[] cmdByte = new byte[10] { 0xAA, 1, 0, 0, 0, 0, 0, 0, 0, 0xBB };
             CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
         }
 
+        //DMA测试
         private void DMATest_Click(object sender, EventArgs e)
         {
+            DMAResult.Text = CDll.DMATestAndFIFOTest("DMA");
+        }
 
+        //FIFO正确性测试
+        private void FIFOTest_Click(object sender, EventArgs e)
+        {
+            FIFOResult.Text = CDll.DMATestAndFIFOTest("FIFO");
         }
     }
 }

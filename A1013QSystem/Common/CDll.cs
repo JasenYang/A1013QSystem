@@ -982,6 +982,64 @@ namespace A1013QSystem.Common
             }
 
             return byVal;
-        } 
+        }
+
+        //DMA测试并返回值
+        //FIFO正确性测试并返回值
+        public static string DMATestAndFIFOTest(string testFlag)
+        {
+            byte[] cmdByte = new byte[10] { 0xAA, 0, 0, 0, 0, 0, 0, 0, 0, 0xBB };
+            string reVal = "";
+            int error;
+            if (testFlag=="DMA")
+            {
+                cmdByte[3] = 1;//代表DMA
+            }
+            else if (testFlag =="FIFO")
+            {
+                cmdByte[3] = 2;//代表FIFO
+            }
+            error = CGloabal.WriteToCom(CGloabal.g_serialPorForUUT, cmdByte, 10);
+            if (error < 0)
+            {
+                MessageBox.Show("命令发送失败");
+            }            
+
+            Thread.Sleep(1000);
+
+            List<byte> buffer = new List<byte>(4096);
+            int length;
+            byte[] ReceiveBytes = new byte[24];
+
+            CGloabal.g_bIsComRecvedDataFlag = true;  //串口是否收到数据
+            length = CGloabal.g_serialPorForUUT.BytesToRead;
+            byte[] Receivebuf = new byte[24];
+            CGloabal.ReadCom(CGloabal.g_serialPorForUUT, Receivebuf, 24);
+            //1、缓存数据
+            buffer.AddRange(Receivebuf);
+            //2、完整性判断
+            while (buffer.Count >= 24)
+            {
+                if (buffer[0] == 0xAA)
+                {
+                    //得到完整的数据，复制到ReceiveBytes中进行校验
+                    buffer.CopyTo(0, ReceiveBytes, 0, 24);
+                    buffer.RemoveRange(0, 24);
+                }
+                else //帧头不正确时，记得清除
+                {
+                    buffer.RemoveAt(0);
+                }
+            }
+
+            if (ReceiveBytes[5]==0)
+            {
+                return "不正常";
+            }
+            else 
+            {
+                return "正常";
+            }
+        }
     }
 }

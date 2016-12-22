@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("稳定性测试");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("寄存器测试");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("芯片设置");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本功能测试");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("其他功能测试");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("稳定性测试");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("寄存器测试");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("芯片设置");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("基本功能测试");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("其他功能测试");
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -3330,6 +3330,7 @@
             this.FIFOTest.TabIndex = 10;
             this.FIFOTest.Text = "测试";
             this.FIFOTest.UseVisualStyleBackColor = true;
+            this.FIFOTest.Click += new System.EventHandler(this.FIFOTest_Click);
             // 
             // DMATest
             // 
@@ -3372,22 +3373,22 @@
             this.treeView1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.treeView1.Location = new System.Drawing.Point(7, 7);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点0";
-            treeNode1.Text = "稳定性测试";
-            treeNode2.Name = "节点1";
-            treeNode2.Text = "寄存器测试";
-            treeNode3.Name = "节点0";
-            treeNode3.Text = "芯片设置";
-            treeNode4.Name = "节点1";
-            treeNode4.Text = "基本功能测试";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "其他功能测试";
+            treeNode6.Name = "节点0";
+            treeNode6.Text = "稳定性测试";
+            treeNode7.Name = "节点1";
+            treeNode7.Text = "寄存器测试";
+            treeNode8.Name = "节点0";
+            treeNode8.Text = "芯片设置";
+            treeNode9.Name = "节点1";
+            treeNode9.Text = "基本功能测试";
+            treeNode10.Name = "节点0";
+            treeNode10.Text = "其他功能测试";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5});
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10});
             this.treeView1.Size = new System.Drawing.Size(207, 584);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
